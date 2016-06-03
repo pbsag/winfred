@@ -1,7 +1,7 @@
 ---
 title: "Zones and SE Data Development"
-author: "Kyle Ward"
-date: "May 26, 2016"
+author: "Greg Macfarlane and Kyle Ward"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
 output:
   html_document
 ---
