@@ -1,0 +1,198 @@
+---
+title: "Zones and SE Data Development"
+author: "Kyle Ward"
+date: "May 26, 2016"
+output:
+  html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=FALSE,echo=FALSE,
+                      message=FALSE,warning=FALSE,error=FALSE)
+options(scipen=999) # removes sci notation
+
+# plotly credentials
+Sys.setenv("plotly_username"="dkward2")
+Sys.setenv("plotly_api_key"="yciq744qrv")
+```
+
+```{r libraries}
+library(readr)
+library(tidyr)
+library(dplyr)
+library(foreign)
+library(plotly)
+library(maptools)
+library(rgeos)
+library(ggplot2)
+library(RColorBrewer)
+library(rgdal)
+library(leaflet)
+library(htmltools)
+library(knitr)
+```
+
+
+## Introduction
+
+Traffic Analysis Zones (TAZs) are used to reduce the spatial complexity of the
+real world into a useful aggregation for analysis.  The aggregate population,
+employment, and additional metrics contained in each are fed into the model's
+various components to determine travel demand.
+
+Most TAZ layers are created by aggregating Census blocks while respecting larger
+geographies like block groups and tracts.  
+
+## TAZs
+```{r read_shapefiles}
+# get shapefiles.
+initial_taz <- readShapePoly(
+  "data/taz/winfred_simplified.shp", proj4string = CRS("+init=epsg:3968")) %>%
+  spTransform(., CRS("+init=epsg:4326"))
+
+sedata <- tbl_df(foreign::read.dbf("data/taz/original_sedata.dbf", as.is = TRUE))
+
+initial_taz@data <- left_join(initial_taz@data, sedata, by = "N") %>%
+  mutate(AREA = AREA.y)
+```
+
+
+```{r leaflet,fig.width=7,fig.height=5,cache=FALSE}
+#' Build a popup for basic taz information
+#' 
+#' @param shp Shapefile object containing data in leaflet
+#' @return A vector of html popup objects
+#'
+basic_popup <- function(shp){
+  paste(
+    htmltools::htmlEscape(paste0("TAZ: ", as.character(shp$N))),
+    htmltools::htmlEscape(paste0("Population: ", as.character(shp$POP))),
+    htmltools::htmlEscape(paste0("Households: ", as.character(shp$HOUSEHOLDS))),
+    htmltools::htmlEscape(paste0("Total Employment: ", as.character(shp$TOT))),
+    sep = "<br/>"
+  )
+}
+
+leaflet(initial_taz)  %>%
+  addProviderTiles("CartoDB") %>%
+  addPolygons(data = initial_taz, weight = 1, fillOpacity = 0.001,
+              popup = ~basic_popup(initial_taz)) 
+```
+
+
+## Socio-Economic Data
+### Population
+
+### Reasonableness Checking {.tabset}
+
+Upon receipt of the MPO SE data, SAG performed a number of reasonable checks. The first statistics we checked were:
+
+  * Persons-per-household
+  * Vehicles-per-household
+  * Workers-per-household
+
+#### Persons per Household
+
+Overall, the distribution of of persons per household was logical.  In the plot
+below, each zone is plotted based on the number of households and the zonal
+average persons per household.  As expected, zones with many households tend to
+fall between two and three persons per household.
+
+There is a serious outlier in zone 144, which is Shenandoah University. The 
+population field in an SE data file should represent *population in households*,
+not *total population*. Population in group quarters, such as students in dormitories
+or correctional inmates need to be modeled separately from the general population.
+
+```{r pph}
+sedata <- sedata %>%
+  mutate(pph = POP / HOUSEHOLDS)
+
+sedata %>%
+  plot_ly(
+    x = pph, y = HOUSEHOLDS,
+    mode = "markers",
+    text = paste0(
+      "TAZ: ", N, "<br>",
+      "pph: ", round(pph, 2), "<br>",
+      "hh:  ", HOUSEHOLDS
+    ),
+    hoverinfo = "text"
+  ) %>%
+  layout(
+    xaxis = list(title = "Persons per Household"),
+    yaxis = list(title = "Households")
+  )
+```
+
+
+#### Workers per Household
+
+> The SE data file did not have worker information.
+
+
+#### Vehicles per Household
+
+> The SE data file did not have vehicle information.
+
+
+### Spatial Checks
+In addition to making sure each zone had proper values, a review of the spatial
+distribution was also conducted to ensure reasonableness.  The map below shows
+the spatial distribution of the following metrics:
+
+  * Household Density (households per sq mi)
+  * Employment Density (jobs per sq mi)
+  
+```{r spatial_checks,fig.width=7,fig.height=5,cache=FALSE}
+initial_taz@data <- initial_taz@data %>%
+  mutate(
+    HHDens = HOUSEHOLDS / AREA,
+    EmpDens = TOT / AREA
+  )
+
+#' Build a popup for a single variable
+#' 
+#' @param shp Shapefile object containing data in leaflet
+#' @param var Variable to construct popup for
+#' @param var_name Printed name of variable
+#' @return A vector of html popup objects
+#'
+var_popup <- function(shp, var, var_name){
+  paste(
+    htmltools::htmlEscape(paste0("TAZ: ", as.character(shp$N))),
+    htmltools::htmlEscape(paste0(var_name, ": ", as.character(round(shp@data[, var], 3)))),
+    sep = "<br/>"
+  )
+}
+
+
+# HHDens Continuous palette function (leaflet)
+pal_dens <- colorNumeric(
+  palette = "Blues",
+  domain = initial_taz$HHDens
+)
+# EmpDens Continuous palette function (leaflet)
+pal_empdens <- colorNumeric(
+  palette = "Oranges",
+  domain = initial_taz$EmpDens
+)
+
+leaflet() %>%
+  addProviderTiles("CartoDB") %>%
+  addPolygons(data = initial_taz,
+    stroke = TRUE, smoothFactor = 1, weight = 1, fillOpacity = .6,
+    color = ~pal_dens(HHDens),
+    group = "HH Density",
+    popup = ~var_popup(initial_taz, "HHDens", "HH Density")
+  ) %>%
+  addPolygons(data = initial_taz,
+    stroke = TRUE, smoothFactor = 1, weight = 1, fillOpacity = .6,
+    color = ~pal_empdens(EmpDens),
+    group = "Emp Density",
+    popup = ~var_popup(initial_taz, "EmpDens", "Emp Density")
+  ) %>%
+  addLayersControl(
+    baseGroups = c("HH Density", "Emp Density"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+```
