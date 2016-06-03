@@ -1,0 +1,113 @@
+---
+title: "Roadway Network Development"
+author: "Kyle Ward, Greg Macfarlane"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=FALSE,echo=FALSE,
+                      message=FALSE,warning=FALSE,error=FALSE)
+options(scipen=999) # removes sci notation
+
+# plotly credentials
+Sys.setenv("plotly_username"="dkward2")
+Sys.setenv("plotly_api_key"="yciq744qrv")
+```
+
+```{r libraries}
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(maptools)
+```
+
+## Introduction
+
+Where the zonal and socio-economic data provide information on the demand for
+travel, the roadway network provides information on the supply.  Like the zone
+system, the modeled network is a simplification of the real world.  For this
+reason, signal locations, intersection geometries, shoulder widths, and even
+neighborhood streets are not included.
+
+VDOT and the MPO delivered the initial network, which was developed for the
+previous model, to the Systems Analysis Group.  
+
+```{r load_network}
+network <- readShapeLines("data/networkdevelopment/WF_12A_VDOT_UPDATE.shp", 
+                          proj4string = CRS("+init=epsg:3968")) %>%
+  spTransform(., CRS("+init=epsg:4326"))
+
+# get TAZ layer
+initial_taz <- readShapePoly(
+  "data/taz/winfred_simplified.shp", proj4string = CRS("+init=epsg:3968")) %>%
+  spTransform(., CRS("+init=epsg:4326"))
+
+sedata <- tbl_df(foreign::read.dbf("data/taz/original_sedata.dbf", as.is = TRUE))
+initial_taz@data <- left_join(initial_taz@data, sedata, by = "N") %>%
+  mutate(AREA = AREA.y)
+```
+
+The map below shows the speed limits and lanes on this network, with the TAZ 
+boundaries available as well.
+
+```{r network_leaflet}
+#' Build a popup for basic network info
+#' 
+#' @param shp Shapefile object containing data in leaflet
+#' @return A vector of html popup objects
+#'
+basic_network <- function(shp){
+  paste(
+    htmltools::htmlEscape(paste0("Link A-B: ", as.character(shp$A), "-", as.character(shp$B))),
+    htmltools::htmlEscape(paste0("Posted Speed: ", as.character(shp$POST_SPD))),
+    htmltools::htmlEscape(paste0("Facility Type: ", as.character(shp$FACTYPE))),
+    htmltools::htmlEscape(paste0("Lanes: ", as.character(shp$LANES))),
+    sep = "<br/>"
+  )
+}
+
+#' Build a popup for basic taz information
+#' 
+#' @param shp Shapefile object containing data in leaflet
+#' @return A vector of html popup objects
+#'
+basic_popup <- function(shp){
+  paste(
+    htmltools::htmlEscape(paste0("TAZ: ", as.character(shp$N))),
+    htmltools::htmlEscape(paste0("Population: ", as.character(shp$POP))),
+    htmltools::htmlEscape(paste0("Households: ", as.character(shp$HOUSEHOLDS))),
+    htmltools::htmlEscape(paste0("Total Employment: ", as.character(shp$TOT))),
+    sep = "<br/>"
+  )
+}
+
+
+# HHDens Continuous palette function (leaflet)
+pal_lanes <- colorNumeric(
+  palette = "Blues",
+  domain = network$LANES
+)
+# speed limit Continuous palette function (leaflet)
+pal_speeds <- colorNumeric(
+  palette = "Oranges",
+  domain = network$POST_SPD
+)
+
+leaflet(network) %>%
+  addProviderTiles("CartoDB") %>%
+  addPolygons(data = initial_taz, weight = 1, fillOpacity = 0.001, color = "red",
+              group = "TAZ", popup = ~basic_popup(initial_taz)) %>%
+  addPolylines(group = "Speed Limits", color = ~pal_speeds(POST_SPD), 
+               popup = ~basic_network(network))  %>%
+  addPolylines(group = "Lanes", color = ~pal_lanes(LANES), 
+               popup = ~basic_network(network)) %>%
+  addLayersControl(
+    overlayGroups = c("TAZ", "Speed Limits", "Lanes"),
+    options = layersControlOptions(collapsed = FALSE)
+  )
+  
+```
+
