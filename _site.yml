@@ -1,0 +1,33 @@
+name: "Greater Hickory Travel Model Documentation"
+output_dir: "."
+navbar:
+  title: "WinFred TDM"
+  left:
+    - text: Development
+      menu:
+        - text: "Databases"
+        - text: "Zones and SE Data"
+          href: TAZDevelopment.html
+        - text: "Roadway Network"
+          href: NetworkDevelopment.html
+        - text: "-----------------"
+        - text: "Trip Generation"
+        - text: "HH Disaggregation"
+        - text: "Cross-Classification"
+        - text: "-----------------"
+        - text: "Trip Distribution"
+  right:
+    - text: "User's Guide"
+      href: https://github.com/pbsag/winfred/wiki
+    - icon: fa-github fa-lg
+      href: https://github.com/pbsag/winfred
+output:
+  html_document:
+    theme: flatly
+    highlight: tango
+    mathjax: null
+    toc_float:
+      collapsed: false
+    includes:
+        after_body: include/after_body.html
+    css: styles.css

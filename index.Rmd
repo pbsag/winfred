@@ -1,0 +1,17 @@
+---
+title: "Winchester-Fredericksburg Travel Demand Model Documentation"
+author: "Kyle Ward, Greg Macfarlane"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=FALSE,echo=TRUE,
+                      message=FALSE,warning=FALSE,error=FALSE)
+options(scipen=999) # removes sci notation
+```
+
+## Introduction
+
+This website is intended to be a record of the development for the Winchester-Fredericksburg travel model developed by the Systems Analysis Group at WSP | Parsons Brinckerhoff.
+
+The model user's guide can be found [here](https://github.com/pbsag/winfred/wiki)
