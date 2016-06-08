@@ -1,0 +1,94 @@
+#TripsRun File
+10
+3
+E:\VDOT\CVILLE_WINCHESTER_REPORTING\JUNK\WINFRED-MODEL\APPLICATIONS\SUMMAR00.S
+58,80,
+Summary Reporting,00
+E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\Winchester Model Version 2.0.PRN
+2
+#PROJECTSTRUCT
+1:Winchester Model Version 2.0,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\Win-Fr08.app
+2:SETUP,00,E:\VDOT\CVILLE_WINCHESTER_REPORTING\JUNK\WINFRED-MODEL\APPLICATIONS\SETUP00.APP
+2:Network,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\NET00.APP
+3:Area Type model,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\AT.APP
+4:Network,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\NETWOR00.APP
+2:Trip Generation,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\TRIPGE00.APP
+2:Trip Distribution,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\TRIPDI00.APP
+2:PA to OD,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\PATOOD00.APP
+2:TIME OF DAY,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\TIMEOF00.APP
+2:ASSIGNMENT,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\Applications\ASSIGN00.APP
+2:Analysis,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WinFred-Model\APPLICATIONS\ANALYS00.APP
+3:Summary Reporting,00,E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\SUMMAR00.APP
+#END
+1
+C:\DOCUME~1\amishra\LOCALS~1\Temp\Cit15B0.tmp
+1
+Base
+#GROUP=Summary Reporting, 00:7:E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\SUMMAR00.APP
+#PROGRAM
+#PROGNAME=MATRIX<0:13;2
+#EXEC=1
+#INCLUSTER=0
+#PROGARGS=E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\WMMAT00A.S
+
+1
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\Logs\WMMAT00A.PRN
+{CATALOG_DIR}\Output\{Scenario_FullName}\PandA.dbf
+#END
+#PROGRAM
+#PROGNAME=NETWORK<0:13;3
+#EXEC=2
+#INCLUSTER=0
+#PROGARGS=E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\WMNET00A.S
+
+1
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\Logs\WMNET00.PRN
+{CATALOG_DIR}\Output\{Scenario_FullName}\GDB_MAPS\Results.mdb\Loaded
+{CATALOG_DIR}\Output\{Scenario_FullName}\REPORTS\LU.prn
+#END
+#PROGRAM
+#PROGNAME=MATRIX<0:13;3
+#EXEC=3
+#INCLUSTER=0
+#PROGARGS=E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\WMMAT00C.S
+
+1
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\LOGS\WMMAT00C.PRN
+{CATALOG_DIR}\Output\{Scenario_FullName}\REPORTS\TLD.DBF
+{CATALOG_DIR}\Output\{Scenario_FullName}\REPORTS\TPCP.DBF
+#END
+#PROGRAM
+#PROGNAME=MATRIX<0:13;2
+#EXEC=4
+#INCLUSTER=0
+#PROGARGS=E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\WMMAT00D.S
+
+1
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\LOGS\WMMAT00D.PRN
+{CATALOG_DIR}\Output\{Scenario_FullName}\REPORTS\Model_Area_Trip_Chracterstics.DBF
+#END
+#PROGRAM
+#PROGNAME=MATRIX<0:13;4
+#EXEC=6
+#INCLUSTER=0
+#PROGARGS=E:\VDOT\Cville_Winchester_Reporting\Junk\WINFRED-MODEL\APPLICATIONS\WMMAT00B.S
+
+1
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\LOGS\WMMAT00B.PRN
+{CATALOG_DIR}\Output\{Scenario_FullName}\GDB_MAPS\Results.mdb\RMSE
+{CATALOG_DIR}\Output\{Scenario_FullName}\GDB_MAPS\Results.mdb\VC
+{CATALOG_DIR}\Output\{Scenario_FullName}\GDB_MAPS\Results.mdb\VCbyAT
+#END
+#ENDOFPROGS
+1
+1

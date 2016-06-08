@@ -1,0 +1,60 @@
+#TripsRun File
+10
+3
+C:\1PROJECTS\VDOT\WIN-FRED-MODEL-JAN0709\WINFRED-MODEL\APPLICATIONS\NET00.S
+58,80,
+Network,00
+C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\Winchester Model Version 2.0.PRN
+2
+#PROJECTSTRUCT
+1:Winchester Model Version 2.0,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\Win-Fr08.app
+2:Network,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\NET00.APP
+2:Trip Generation,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\TRIPGE00.APP
+2:Trip Distribution,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\TRIPDI00.APP
+2:PA to OD,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\PATOOD00.APP
+2:TIME OF DAY,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\TIMEOF00.APP
+2:ASSIGNMENT,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\ASSIGN00.APP
+2:Analysis,00,C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\APPLICATIONS\ANALYS00.APP
+#END
+1
+C:\DOCUME~1\SOBULA~1\LOCALS~1\Temp\Cit59.tmp
+1
+Base
+#GROUP=Network, 00:3:C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\NET00.APP
+#PROGRAM
+#PROGNAME=NETWORK<0:13;1
+#EXEC=1
+#INCLUSTER=0
+#PROGARGS=C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\APPLICATIONS\01NET00D.S
+
+0
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\01NET{Year}A.NET
+#END
+#PROGRAM
+#PROGNAME=NETWORK<0:13;1
+#EXEC=2
+#INCLUSTER=0
+#PROGARGS=C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\01NET00B.S
+
+0
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\01NET{Year}B.NET
+#END
+#PROGRAM
+#PROGNAME=HIGHWAY<0:13;2
+#EXEC=3
+#INCLUSTER=0
+#PROGARGS=C:\1Projects\VDOT\Win-Fred-Model-Jan0709\WinFred-Model\Applications\01HWY00A.S
+
+1
+#END
+#OUTPUT
+{CATALOG_DIR}\Output\{Scenario_FullName}\Logs\01HWY00A.PRN
+{CATALOG_DIR}\Output\{Scenario_FullName}\01HWY{Year}A.MAT
+#END
+#ENDOFPROGS
+1
+1
