@@ -143,7 +143,7 @@ the spatial distribution of the following metrics:
   * Household Density (households per sq mi)
   * Employment Density (jobs per sq mi)
   
-```{r spatial_checks,fig.width=7,fig.height=5,cache=FALSE}
+```{r HHDens,fig.width=7,fig.height=5,cache=FALSE}
 initial_taz@data <- initial_taz@data %>%
   mutate(
     HHDens = HOUSEHOLDS / AREA,
@@ -166,33 +166,39 @@ var_popup <- function(shp, var, var_name){
 }
 
 
-# HHDens Continuous palette function (leaflet)
-pal_dens <- colorNumeric(
-  palette = "Blues",
+# EmpDens Continuous palette function (leaflet)
+pal_HHDens <- colorNumeric(
+  palette = "Oranges",
   domain = initial_taz$HHDens
 )
-# EmpDens Continuous palette function (leaflet)
-pal_empdens <- colorNumeric(
-  palette = "Oranges",
-  domain = initial_taz$EmpDens
-)
 
-leaflet() %>%
+leaflet(initial_taz) %>%
   addProviderTiles("CartoDB") %>%
-  addPolygons(data = initial_taz,
+  addPolygons(
     stroke = TRUE, smoothFactor = 1, weight = 1, fillOpacity = .6,
-    color = ~pal_dens(HHDens),
+    color = ~pal_HHDens(HHDens),
     group = "HH Density",
     popup = ~var_popup(initial_taz, "HHDens", "HH Density")
   ) %>%
-  addPolygons(data = initial_taz,
+  addLegend(title = "Households per acre", position = "bottomright", 
+            pal = pal_HHDens, value = ~HHDens)
+```
+
+```{r empdens}
+# EmpDens Continuous palette function (leaflet)
+pal_empDens <- colorNumeric(
+  palette = "Blues",
+  domain = initial_taz$EmpDens
+)
+
+leaflet(initial_taz) %>%
+  addProviderTiles("CartoDB") %>%
+  addPolygons(
     stroke = TRUE, smoothFactor = 1, weight = 1, fillOpacity = .6,
-    color = ~pal_empdens(EmpDens),
-    group = "Emp Density",
+    color = ~pal_empDens(EmpDens),
+    group = "HH Density",
     popup = ~var_popup(initial_taz, "EmpDens", "Emp Density")
   ) %>%
-  addLayersControl(
-    baseGroups = c("HH Density", "Emp Density"),
-    options = layersControlOptions(collapsed = FALSE)
-  )
+  addLegend(title = "Jobs per acre", position = "bottomright", 
+            pal = pal_empDens, value = ~EmpDens)
 ```
