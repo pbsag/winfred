@@ -1,0 +1,11 @@
+R/R-3.2.2/
+R/Rtools/
+Base/Output/*
+Base/EC_2040/Output/*
+*.properties
+CUBE/CLASSIFICATION.BAT
+CUBE/LINK_CALC.BAT
+*.PRN
+*.BAK
+*.DBK
+Output
