@@ -42,12 +42,12 @@ network <- readShapeLines("data/networkdevelopment/trueshape_simplified.shp",
                           proj4string = CRS("+init=epsg:3968")) %>%
   spTransform(., CRS("+init=epsg:4326"))
 
-new_values <- read.dbf("data/networkdevelopment/trueshape_simplified.dbf",
+new_values <- read.dbf("data/networkdevelopment/WF_12A_VDOT_UPDATE.dbf",
                        as.is = TRUE)
 
 network@data <- network@data %>%
-  select(AB) %>%
-  left_join(new_values, by = "AB")
+  select(A, B) %>%
+  left_join(new_values, by = c("A", "B"))
 
 
 # get TAZ layer
