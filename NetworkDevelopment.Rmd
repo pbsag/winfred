@@ -20,8 +20,10 @@ library(readr)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
+library(leaflet)
 library(knitr)
 library(maptools)
+library(foreign)
 ```
 
 ## Introduction
@@ -36,9 +38,17 @@ VDOT and the MPO delivered the initial network, which was developed for the
 previous model, to the Systems Analysis Group.  
 
 ```{r load_network}
-network <- readShapeLines("data/networkdevelopment/WF_12A_VDOT_UPDATE.shp", 
+network <- readShapeLines("data/networkdevelopment/trueshape_simplified.shp", 
                           proj4string = CRS("+init=epsg:3968")) %>%
   spTransform(., CRS("+init=epsg:4326"))
+
+new_values <- read.dbf("data/networkdevelopment/trueshape_simplified.dbf",
+                       as.is = TRUE)
+
+network@data <- network@data %>%
+  select(AB) %>%
+  left_join(new_values, by = "AB")
+
 
 # get TAZ layer
 initial_taz <- readShapePoly(
