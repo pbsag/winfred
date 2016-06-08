@@ -60,10 +60,12 @@ initial_taz@data <- left_join(initial_taz@data, sedata, by = "N") %>%
   mutate(AREA = AREA.y)
 ```
 
-The map below shows the speed limits and lanes on this network, with the TAZ 
+The maps below show the speed limits and lanes on this network, with the TAZ 
 boundaries available as well.
 
-```{r network_leaflet}
+
+### Lanes
+```{r network_leaflet_setup}
 #' Build a popup for basic network info
 #' 
 #' @param shp Shapefile object containing data in leaflet
@@ -95,15 +97,34 @@ basic_popup <- function(shp){
 }
 
 
+
+
 # HHDens Continuous palette function (leaflet)
-pal_lanes <- colorNumeric(
-  palette = "Blues",
-  domain = network$LANES
+pal_lanes <- colorFactor(
+  palette = "Dark2",
+  domain = factor(network$LANES)
 )
+
+leaflet(network) %>%
+  addProviderTiles("CartoDB") %>%
+  addPolygons(data = initial_taz, weight = 1, fillOpacity = 0.001, color = "red",
+              group = "TAZ", popup = ~basic_popup(initial_taz)) %>%
+  addPolylines(group = "Lanes", color = ~pal_lanes(LANES), 
+               popup = ~basic_network(network))  %>%
+  addLayersControl(
+    overlayGroups = c("TAZ", "Lanes"),
+    options = layersControlOptions(collapsed = FALSE)
+  ) %>%
+  addLegend(position = "bottomright", pal = pal_lanes, values = ~LANES)
+  
+```
+
+### Speed Limits
+```{r speed_limits}
 # speed limit Continuous palette function (leaflet)
-pal_speeds <- colorNumeric(
-  palette = "Oranges",
-  domain = network$POST_SPD
+pal_speeds <- colorFactor(
+  palette = "Set1",
+  domain = factor(network$POST_SPD)
 )
 
 leaflet(network) %>%
@@ -112,12 +133,10 @@ leaflet(network) %>%
               group = "TAZ", popup = ~basic_popup(initial_taz)) %>%
   addPolylines(group = "Speed Limits", color = ~pal_speeds(POST_SPD), 
                popup = ~basic_network(network))  %>%
-  addPolylines(group = "Lanes", color = ~pal_lanes(LANES), 
-               popup = ~basic_network(network)) %>%
   addLayersControl(
-    overlayGroups = c("TAZ", "Speed Limits", "Lanes"),
+    overlayGroups = c("TAZ", "Speed Limits"),
     options = layersControlOptions(collapsed = FALSE)
-  )
-  
+  ) %>%
+  addLegend(position = "bottomright", pal = pal_speeds, values = ~POST_SPD)
 ```
 
