@@ -29,3 +29,4 @@
 *.dbf binary
 *.DBF binary
 R.zip filter=lfs diff=lfs merge=lfs -text
+*.mdb filter=lfs diff=lfs merge=lfs -text
