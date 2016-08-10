@@ -28,5 +28,4 @@
 *.MAT binary
 *.dbf binary
 *.DBF binary
-R.zip filter=lfs diff=lfs merge=lfs -text
 R/R.zip filter=lfs diff=lfs merge=lfs -text
