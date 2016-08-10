@@ -1,0 +1,107 @@
+#TripsRun File
+10
+3
+C:\PROJECTS\ROANOKE\CUBE\TRANSIT.S
+58,80,
+Transit Network,00
+C:\projects\Roanoke\Cube\Roanoke Area MPO Model.PRN
+2
+#PROJECTSTRUCT
+1:Roanoke Area MPO Model,00,C:\projects\Roanoke\Cube\RVARC_TDM.app
+2:Network,00,C:\projects\roanoke\Cube\NETBUILD.APP
+3:Area Type,00,C:\projects\roanoke\Cube\NETWOR00.APP
+2:Highway Paths,00,C:\projects\roanoke\Cube\PATHBUILD.APP
+2:Trip Generation,00,C:\projects\roanoke\Cube\DEMAND.APP
+2:Transit Network,00,C:\projects\ROANOKE\CUBE\TRANSIT.APP
+2:External Model,00,C:\projects\ROANOKE\CUBE\EXTERN00.APP
+2:Commercial Vehicle,00,C:\projects\ROANOKE\CUBE\COMMER00.APP
+2:MC Logsums,00,C:\projects\ROANOKE\CUBE\MCLOGSUM.APP
+2:Trip Distribution,00,C:\projects\roanoke\Cube\TRIPDI00.APP
+3:Destination Choice,00,C:\projects\ROANOKE\CUBE\TRIPDIST00.APP
+2:modechoice,00,C:\projects\ROANOKE\CUBE\MODECH00.APP
+2:PA to OD,00,C:\projects\roanoke\Cube\TRIPS.APP
+2:Highway Assignment,00,C:\projects\roanoke\Cube\ASSIGNMENT.APP
+2:Congested Skims,00,C:\projects\roanoke\Cube\HIGHWA_Congested.app
+2:TrnAssignment,00,C:\projects\ROANOKE\CUBE\TRNASS00.APP
+#END
+1
+C:\Users\SARVEP~1\AppData\Local\Temp\Cit52B5.tmp
+1
+Base
+#GROUP=Transit Network, 00:5:C:\projects\ROANOKE\CUBE\TRANSIT.APP
+#PROGRAM
+#PROGNAME=NETWORK<0:13;2
+#EXEC=1
+#INCLUSTER=0
+#PROGARGS=C:\projects\roanoke\Cube\TransitSpeeds.S
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\TransitSpeeds.PRN
+{SCENARIO_DIR}\Output\HWYTSPD.NET
+#END
+#PROGRAM
+#PROGNAME=PUBLIC TRANSPORT<0:13;4
+#EXEC=2
+#INCLUSTER=0
+#PROGARGS=C:\projects\roanoke\Cube\Build_WalkAccess_Connectors.S
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\BuildWalkAccessConenctors.PRN
+{SCENARIO_DIR}\Output\NTLEG.NET
+{SCENARIO_DIR}\Output\NTLEG.TEM
+{SCENARIO_DIR}\Output\LOGS\TNPTR00B.PRN
+#END
+#PROGRAM
+#PROGNAME=MATRIX<0:13;3
+#EXEC=3
+#INCLUSTER=0
+#PROGARGS=C:\projects\roanoke\Cube\WalkAccess_Connectors_by_Mode.S
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\WalkAccess_ByMode.PRN
+{SCENARIO_DIR}\Output\NTLEG1_TEM.NTL
+{SCENARIO_DIR}\Output\NTLEG4.NTL
+#END
+#PROGRAM
+#PROGNAME=PUBLIC TRANSPORT<0:13;7
+#EXEC=4
+#INCLUSTER=0
+#PROGARGS=C:\projects\roanoke\Cube\Trn_Skims_PK.S
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\Trn_PK_Skims.PRN
+{SCENARIO_DIR}\Output\PK_TransitWalk.NET
+{SCENARIO_DIR}\Output\PK_TransitWalk.rpt
+{SCENARIO_DIR}\Output\PK_TPATHBus.RTE
+{SCENARIO_DIR}\Output\PK_TPATHPrem.RTE
+{SCENARIO_DIR}\Output\PK_TSKIMBus.MAT
+{SCENARIO_DIR}\Output\PK_TSKIMPrem.MAT
+#END
+#PROGRAM
+#PROGNAME=PUBLIC TRANSPORT<0:13;7
+#EXEC=5
+#INCLUSTER=0
+#PROGARGS=C:\projects\roanoke\Cube\Trn_Skims_OP.S
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\Trn_OP_Skims.PRN
+{SCENARIO_DIR}\Output\OP_TransitWalk.NET
+{SCENARIO_DIR}\Output\OP_TransitWalk.rpt
+{SCENARIO_DIR}\Output\OP_TPATHBus.RTE
+{SCENARIO_DIR}\Output\OP_TPATHPrem.RTE
+{SCENARIO_DIR}\Output\OP_TSKIMBus.MAT
+{SCENARIO_DIR}\Output\OP_TSKIMPrem.MAT
+#END
+#ENDOFPROGS
+1
+1

@@ -5,7 +5,15 @@ Base/EC_2040/Output/*
 *.properties
 CUBE/CLASSIFICATION.BAT
 CUBE/LINK_CALC.BAT
+*.DBK
+*.log
 *.PRN
 *.BAK
-*.DBK
-Output
+*.[0-9][0-9][0-9]
+TPPL.PRJ
+TPPL.VAR
+*{$$0}.s
+*.DS_Store
+CUBE/winfred.REP
+CUBE/winfred.S
+CUBE/winfred.TRF

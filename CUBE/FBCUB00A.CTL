@@ -1,0 +1,4 @@
+
+&FILES
+INET1='{SCENARIO_DIR}\OUTPUT\LOADED_{Year}{Alternative}.NET',
+ &END

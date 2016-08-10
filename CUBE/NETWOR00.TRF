@@ -1,0 +1,124 @@
+#TripsRun File
+10
+3
+C:\PROJECTS\RVTPO\CUBE\NETWOR00.S
+58,80,
+Area Type,00
+C:\projects\rvtpo\Cube\Roanoke Area MPO Model.PRN
+2
+#PROJECTSTRUCT
+1:Roanoke Area MPO Model,00,C:\projects\rvtpo\Cube\RVARC_TDM.app
+2:Network,00,C:\projects\rvtpo\Cube\NETBUILD.APP
+3:Area Type,00,C:\projects\rvtpo\Cube\NETWOR00.APP
+2:Highway Paths,00,C:\projects\rvtpo\Cube\PATHBUILD.APP
+2:Trip Generation,00,C:\projects\rvtpo\Cube\DEMAND.APP
+2:Transit Network,00,C:\projects\rvtpo\CUBE\TRANSIT.APP
+2:External Model,00,C:\projects\rvtpo\CUBE\EXTERN00.APP
+2:Commercial Vehicle,00,C:\projects\rvtpo\CUBE\COMMER00.APP
+2:MC Logsums,00,C:\projects\rvtpo\CUBE\MCLOGSUM.APP
+2:Trip Distribution,00,C:\projects\rvtpo\Cube\TRIPDI00.APP
+3:Destination Choice,00,C:\projects\rvtpo\CUBE\TRIPDIST00.APP
+2:modechoice,00,C:\projects\rvtpo\CUBE\MODECH00.APP
+2:PA to OD,00,C:\projects\rvtpo\Cube\TRIPS.APP
+2:Highway Assignment,00,C:\projects\rvtpo\Cube\ASSIGNMENT.APP
+2:Congested Skims,00,C:\projects\rvtpo\Cube\HIGHWA_Congested.app
+2:TrnAssignment,00,C:\projects\rvtpo\CUBE\TRNASS00.APP
+#END
+1
+C:\Users\SARVEP~1\AppData\Local\Temp\Cit1532.tmp
+1
+Base
+#GROUP=Area Type, 00:7:C:\projects\rvtpo\Cube\NETWOR00.APP
+#PROGRAM
+#PROGNAME=NETWORK<0:13;4
+#EXEC=1
+#INCLUSTER=0
+#PROGARGS=C:\projects\rvtpo\Cube\AT_1.S
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\AT_1.PRN
+{SCENARIO_DIR}\Output\LINK.DAT
+{SCENARIO_DIR}\Output\NODE.DAT
+{SCENARIO_DIR}\Output\XY.dat
+#END
+#PROGRAM
+#PROGNAME=MATRIX<0:13;2
+#EXEC=2
+#INCLUSTER=0
+#PROGARGS=C:\projects\rvtpo\Cube\AT_2.s
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\AT_2.PRN
+{SCENARIO_DIR}\Output\CLOSEST.DBF
+#END
+#PROGRAM
+#PROGNAME=NETWORK<0:13;2
+#EXEC=3
+#INCLUSTER=0
+#PROGARGS=C:\projects\rvtpo\Cube\AT_3.s
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\AT_3.PRN
+{SCENARIO_DIR}\Output\ZONE.NET
+#END
+#PROGRAM
+#PROGNAME=NETWORK<0:13;2
+#EXEC=4
+#INCLUSTER=0
+#PROGARGS=C:\projects\rvtpo\Cube\AT_4.s
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\AT_4.PRN
+{SCENARIO_DIR}\Output\merge zone.NET
+#END
+#PROGRAM
+#PROGNAME=NETWORK<0:13;5
+#EXEC=5
+#INCLUSTER=0
+#PROGARGS=C:\projects\rvtpo\Cube\AT_5.s
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\AT-5.PRN
+{SCENARIO_DIR}\Output\PROCESSED.NET
+{SCENARIO_DIR}\Output\AREA TYPE.PRN
+{SCENARIO_DIR}\Output\DENSITY.PRN
+{SCENARIO_DIR}\Output\STAT.PRN
+#END
+#PROGRAM
+#PROGNAME=NETWORK<0:13;3
+#EXEC=6
+#INCLUSTER=0
+#PROGARGS=C:\projects\rvtpo\Cube\AT_6.s
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\AT_6.PRN
+{SCENARIO_DIR}\Output\ATYPE NETWORK{Year}{Alternative}.NET
+{SCENARIO_DIR}\Output\link_atype{Year}{Alternative}.DBF
+#END
+#PROGRAM
+#PROGNAME=MATRIX<0:13;2
+#EXEC=7
+#INCLUSTER=0
+#PROGARGS=C:\projects\rvtpo\Cube\AT_7.s
+
+1
+#END
+#OUTPUT
+{SCENARIO_DIR}\Output\LOGS\AT_7.PRN
+{SCENARIO_DIR}\Output\ZONAL AT{Year}{Alternative}.DBF
+#END
+#ENDOFPROGS
+1
+1

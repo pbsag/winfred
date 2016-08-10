@@ -1,0 +1,26 @@
+; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
+IF (PURPOSE=1) ; HBW Purpose
+PURP='HBW'
+PURPNAME = 'HBW'
+PURPNO=3
+PRK='LONGPARK'
+
+ELSEIF (PURPOSE=2) ; HBO Purpose
+PURP='HBO'
+PURPNAME = 'HBO_HBSH'
+PURPNO=4
+PRK='LONGPARK'
+
+ELSEIF (PURPOSE=3) ; NHB Purpose
+PURP='NHB'
+PURPNAME='NHB'
+PURPNO=5
+PRK='LONGPARK'
+
+ELSEIF (PURPOSE=4) ; SCH Purpose
+PURP='HBSC'
+PURPNAME='HBSC'
+PURPNO=6
+PRK='LONGPARK'
+ENDIF
+
