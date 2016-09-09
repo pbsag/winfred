@@ -1,5 +1,5 @@
 &PROJFIL
-EXP0 211Network File   {SCENARIO_DIR}\Output\RVTPOBase{Year}{Alternative}.NET      
+EXP0 211Network File   {SCENARIO_DIR}\Output\Interim{Year}{Alternative}.net        
 EXP0 251Zonal Data 1   {SCENARIO_DIR}\Output\ZONAL AT{Year}{Alternative}.DBF       
 EXP0 1 0Matrix File 1  {SCENARIO_DIR}\Output\IMPED11.MAT                           
 11
@@ -10,7 +10,7 @@ PB
 00
 Build Initial Impedance Table
 
-Wed Aug 10 12:49:39 2016
+Wed Sep 07 20:00:47 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\PATHBUILD.APP
@@ -38,7 +38,7 @@ Build Initial Skims
 999999
 1185
 -958
-1410
+1393
 -1022
 0
 0
@@ -54,9 +54,9 @@ C:\projects\winfred\Cube\HwySkims_FreeFlow.S
 HWY
 ISCR1 
 999999
-849
+868
 -840
-1173
+1174
 -897
 -1
 -1
@@ -427,17 +427,17 @@ Network File
 0
 0
 NET
-{SCENARIO_DIR}\Output\RVTPOBase{Year}{Alternative}.NET
+{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.net
 0
 HWY
 NETI  
 999999
-849
+868
 -901
-1173
+1174
 -958
 -1
--19
+-9
 1
 #INFIL22
 Sub Area Net
@@ -486,9 +486,9 @@ PEN
 TRN
 TURNPENI
 999999
-849
+868
 -962
-1173
+1174
 -1019
 -1
 -1
@@ -504,9 +504,9 @@ SE Data
 ZON
 ZDATI1
 999999
-849
+868
 -1023
-1173
+1174
 -1080
 -1
 -19
@@ -684,9 +684,9 @@ Lookup File 1
 LOK
 LOOKUPI1
 999999
-849
+868
 -1084
-1173
+1174
 -1141
 -1
 -1
@@ -1224,9 +1224,9 @@ PRN
 HWY
 OPRN  
 999999
-1428
+1409
 -930
-1746
+1710
 -987
 0
 #OUTFIL1
@@ -1240,9 +1240,9 @@ MAT
 HWY
 MATO1 
 999999
-1428
+1409
 -991
-1746
+1710
 -1048
 1
 #OUTFIL2
@@ -2029,7 +2029,7 @@ Save as FreeFlow Skim
 999999
 1185
 -1354
-1388
+1372
 -1418
 0
 0
@@ -2045,9 +2045,9 @@ C:\projects\winfred\Cube\HwySkims_FreeFlow_PK_OP.S
 PIL
 ISCR1 
 999999
-849
+868
 -1356
-1173
+1174
 -1413
 -1
 -1
