@@ -9,7 +9,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
 MW[1]=mi.1.1
 MW[2]=mi.1.1.t 
 
-IF( I >= 250)
+IF( I >= {Internal Zones})
   RO.PROD1=ROWSUM(1)
   RO.ATTR1=ROWSUM(2)
   RO.ZONE=I
