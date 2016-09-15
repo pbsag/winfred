@@ -1,5 +1,5 @@
 ; PT Factors File for ********Walk Access - Premium ********
-; RONOAKE Model - August 2015, Parsons Brinckerhoff
+; WinFred Model - August 2015, Parsons Brinckerhoff
 
 ;Global Settings
  BESTPATHONLY=T
@@ -13,8 +13,6 @@
 
 ;Fare and Wait Times
  FARESYSTEM=1, OPERATOR=1
- FARESYSTEM=2, OPERATOR=2
- FARESYSTEM=3, OPERATOR=3
  IWAITCURVE=1, NODES=1000-99999
  XWAITCURVE=1, NODES=1000-99999
  WAITFACTOR=2.50, NODES=1000-99999
@@ -23,14 +21,10 @@
  RUNFACTOR[1]   = 2.50
 
  RUNFACTOR[21]  = 1.20
- RUNFACTOR[22]  = 1.20
- RUNFACTOR[26]  = 1.00
  
 
 ;Boarding and Transfer Penalties
  BRDPEN[21]  = 2.0
- BRDPEN[22]  = 2.0
- BRDPEN[26]  = 2.0
  XFERPEN=0.00, from=21-200, to=21-200
  XFERFACTOR=1.00, from=21-200, to=21-200
  XFERCONST=5.0, from=21-200, to=21-200
