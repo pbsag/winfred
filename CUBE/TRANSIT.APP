@@ -1,5 +1,5 @@
 &PROJFIL
-EXP0 1 1Link/Net. 1    {SCENARIO_DIR}\Output\RVTPOBase{Year}{Alternative}.NET      
+EXP0 1 1Link/Net. 1    {SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET        
 EXP0 311Lookup File 1  {CATALOG_DIR}\Params\transit\TRANSPD.dbf                    
 EXP3 2 1Line File 1    {SCENARIO_DIR}\Input\TROUTE.LIN                             
 EXP3 171System File 1  {CATALOG_DIR}\Params\transit\TSYSD.PTS                      
@@ -22,7 +22,7 @@ TN
 00
 Transit Networks and Skims
 
-Wed Sep 14 11:00:54 2016
+Tue Sep 20 21:54:05 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\CUBE\TRANSIT.APP
@@ -76,7 +76,7 @@ Link/Net. 1
 0
 0
 *
-{SCENARIO_DIR}\Output\RVTPOBase{Year}{Alternative}.NET
+{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET
 0
 LNK
 LINKI1
