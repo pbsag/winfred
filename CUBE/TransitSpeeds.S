@@ -1,7 +1,7 @@
 
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\Output\LOGS\TransitSpeeds.PRN" MSG='Transit Speeds'
-FILEI LINKI[1] = "{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.net"
+FILEI LINKI[1] = "{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET"
 FILEO NETO = "{SCENARIO_DIR}\Output\HWYTSPD.NET"
 FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\transit\TRANSPD.dbf"
 

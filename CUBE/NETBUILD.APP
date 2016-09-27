@@ -2,7 +2,7 @@
 EXP0 0 1Link/Net. 1    {SCENARIO_DIR}\Input\highway.net                            
 EXP0 1 1Node File 2    {SCENARIO_DIR}\Input\se.dbf                                 
 EXP0 2 0Record File 1  {SCENARIO_DIR}\Output\ZONAL AT{Year}{Alternative}.DBF       
-EXP2 1 0Network File   {SCENARIO_DIR}\Output\RVTPOBase{Year}{Alternative}.NET      
+EXP2 1 0Network File   {SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET        
 11
 0
 0
@@ -11,7 +11,7 @@ NB
 00
 Build Network from Minutp to Cube.  Add/Manipulate Link Variables.
 
-Tue Sep 13 14:37:55 2016
+Tue Sep 20 21:53:34 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\NETBUILD.APP
@@ -39,8 +39,8 @@ Area Type
 999999
 988
 -874
-1265
--1013
+1196
+-984
 0
 0
 0
@@ -55,10 +55,10 @@ Scenario Network
 0001
       
 999999
-577
--867
-973
--939
+671
+-869
+977
+-926
 -1
 -9
 1
@@ -73,10 +73,10 @@ Land Use Data
 0112
       
 999999
-577
--944
-973
--1016
+671
+-930
+977
+-987
 -1
 -9
 1
@@ -91,10 +91,10 @@ Network with Area type
 0501
       
 999999
-1287
--829
-1676
--901
+1212
+-839
+1513
+-896
 0
 #OUTFIL1
 Link File
@@ -107,10 +107,10 @@ Link File
 0502
       
 999999
-1287
--906
-1676
--978
+1212
+-900
+1513
+-957
 0
 #OUTFIL2
 Record File 1
@@ -123,10 +123,10 @@ Zones with Area type
 0621
       
 999999
-1287
--983
-1676
--1055
+1212
+-961
+1513
+-1018
 1
 #PROGRAM1
 2
@@ -144,8 +144,8 @@ Calculate link capacities and freeflow speeds (in R).
 999999
 988
 -1269
-1233
--1350
+1175
+-1333
 0
 0
 0
@@ -160,10 +160,10 @@ C:\projects\winfred\Cube\HCMR_Capacities.s
 PIL
 ISCR1 
 999999
-577
+671
 -1271
-973
--1343
+977
+-1328
 -1
 -1
 0
@@ -361,8 +361,8 @@ Attach capacity and FFS to network
 999999
 2173
 -930
-2445
--1011
+2381
+-994
 0
 0
 0
@@ -377,10 +377,10 @@ C:\projects\winfred\Cube\FreeFlowSpeeds.s
 NET
 ISCR1 
 999999
-1762
--856
-2158
--928
+1856
+-872
+2162
+-929
 -1
 -1
 0
@@ -395,10 +395,10 @@ Link/Net. 1
 LNK
 LINKI1
 999999
-1762
+1856
 -933
-2158
--1005
+2162
+-990
 0
 0
 0
@@ -413,10 +413,10 @@ Link/Net. 2
 LNK
 LINKI2
 999999
-1762
--1010
-2158
--1082
+1856
+-994
+2162
+-1051
 -1
 -1
 0
@@ -431,10 +431,10 @@ Link/Net. 3
 LNK
 LINKI3
 999999
-1762
+1856
 -935
-2158
--1007
+2162
+-992
 -1
 -1
 0
@@ -575,10 +575,10 @@ SHP
 GEO
 GEOMI1
 999999
-1762
--1012
-2158
--1084
+1856
+-996
+2162
+-1053
 -1
 -1
 0
@@ -755,10 +755,10 @@ DAT
 NOD
 NODEI1
 999999
-1762
--1089
-2158
--1161
+1856
+-1057
+2162
+-1114
 -1
 -1
 0
@@ -935,10 +935,10 @@ Lookup File 1
 LOK
 LOOKUPI1
 999999
-1762
--1166
-2158
--1238
+1856
+-1118
+2162
+-1175
 -1
 -1
 0
@@ -1475,10 +1475,10 @@ PRN
 NET
 OPRN  
 999999
-2467
--780
-2856
--852
+2397
+-812
+2698
+-869
 0
 #OUTFIL1
 Network File
@@ -1486,15 +1486,15 @@ Network File
 0
 0
 NET
-{SCENARIO_DIR}\Output\RVTPOBase{Year}{Alternative}.NET
+{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET
 0
 NET
 NETO  
 999999
-2467
+2397
 -932
-2856
--1004
+2698
+-989
 1
 #OUTFIL2
 Link File
@@ -1507,10 +1507,10 @@ DAT
 NET
 LINKO 
 999999
-2467
+2397
 -934
-2856
--1006
+2698
+-991
 0
 #OUTFIL3
 Node File
@@ -1523,10 +1523,10 @@ DAT
 NET
 NODEO 
 999999
-2467
--1011
-2856
--1083
+2397
+-995
+2698
+-1052
 0
 #OUTFIL4
 Print Data 1
@@ -1539,10 +1539,10 @@ PRN
 NET
 PRINTO1
 999999
-2467
--1088
-2856
--1160
+2397
+-1056
+2698
+-1113
 0
 #OUTFIL5
 Print Data 2
