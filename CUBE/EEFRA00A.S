@@ -1,6 +1,6 @@
 
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=FRATAR MSG='Future year EE Table'
+RUN PGM=FRATAR PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEFRA00A.PRN" MSG='Future year EE Table'
 FILEI MATI[1] = "{SCENARIO_DIR}\INPUT\EE_seed.MAT"
 FILEI LOOKUPI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT",

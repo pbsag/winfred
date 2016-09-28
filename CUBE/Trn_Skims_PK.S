@@ -1,6 +1,6 @@
 ;;<<Default Template>><<PUBLIC TRANSPORT>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\Output\LOGS\Trn_PK_Skims.PRN" MSG='PK-Walk Access Paths / Skims'
+RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\Output\LOGS\Trn_Skims_PK.PRN" MSG='PK-Walk Access Paths / Skims'
 FILEI NTLEGI[1] = "{SCENARIO_DIR}\Output\NTLEG1_TEM.NTL"
 FILEO MATO[2] = "{SCENARIO_DIR}\Output\PK_TSKIMPrem.MAT",
 MO=1-9, NAME=WALKTIME,BUSTIME,TRTIME,PRJTIME,NXFER,IWAIT,XWAIT,FARE,TOTTIME

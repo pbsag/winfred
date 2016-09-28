@@ -1,6 +1,6 @@
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\Output\LOGS\@PURP@_logsum.PRN" MSG='Mode Choice Logsums and Probabilities'
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\Output\LOGS\ModeChoice_Logsum_@PURP@.PRN" MSG='Mode Choice Logsums and Probabilities'
 FILEI MATI[3] = "{SCENARIO_DIR}\Output\@premSkim@"
 FILEI MATI[2] = "{SCENARIO_DIR}\Output\@busSkim@"
 FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\@hwySkim@"

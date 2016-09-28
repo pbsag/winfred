@@ -1,6 +1,6 @@
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\Output\LOGS\WalkAccess_ByMode.PRN" MSG='Subdivide Connectors into Separate Files by Mode'
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\Output\LOGS\WalkAccess_Connectors_by_Mode.PRN" MSG='Subdivide Connectors into Separate Files by Mode'
 FILEO PRINTO[2] = "{SCENARIO_DIR}\Output\NTLEG4.NTL"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\Output\NTLEG1_TEM.NTL"
 FILEI RECI = "{SCENARIO_DIR}\Output\NTLEG.TEM"

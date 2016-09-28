@@ -11,7 +11,7 @@ PB
 00
 Build Congested Impedance Table
 
-Wed Sep 07 20:48:19 2016
+Mon Sep 26 23:44:20 2016
 C:\projects\winfred\Cube\RVARC.BMP
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\HIGHWA_Congested.app
@@ -1220,7 +1220,7 @@ Print File
 0
 0
 PRN
-{SCENARIO_DIR}\Output\Logs\PBHWY00B.PRN
+{SCENARIO_DIR}\Output\Logs\HwySkims_Congested_PK.PRN
 0
 HWY
 OPRN  
@@ -3211,7 +3211,7 @@ Print File
 0
 0
 PRN
-C:\projects\winfred\CUBE\PBHWY00A.PRN
+{SCENARIO_DIR}\OUTPUT\LOGS\HwySkims_Congested_OP.PRN
 0
 HWY
 OPRN  

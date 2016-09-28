@@ -1,6 +1,6 @@
 ;;<<Default Template>><<PUBLIC TRANSPORT>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\Trn_Assignment_OP.PRN" MSG='Transit Assignment'
+RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\Transit_Assignment_OP.PRN" MSG='OP Transit Assignment'
 FILEO NETO = "{SCENARIO_DIR}\Output\Trn_OP.net"
 FILEI NETI = "{SCENARIO_DIR}\Output\OP_TransitWalk.NET"
 FILEI ROUTEI[2] = "{SCENARIO_DIR}\Output\OP_TPATHPrem.RTE"

@@ -1,6 +1,6 @@
 ;;<<Default Template>><<GENERATION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=GENERATION MSG='IEEI_TripGen'
+RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TripGen.PRN" MSG='IEEI_TripGen'
 FILEI ZDATI[2] = "{SCENARIO_DIR}\OUTPUT\EXTERNALTRIPS.DBF"
 FILEO PAO[1] = "{SCENARIO_DIR}\Output\IEEI_PA_{year}.DBF",
 FORM=10.3, DBF=T, LIST=Z, P[1], A[1]

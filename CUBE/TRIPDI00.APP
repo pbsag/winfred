@@ -15,7 +15,7 @@ TD
 00
 
 Runs Trip Distribution
-Wed Aug 10 12:49:39 2016
+Mon Sep 26 23:23:45 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\TRIPDI00.APP
@@ -43,8 +43,8 @@ Gravity Model - HBSC
 999999
 734
 -1020
-1141
--1101
+1047
+-1084
 0
 0
 0
@@ -59,10 +59,10 @@ C:\projects\winfred\Cube\TripDistribution_GravityModel_HBSC.s
 DST
 ISCR1 
 999999
-323
--870
-719
--942
+417
+-902
+723
+-959
 -1
 -1
 0
@@ -77,10 +77,10 @@ MAT
 DST
 MATI1 
 999999
-323
--947
-719
--1019
+417
+-963
+723
+-1020
 -1
 -1
 0
@@ -455,10 +455,10 @@ Zonal Data 1
 ZON
 ZDATI1
 999999
-323
+417
 -1024
-719
--1096
+723
+-1081
 -1
 -9
 1
@@ -473,10 +473,10 @@ Zonal Data 2
 ZON
 ZDATI2
 999999
-323
--1101
-719
--1173
+417
+-1085
+723
+-1142
 -1
 -9
 1
@@ -635,10 +635,10 @@ Lookup File 1
 LOK
 LOOKUPI1
 999999
-323
--1178
-719
--1250
+417
+-1146
+723
+-1203
 -1
 -1
 0
@@ -990,15 +990,15 @@ Print File
 0
 0
 PRN
-{SCENARIO_DIR}\Output\Logs\HBSC_distribution.PRN
+{SCENARIO_DIR}\Output\Logs\TripDistribution_GravityModel_HBSC.PRN
 0
 DST
 OPRN  
 999999
-1163
--984
-1552
--1056
+1063
+-992
+1364
+-1049
 0
 #OUTFIL1
 Matrix File 1
@@ -1011,10 +1011,10 @@ MAT
 DST
 MATO1 
 999999
-1163
--1061
-1552
--1133
+1063
+-1053
+1364
+-1110
 0
 #OUTFIL2
 Matrix File 2
@@ -1736,8 +1736,8 @@ Destination Choice
 999999
 762
 -1725
-1226
--1864
+1121
+-1835
 0
 0
 0
@@ -1752,10 +1752,10 @@ MC Logsums
 0201
       
 999999
-351
--1490
-747
--1562
+445
+-1540
+751
+-1597
 -1
 -9
 1
@@ -1770,10 +1770,10 @@ Highway Skims
 0202
       
 999999
-351
--1567
-747
--1639
+445
+-1601
+751
+-1658
 -1
 -9
 1
@@ -1788,10 +1788,10 @@ Zonal Data 3
 0224
       
 999999
-351
--1644
-747
--1716
+445
+-1662
+751
+-1719
 -1
 -1
 0
@@ -1806,10 +1806,10 @@ Highway Skims
 0602
       
 999999
-351
--1721
-747
--1793
+445
+-1723
+751
+-1780
 -1
 -9
 1
@@ -1824,10 +1824,10 @@ Zonal Data 1
 0622
       
 999999
-351
--1798
-747
--1870
+445
+-1784
+751
+-1841
 -1
 -1
 0
@@ -1842,10 +1842,10 @@ Zonal Data 2
 0623
       
 999999
-351
--1875
-747
--1947
+445
+-1845
+751
+-1902
 -1
 -1
 0
@@ -1860,10 +1860,10 @@ DC Parameters
 0642
       
 999999
-351
--1952
-747
--2024
+445
+-1906
+751
+-1963
 -1
 -9
 1
@@ -1878,10 +1878,10 @@ Matrix File 1
 0701
       
 999999
-351
--2029
-747
--2101
+445
+-1967
+751
+-2024
 -1
 -1
 0
@@ -1896,10 +1896,10 @@ Matrix File 1
 0201
       
 999999
-1248
--1756
-1637
--1828
+1137
+-1750
+1438
+-1807
 1
 #PROGRAM2
 3
@@ -1917,8 +1917,8 @@ HBSC District - to - District Flows
 999999
 2342
 -484
-2587
--565
+2529
+-548
 0
 0
 0
@@ -1933,10 +1933,10 @@ C:\projects\winfred\Cube\TripDistribution_D2DFlowsl_HBSC.s
 MAT
 ISCR1 
 999999
-1931
--448
-2327
--520
+2025
+-456
+2331
+-513
 -1
 -1
 0
@@ -1951,10 +1951,10 @@ MAT
 MAT
 MATI1 
 999999
-1931
--525
-2327
--597
+2025
+-517
+2331
+-574
 -1
 -1
 0
@@ -3044,15 +3044,15 @@ Print File
 0
 0
 PRN
-{SCENARIO_DIR}\OUTPUT\LOGS\HBSC_D2D_Flwos.PRN
+{SCENARIO_DIR}\OUTPUT\LOGS\TripDistribution_D2DFlowsl_HBSC.PRN
 0
 MAT
 OPRN  
 999999
-2609
--448
-2998
--520
+2545
+-456
+2846
+-513
 0
 #OUTFIL1
 Matrix File 1
@@ -3065,10 +3065,10 @@ MAT
 MAT
 MATO1 
 999999
-2609
--525
-2998
--597
+2545
+-517
+2846
+-574
 0
 #OUTFIL2
 Matrix File 2
@@ -3790,8 +3790,8 @@ HBSC - no sch bus trips
 999999
 2342
 -935
-2587
--1016
+2529
+-999
 0
 0
 0
@@ -3806,10 +3806,10 @@ C:\projects\winfred\Cube\TripDistribution_remove_SchoolBus.s
 MAT
 ISCR1 
 999999
-1931
--899
-2327
--971
+2025
+-907
+2331
+-964
 -1
 -1
 0
@@ -3824,10 +3824,10 @@ MAT
 MAT
 MATI1 
 999999
-1931
--976
-2327
--1048
+2025
+-968
+2331
+-1025
 -1
 -1
 0
@@ -4917,15 +4917,15 @@ Print File
 0
 0
 PRN
-{SCENARIO_DIR}\OUTPUT\LOGS\HBSC_noSchoolTrips.PRN
+{SCENARIO_DIR}\OUTPUT\LOGS\TripDistribution_remove_SchoolBus.PRN
 0
 MAT
 OPRN  
 999999
-2609
--899
-2998
--971
+2545
+-907
+2846
+-964
 0
 #OUTFIL1
 Matrix File 1
@@ -4938,10 +4938,10 @@ MAT
 MAT
 MATO1 
 999999
-2609
--976
-2998
--1048
+2545
+-968
+2846
+-1025
 1
 #OUTFIL2
 Matrix File 2
@@ -5663,8 +5663,8 @@ HBSC FF
 999999
 762
 -568
-1007
--649
+949
+-632
 0
 0
 0
@@ -5679,10 +5679,10 @@ C:\projects\winfred\CUBE\TDMAT00C.S
 MAT
 ISCR1 
 999999
-351
+445
 -570
-747
--642
+751
+-627
 -1
 -1
 0
@@ -6795,10 +6795,10 @@ PRN
 MAT
 OPRN  
 999999
-1029
--532
-1418
--604
+965
+-540
+1266
+-597
 0
 #OUTFIL1
 Matrix File 1
@@ -7371,10 +7371,10 @@ PRN
 MAT
 PRINTO1
 999999
-1029
--609
-1418
--681
+965
+-601
+1266
+-658
 0
 #OUTFIL37
 Print Data 2

@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=HIGHWAY PRNFILE="C:\projects\winfred\CUBE\PBHWY00A.PRN" MSG='Build OP congested skims'
+RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\HwySkims_Congested_OP.PRN" MSG='Build OP congested skims'
        
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Output\ZONAL AT{Year}{Alternative}.DBF",
  Z = N

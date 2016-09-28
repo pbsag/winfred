@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\Output\LOGS\BuildWalkAccessConenctors.PRN" MSG='Build Walk Access Connectors'
+RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\Output\LOGS\Build_WalkAccess_Conenctors.PRN" MSG='Build Walk Access Connectors'
 FILEO REPORTO = "{SCENARIO_DIR}\Output\LOGS\TNPTR00B.PRN"
 FILEO NTLEGO = "{SCENARIO_DIR}\Output\NTLEG.TEM"
 FILEO NETO = "{SCENARIO_DIR}\Output\NTLEG.NET"

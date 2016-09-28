@@ -1,6 +1,6 @@
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX MSG='Shadow Price'
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\DC_HBW_ShadowPrice.PRN" MSG='Shadow Price'
 
 FILEI ZDATI[1] = "{SCENARIO_DIR}\OUTPUT\HBW_shadowPrice.DBF"
 FILEO RECO[1] = "{SCENARIO_DIR}\OUTPUT\HBW_shadowPrice.DBF",
