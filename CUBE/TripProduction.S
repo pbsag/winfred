@@ -1,6 +1,6 @@
 ;;<<Default Template>><<GENERATION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=GENERATION MSG='Household Trip Production'
+RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\TripProduction.prn" MSG='Household Trip Production'
 FILEO PRINTO[1] = "{SCENARIO_DIR}\Output\hbw.csv"
 FILEI LOOKUPI[6] = "{CATALOG_DIR}\PARAMS\TRIP_PROD\NHBO.DBF"
 FILEI LOOKUPI[5] = "{CATALOG_DIR}\PARAMS\TRIP_PROD\HBSHOP.DBF"

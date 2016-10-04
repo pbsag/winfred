@@ -1,6 +1,6 @@
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX MSG='MC Trips by Mode and Purpose'
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\MCMAT00A.PRN" MSG='MC Trips by Mode and Purpose'
 FILEI MATI[4] = "{SCENARIO_DIR}\OUTPUT\NHB_MCTRIPS.MAT"
 FILEI MATI[3] = "{SCENARIO_DIR}\OUTPUT\HBSC_MCTRIPS.MAT"
 FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\HBO_MCTRIPS.MAT"

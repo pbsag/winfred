@@ -1,6 +1,6 @@
 ;;<<Default Template>><<GENERATION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=GENERATION MSG='CV_TripGen'
+RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\CV_TripGen.PRN" MSG='CV Trip Generation'
 FILEI LOOKUPI[1] = "{CATALOG_DIR}\PARAMS\CVRATES.CSV"
 FILEO PAO[1] = "{SCENARIO_DIR}\Output\CV_PA_{year}.DBF",
 FORM=10.3, DBF=T, LIST=Z, P[1], P[2], P[3], A[1], A[2], A[3]

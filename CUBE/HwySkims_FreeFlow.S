@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\Output\Logs\FreeFlowSpeeds.PRN" MSG='Build Initial Skims'
+RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\Output\Logs\HwySkims_FreeFlow.PRN" MSG='Build Initial Skims'
 FILEI NETI = "{SCENARIO_DIR}\output\Interim{Year}{Alternative}.net"
 FILEI TURNPENI = "{SCENARIO_DIR}\Input\TurnPenalties.pen"
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Output\ZONAL AT{Year}{Alternative}.DBF",

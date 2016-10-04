@@ -11,7 +11,7 @@ NB
 00
 Build Network from Minutp to Cube.  Add/Manipulate Link Variables.
 
-Tue Sep 20 21:53:34 2016
+Tue Sep 27 00:08:56 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\NETBUILD.APP
@@ -1470,15 +1470,15 @@ Print File
 0
 0
 PRN
-*.PRN
+{SCENARIO_DIR}\OUTPUTS\LOGS\FreeflowSpeeds.prn
 0
 NET
 OPRN  
 999999
 2397
--812
+-902
 2698
--869
+-959
 0
 #OUTFIL1
 Network File
@@ -1492,9 +1492,9 @@ NET
 NETO  
 999999
 2397
--932
+-963
 2698
--989
+-1020
 1
 #OUTFIL2
 Link File

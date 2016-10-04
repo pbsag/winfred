@@ -9,7 +9,7 @@ PB
 00
 Build Initial Impedance Table
 
-Tue Sep 20 21:57:19 2016
+Mon Sep 26 22:32:45 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\PATHBUILD.APP
@@ -31,7 +31,7 @@ HIGHWAY
 
 1
 1
-1
+0
 -1.0
 Build Initial Skims
 999999
@@ -54,9 +54,9 @@ HWY
 ISCR1 
 999999
 868
--690
+-840
 1174
--747
+-897
 -1
 -1
 0
@@ -432,9 +432,9 @@ HWY
 NETI  
 999999
 868
--812
+-901
 1174
--869
+-958
 -1
 -1
 0
@@ -486,9 +486,9 @@ TRN
 TURNPENI
 999999
 868
--995
+-962
 1174
--1052
+-1019
 -1
 -1
 0
@@ -504,9 +504,9 @@ ZON
 ZDATI1
 999999
 868
--1056
+-1023
 1174
--1113
+-1080
 -1
 -19
 1
@@ -684,9 +684,9 @@ LOK
 LOOKUPI1
 999999
 868
--1178
+-1084
 1174
--1235
+-1141
 -1
 -1
 0
@@ -1218,15 +1218,15 @@ Print File
 0
 0
 PRN
-{SCENARIO_DIR}\Output\Logs\FreeFlowSpeeds.PRN
+{SCENARIO_DIR}\Output\Logs\HwySkims_FreeFlow.PRN
 0
 HWY
 OPRN  
 999999
 1409
--630
+-930
 1710
--687
+-987
 0
 #OUTFIL1
 Matrix File 1
@@ -1240,9 +1240,9 @@ HWY
 MATO1 
 999999
 1409
--691
+-991
 1710
--748
+-1048
 1
 #OUTFIL2
 Matrix File 2

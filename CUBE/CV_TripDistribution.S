@@ -1,6 +1,6 @@
 ;;<<Default Template>><<DISTRIBUTION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=DISTRIBUTION
+RUN PGM=DISTRIBUTION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\CV_TripDistribution.PRN" MSG='CV Trip Distribution'
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\CV_{Year}.MAT",
   MO=1-3, NAME=FourTire, SixTire, Combo, DEC=D
 FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\Hwyskim.MAT"

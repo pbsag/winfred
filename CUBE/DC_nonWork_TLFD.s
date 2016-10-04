@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\non-work_tlfd.PRN" MSG='Non-Work Trip Length Frequency'
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\DC_nonwork_TLFD_@PURP@.PRN" MSG='Non-Work Trip Length Frequency'
 FILEO RECO[1] = "{SCENARIO_DIR}\Output\@PURP@_TDLF.dbf",
 FIELDS= HIGH,MID,LOW,TRIPS(16.8)
 FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\OP_Hwyskim.MAT"

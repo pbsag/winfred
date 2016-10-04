@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\Output\Logs\@PERIOD_NAME@.PRN" MSG='Load Final Trips onto Network'
+RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\Output\Logs\HighwayAssign_@PERIOD_NAME@.PRN" MSG='Load Final Trips onto Network'
 FILEI TURNPENI = "{SCENARIO_DIR}\Input\TurnPenalties.pen"
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\SL_Loaded_@PERIOD_NAME@.MAT",
 MO=5-8, NAME=SL_DA,SL_SR,SL_IEEI, SL_CV

@@ -1,6 +1,6 @@
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEMAT00A.PRN" MSG='Non-Resident NHB EE Trips'
 FILEO RECO[1] = "{SCENARIO_DIR}\OUTPUT\EXTERNALTRIPS.DBF",
 fields=ZONE,AADT,EE_Total,IEEI
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Input\EXTERNALTRIPS.DBF"
