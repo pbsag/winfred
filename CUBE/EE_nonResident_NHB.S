@@ -7,7 +7,7 @@ FILEI RECI = "{SCENARIO_DIR}\Output\IEEI_PA_{year}.DBF"
 
 
 ZONES = {Total Zones}
-NHB_PCT = .30 ; 30% of External trips make NHB trips inside the region
+NHB_PCT = .30 ; 30% of External->Internal trips make NHB trips inside the region
 
 RO.Z=RI.Z
 RO.NHBNR_P = RI.P1 * NHB_PCT

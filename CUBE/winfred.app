@@ -7,7 +7,7 @@ FB
 00
 Winchester Frederick County Travel Demand Model
 
-Mon Sep 26 23:47:38 2016
+Mon Oct 10 17:52:53 2016
 C:\projects\winfred\Cube\winfred_logo.bmp
 
 C:\projects\winfred\CUBE\winfred.app
@@ -1422,9 +1422,9 @@ Zonal Data 1
       
 999999
 135
--2982
+-3042
 441
--3039
+-3099
 -1
 -1
 0
@@ -1440,47 +1440,11 @@ Matrix File 1
       
 999999
 135
--3043
+-3103
 441
--3100
+-3160
 2
 0
-0
-#INFIL2
-Matrix File 1
-
-0
-0
-*
-{SCENARIO_DIR}\INPUT\EE_seed.MAT
-1
-0601
-      
-999999
-135
--3104
-441
--3161
--1
--1
-0
-#INFIL3
-Lookup File 1
-
-0
-0
-*
-{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF
-1
-0632
-      
-999999
-135
--3165
-441
--3222
--1
--1
 0
 #OUTFIL0
 Record File 1
