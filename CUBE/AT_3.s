@@ -1,6 +1,6 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\Output\LOGS\AT_3.PRN" MSG='INSERT LINK DATA TO NETWORK'
-FILEI LINKI[1] = "{SCENARIO_DIR}\Input\highway.net"
+FILEI LINKI[1] = "{SCENARIO_DIR}\OUTPUT\HIGHWAY_CLEAN.NET"
 FILEI LINKI[2] = "{SCENARIO_DIR}\Output\CLOSEST.DBF"
 FILEO NETO = "{SCENARIO_DIR}\Output\ZONE.NET"
 
