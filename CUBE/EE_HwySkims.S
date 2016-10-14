@@ -7,6 +7,14 @@ FILEI MATI[1] = "{SCENARIO_DIR}\Output\IMPED11.MAT"
 FILLMW MW[1]=MI.1.1(5)                ; highway skims
 
 ; Reset invalid values to zero
+; Matrices in the Matrix File IMPED11.MAT
+;   1 = TIME
+;   2 = DIST
+;   3 = OTERM
+;   4 = DTERM
+;   5 = TOTAL_TIME
+
+;  For skim values that are extraordinaryly large, set the value to 0.
   JLOOP
       IF (MW[1] > 1000)
           MW[11] = 0
