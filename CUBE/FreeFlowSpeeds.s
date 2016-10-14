@@ -1,94 +1,72 @@
 ;;<<Default Template>><<NETWORK>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\OUTPUTS\LOGS\FreeflowSpeeds.prn" MSG='Attach capacity and FFS to network'
-FILEO NETO = "{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET"
-FILEI LINKI[2] = "{SCENARIO_DIR}\Output\link_capacities{Year}{Alternative}.DBF"
+RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\FreeflowSpeeds.prn" MSG='Attach capacity and FFS to network'
 FILEI LINKI[1] = "{SCENARIO_DIR}\Output\ATYPE NETWORK{Year}{Alternative}.NET"
+FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\Cap_Lookup.dbf"
+FILEI LOOKUPI[2] = "{CATALOG_DIR}\Params\Spd_Lookup.dbf"
 
+FILEO NETO = "{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET"
+
+; Define LOOKUP FUNCTION
+; Capacity (Level of Service E) based on Facility Type, Land Use Density(1-3) and Number of Lanes
+LOOKUP LOOKUPI=1,
+       NAME=CAP_LU,
+         LOOKUP[1]=LINKID, RESULT=CAP,
+         FAIL[1]=0,FAIL[2]=0,FAIL[3]=0,
+         LIST=Y
+
+; Define LOOKUP FUNCTION
+; Freeflow speed adjustment (applied to Posted Speed) for links based on Facility Type and Land Use Density(1-3)
+LOOKUP LOOKUPI=2,
+       NAME=FFS_LU,
+         LOOKUP[1]=LINKID, RESULT=MODIFYPOST,
+         FAIL[1]=0,FAIL[2]=0,FAIL[3]=0,
+         LIST=Y
+
+REPORT DEADLINKS=T, DUPLICATES=T, UNCONNECTED=T MERGE=T
+         
 PROCESS  PHASE=INPUT
 ;Use this phase to modify data as it is read, such as recoding node numbers.
-
-
 ENDPROCESS
 
-
-PROCESS  PHASE=NODEMERGE  
+PROCESS  PHASE=NODEMERGE
 ; Use this phase to make computations and selections of any data on the NODEI files.
-
-
 ENDPROCESS
 
+PROCESS  PHASE=LINKMERGE
+;   Recode Area Types (1-5) into three categories of Land Use Density (LUD)
+LUD=0
+IF (LI.1.ATYPE <=2) 
+    LUD=1
+  ELSEIF (LI.1.ATYPE >=3 & LI.1.ATYPE <=4) 
+    LUD=2
+  ELSEIF (LI.1.ATYPE = 5) 
+    LUD=3
+ENDIF
 
-PROCESS  PHASE=LINKMERGE  
+; Lookup Capacity and Speed
+CAPE = CAP_LU(1,((LI.1.FACTYPE*100) + (LUD*10) + LI.1.LANES))
+FFSPEED = LI.1.POST_SPD + FFS_LU(1,((LUD*10) + LI.1.FACTYPE))
 
-/* 
-Capacities are computed using HCMR package where highway capacity manual formulas are computed for each link and are appended to the network as CAPE. However VDOT insists to have override capability to use a different capacity for a given link. The VDOT link capacity is coded "VDOT_CAP" attribute. If the attribute “VDOT_CAP” carries a non-zero value then it is used in place of hcmr computed capacity
-
-Here three capacities are stored:
-HCMR_CAP = original hwy capacity based on HCMR
-VDOT_CAP = VDOT capacity to replace HCMR_CAP
-CAPE = capacity per hour (from above two).
-
+/*
+The lookup table capacities can be over-ridden for a specific link by coding a non-zero 
+  capacity in the VDOT_CAP field on the input network.  This over-ride should be used 
+  cautiously, and the justification should documented by the user. 
 */
-; Save HCMR capacity as HCMR_CAP
-HCMR_CAP = LI.2.CAPE
-
-
-; Override hcmr capacity with VDOT link specific capacity
 IF (LI.1.VDOT_CAP > 0)
     CAPE = LI.1.VDOT_CAP
 ENDIF
 
-
-; Use this phase to make computations and selections of any data on the LINKI files.
+; Capacities by time of day are derived from CAPE with adjustment factors.
 CAPE_AM = CAPE * 2.79 ; 2.5  ; AM Capacity
 CAPE_MD = CAPE * 4.40 ; 5.5  ; MD Capacity
 CAPE_PM = CAPE * 3.18 ; 2.5  ; PM Capacity
 CAPE_NT = CAPE * 5.63 ; 4.5  ; NT Capacity
-POST_SPEED = LI.1.POST_SPD  
-
-/*
-Recode FFS based on +/- 5 MPH rule (ignore HCM-R FFS)
-1	Interstate/Principal Freeway
-2	Minor Freeway
-3	Principal Arterial
-4	Major Arterial
-5	Minor Arterial
-6	Major Collector
-7	Minor Collector
-8	Local
-9	High-speed Ramp
-10	Low-speed Ramp
-11	Centroid Connector
-12	External Station Connector
-
-Higher level highways	Where Facility Type = "Freeway" or ((Facility Type = "Multi-lane Highway" or Facility Type = "Two-lane Highway") and Divided = "Divided")	Initial Travel Time = Length/(Posted Speed + 5.0)*60
-
-Lower level highways and arterials	((Where Facility Type = "Multi-lane Highway" or Facility Type = "Two-lane Highway") and Divided = "Undivided" or Divided = “CLTL”) or Facility Type contains "Urban Arterial"	Initial Travel Time = Length/(Posted Speed - 5.0)*60
-
-Local Roads, collectors, ramps and other links	Where Facility Type= "Centroid Connector" or Facility Type=  "Collector" or Facility Type= "Diamond Ramp"  or Facility Type= "Loop Ramp"  or Facility Type= "Local Road"   or Facility Type=  "Freeway to Freeway Ramp"	Initial Travel Time = Length/Posted Speed*60
-
-*/
-
-; Arterials
-IF(LI.1.FACTYPE > 2 & LI.1.FACTYPE < 5 & LI.1.POST_SPD > 25 ) 
-     FFSPEED = LI.1.POST_SPD - 5
-ENDIF
-
-; Local and collector
-IF(LI.1.FACTYPE > 6 & LI.1.FACTYPE < 9 & LI.1.POST_SPD <> 0) 
-     FFSPEED = LI.1.POST_SPD + 3
-ENDIF
-
-
 
 ENDPROCESS
 
-
-PROCESS  PHASE=SUMMARY   
+PROCESS  PHASE=SUMMARY
 ; Use this phase for combining and reporting of working variables.
-
-
 ENDPROCESS
 
 ENDRUN
