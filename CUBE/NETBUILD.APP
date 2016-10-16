@@ -10,7 +10,7 @@ NB
 00
 Build Network from Minutp to Cube.  Add/Manipulate Link Variables.
 
-Sun Oct 09 18:35:13 2016
+Thu Oct 13 23:22:52 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\NETBUILD.APP
@@ -121,7 +121,7 @@ NETWORK
 1
 0
 -1.0
-Attach capacity and FFS to network
+Attach Capacity and Free Flow Speed
 999999
 2165
 -922

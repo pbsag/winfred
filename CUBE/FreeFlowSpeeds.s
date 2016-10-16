@@ -1,9 +1,9 @@
 ;;<<Default Template>><<NETWORK>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\FreeflowSpeeds.prn" MSG='Attach capacity and FFS to network'
-FILEI LINKI[1] = "{SCENARIO_DIR}\Output\ATYPE NETWORK{Year}{Alternative}.NET"
-FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\Cap_Lookup.dbf"
+RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\FreeflowSpeeds.prn" MSG='Attach Capacity and Free Flow Speed'
 FILEI LOOKUPI[2] = "{CATALOG_DIR}\Params\Spd_Lookup.dbf"
+FILEI LINKI[1] = "{SCENARIO_DIR}\Output\ATYPE NETWORK{Year}{Alternative}.NET"
+FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\SpdCap_Lookup.dbf"
 
 FILEO NETO = "{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET"
 
@@ -17,21 +17,14 @@ LOOKUP LOOKUPI=1,
 
 ; Define LOOKUP FUNCTION
 ; Freeflow speed adjustment (applied to Posted Speed) for links based on Facility Type and Land Use Density(1-3)
-LOOKUP LOOKUPI=2,
-       NAME=FFS_LU,
-         LOOKUP[1]=LINKID, RESULT=MODIFYPOST,
+LOOKUP LOOKUPI=1,
+       NAME=SPD_LU,
+         LOOKUP[1]=LINKID, RESULT=SPDADJ,
          FAIL[1]=0,FAIL[2]=0,FAIL[3]=0,
          LIST=Y
-
-REPORT DEADLINKS=T, DUPLICATES=T, UNCONNECTED=T MERGE=T
          
-PROCESS  PHASE=INPUT
-;Use this phase to modify data as it is read, such as recoding node numbers.
-ENDPROCESS
-
-PROCESS  PHASE=NODEMERGE
-; Use this phase to make computations and selections of any data on the NODEI files.
-ENDPROCESS
+         
+REPORT DEADLINKS=T, DUPLICATES=T, UNCONNECTED=T MERGE=T
 
 PROCESS  PHASE=LINKMERGE
 ;   Recode Area Types (1-5) into three categories of Land Use Density (LUD)
@@ -45,8 +38,8 @@ IF (LI.1.ATYPE <=2)
 ENDIF
 
 ; Lookup Capacity and Speed
-CAPE = CAP_LU(1,((LI.1.FACTYPE*100) + (LUD*10) + LI.1.LANES))
-FFSPEED = LI.1.POST_SPD + FFS_LU(1,((LUD*10) + LI.1.FACTYPE))
+CAPE = (CAP_LU(1,((LI.1.FACTYPE*10) + LUD)))* LANES
+FFSPEED = LI.1.POST_SPD + SPD_LU(1,((LI.1.FACTYPE*10) + LUD))
 
 /*
 The lookup table capacities can be over-ridden for a specific link by coding a non-zero 

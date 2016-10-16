@@ -13,7 +13,7 @@ EE
 00
 
 
-Mon Oct 10 17:52:22 2016
+Fri Oct 14 00:02:28 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\CUBE\EXTERN00.APP
@@ -85,7 +85,7 @@ Zonal Data 2
 0
 0
 *
-{CATALOG_DIR}\PARAMS\EXTERNALTRIPS.DBF
+{CATALOG_DIR}\Params\EXTERNALTRIPS.DBF
 0
 ZON
 ZDATI2
