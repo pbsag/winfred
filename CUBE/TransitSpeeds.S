@@ -60,21 +60,15 @@ endloop
   LOOP _nn=1,_numberofcurves
     if ((FACTYPE >= LF[_nn]) & (FACTYPE <= HF[_nn]) & (ATYPE >= LA[_nn]) & (ATYPE <= HA[_nn]))
     if ((LM[_nn] >= 21) & (HM[_nn] <= 21)) spdratioM21 = SR[_nn]
-    if ((LM[_nn] >= 22) & (HM[_nn] <= 22)) spdratioM22 = SR[_nn]
-    if ((LM[_nn] >= 26) & (HM[_nn] <= 26)) spdratioM26 = SR[_nn]  
-    
     endif
   ENDLOOP
      ; APPLY DEFAULT CURVES
      IF (_AUTOSPEED>0)
        _TSPD21=spdratioM21*_AUTOSPEED  ; Bus Speeds
-       _TSPD22=spdratioM22*_AUTOSPEED  ; Circulator Speeds (assumed same as buses)
-       _TSPD26=spdratioM26*_AUTOSPEED  ; Project mode
+
        
        M21TIMEPK=60*(DISTANCE)/_TSPD21
-       M22TIMEPK=60*(DISTANCE)/_TSPD22
-       M26TIMEPK=60*(DISTANCE)/_TSPD26
-       
+
  
  
      ENDIF
