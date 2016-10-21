@@ -9,8 +9,8 @@ FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\LOGS\work_tlfd.PRN"
              MW[1]=MI.1.HBW
              MW[2]=MI.2.Distance
              MW[3]=MI.2.Time
-             gps=22-1
-             Array trips=22
+             gps=21-1
+             Array trips=21
              
              ; Distance
              JLOOP
@@ -20,7 +20,7 @@ FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\LOGS\work_tlfd.PRN"
              ENDJLOOP
           
              IF (i=zones)
-               LOOP group=1,22
+               LOOP group=1,21
                 ro.LOW = group-1
                 ro.MID = group-0.5
                 ro.HIGH= group

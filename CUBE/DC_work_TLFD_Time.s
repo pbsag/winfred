@@ -8,8 +8,8 @@ FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\LOGS\work_ttfd.PRN"
 
              MW[1]=MI.1.HBW
              MW[2]=MI.2.Time
-             gps=36-1
-             Array trips=36             
+             gps=31-1
+             Array trips=31             
              ; Time
              JLOOP
              ;group = min(max(round(mw[2]),1),50)
@@ -18,7 +18,7 @@ FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\LOGS\work_ttfd.PRN"
              ENDJLOOP
           
              IF (i=zones)
-               LOOP group=1,36
+               LOOP group=1,31
                 ro.LOW = group-1
                 ro.MID = group-0.5
                 ro.HIGH= group
