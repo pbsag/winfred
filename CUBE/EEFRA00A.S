@@ -7,8 +7,7 @@ FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT",
  MO=1,NAME = EE_TRIPS, DEC=1*D
 
 ; Apply growth rate to base year EE seed matrix marginals
-;  to obtain future year target through trips at external
-;  stations.
+;  to obtain EE Marginals.
 ; Fratar external seed table to Productions and Attractions.
 
 
