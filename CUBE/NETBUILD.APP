@@ -10,7 +10,7 @@ NB
 00
 Build Network from Minutp to Cube.  Add/Manipulate Link Variables.
 
-Thu Oct 13 23:22:52 2016
+Tue Oct 25 01:01:50 2016
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\NETBUILD.APP
@@ -142,9 +142,9 @@ NET
 ISCR1 
 999999
 1848
--834
+-864
 2154
--891
+-921
 -1
 -1
 0
@@ -160,9 +160,9 @@ LNK
 LINKI1
 999999
 1848
--895
+-925
 2154
--952
+-982
 0
 0
 0
@@ -700,9 +700,9 @@ LOK
 LOOKUPI1
 999999
 1848
--956
+-986
 2154
--1013
+-1043
 -1
 -1
 0
@@ -712,7 +712,7 @@ Lookup File 2
 0
 0
 *
-{CATALOG_DIR}\Params\Spd_Lookup.dbf
+*.*
 0
 LOK
 LOOKUPI2
