@@ -9,9 +9,9 @@ PB
 00
 Build Initial Impedance Table
 
-Mon Sep 26 22:32:45 2016
+Mon Oct 31 00:23:08 2016
 
-C:\projects\winfred\CUBE\winfred.app
+C:\Projects\WinFred\CUBE\winfred.app
 C:\projects\winfred\Cube\PATHBUILD.APP
 VOYAGER
 

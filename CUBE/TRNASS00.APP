@@ -19,9 +19,9 @@ TA
 00
 
 
-Mon Sep 26 23:45:58 2016
+Mon Oct 31 00:23:08 2016
 
-C:\projects\winfred\CUBE\winfred.app
+C:\Projects\WinFred\CUBE\winfred.app
 C:\projects\winfred\CUBE\TRNASS00.APP
 VOYAGER
 

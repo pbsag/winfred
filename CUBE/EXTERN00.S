@@ -8,8 +8,7 @@ FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT",
  MO=1,NAME = EE_TRIPS, DEC=1*D
 
 ; Apply growth rate to base year EE seed matrix marginals
-;  to obtain future year target through trips at external
-;  stations.
+;  to obtain EE Marginals.
 ; Fratar external seed table to Productions and Attractions.
 
 
@@ -17,11 +16,123 @@ PARAMETERS MAXRMSE=0.0001 MAXITERS=25
 ; USE A LOOKUP FILE TO find appropriate factors (1.0 is assumed unless expressly provided)
 LOOKUP LOOKUPI=1, LIST=Y,
   NAME=GROWTHF,
-  LOOKUP[1]=ZONE,RESULT=GRWTH_{YEAR},
-  LOOKUP[2]=ZONE,RESULT=GRWTH_{YEAR},
+  LOOKUP[1]=ZONE,RESULT=GRWTH,
+  LOOKUP[2]=ZONE,RESULT=GRWTH,
   FAIL[1]=1,FAIL[2]=1,FAIL[3]=1
 
 SETPA PGF[1]=GROWTHF(1,I) AGF[1]=GROWTHF(2,I) MW[1]=MI.1.1 
+
+ENDRUN
+
+
+; Script for program MATRIX in file "C:\projects\winfred\Cube\EE_TOD.S"
+; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TOD.PRN" MSG='EE TOD'
+FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\EE_TOD_RATES.dbf"
+FILEO MATO[4] = "{SCENARIO_DIR}\Output\EE_{year}_NT.MAT",
+MO=14, NAME=EE_NT, DEC=1*D
+FILEO MATO[3] = "{SCENARIO_DIR}\Output\EE_{year}_PM.MAT",
+MO=13, NAME=EE_PM, DEC=1*D
+FILEO MATO[2] = "{SCENARIO_DIR}\Output\EE_{year}_MD.MAT",
+MO=12, NAME=EE_MD, DEC=1*D
+FILEO MATO[1] = "{SCENARIO_DIR}\Output\EE_{year}_AM.MAT",
+ MO=11, NAME=EE_AM, DEC=1*D
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
+
+
+ZONES={Total Zones}
+LOOKUP LOOKUPI=1,
+       NAME=TODFAC,
+         LOOKUP[1]=PERIOD, RESULT=SHARE,
+         FAIL[1]=0,FAIL[2]=0,FAIL[3]=0,
+         LIST=Y    
+MW[1]=mi.1.1     ;EE Daily Trips
+
+;  MW[11] through MW[14] are the working tables (four time periods) for EE trips
+LOOP TOD=1,4                          
+  EETable = (10) + TOD
+  MW[EETable] = MW[1] * TODFAC(1,TOD)
+ENDLOOP
+ENDRUN
+
+
+; Script for program MATRIX in file "C:\PROJECTS\WINFRED\CUBE\EEMAT00B.S"
+;;<<Default Template>><<MATRIX>><<Default>>;;
+; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEMAT00B.PRN"
+FILEO RECO[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_AdjustedTrips.DBF",
+fields=ZONE,AADT,EE_Total,IEEI
+FILEI ZDATI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
+
+; Sum EE productions and Attractions
+; Adjust totals at external stations by the same growth factor as was used to adjust EE trips 
+;    to generate future AADT totals at external stations (adjustment is 1 for base year)
+; Tabulate IEEI as difference between future AADT and future EE total trips
+
+;;NOTE----this approach assumes that the growth applied to an external 
+;;     station is the same for EE as it is for IEEI trips at that same station.
+
+; Working matrices to allow calculation of production and attraction totals
+MW[1]=mi.1.1
+MW[2]=mi.1.1.t 
+
+IF( I > {Internal Zones})
+  RO.PROD1=ROWSUM(1)    
+  RO.ATTR1=ROWSUM(2)
+  RO.ZONE=I
+  RO.EE_Total = (RO.PROD1 + RO.ATTR1)/2
+  RO.AADT = ZI.1.EXTTOTAL * ZI.1.GRWTH
+  RO.IEEI = RO.AADT - RO.EE_Total
+  
+WRITE RECO=1
+ENDIF
+
+ENDRUN
+
+
+; Script for program GENERATION in file "C:\projects\winfred\Cube\EE_TripGen.S"
+;;<<Default Template>><<GENERATION>><<Default>>;;
+; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
+RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TripGen.PRN" MSG='IEEI_TripGen'
+FILEI ZDATI[2] = "{SCENARIO_DIR}\OUTPUT\IEEI_AdjustedTrips.DBF"
+FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\IEEI_GEN_RATES.dbf"
+FILEO PAO[1] = "{SCENARIO_DIR}\Output\IEEI_PA_{year}.DBF",
+FORM=10.3, DBF=T, LIST=Z, P[1], A[1]
+FILEI ZDATI[1] = "{SCENARIO_DIR}\Input\se.dbf"
+
+ZONES={Total Zones}
+LOOKUP LOOKUPI=1,
+       NAME=G_RATES,
+         LOOKUP[1]=IND_VAR, RESULT=COEFF,
+       FAIL[3]=0
+
+; 1 = HH    
+; 2 = IND
+; 3 = SER
+; 4 = OFFHTR
+; 5 = RET
+; 6 = SG                  
+       
+PHASE=ILOOP
+  IF (I <= {Internal Zones})
+    TOTALSG = ZI.1.SG_RET + ZI.1.SG_HOS + ZI.1.SG_AIR + ZI.1.SG_COL
+    OFFHTRET = ZI.1.OFF + ZI.1.HTRET
+    A[1]=(ZI.1.HH * G_RATES(1,1)) + (ZI.1.IND * G_RATES(1,2)) + (ZI.1.RET * G_RATES(1,5)) +
+       (OFFHTRET * G_RATES(1,4)) + (ZI.1.SER * G_RATES(1,3)) + (TOTALSG * G_RATES(1,6))
+    P[1]= 0
+  ELSE
+    A[1]=0
+    P[1]= ZI.2.IEEI
+  ENDIF
+  ENDPHASE
+
+PHASE=ADJUST
+  BALANCE A2P=1
+  
+REPORT A=Y P=Y
+ENDPHASE
+ 
 
 ENDRUN
 
@@ -80,50 +191,6 @@ FILLMW MW[1]=MI.1.1(5)                ; highway skims
 ENDRUN
 
 
-; Script for program GENERATION in file "C:\projects\winfred\Cube\EE_TripGen.S"
-;;<<Default Template>><<GENERATION>><<Default>>;;
-; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TripGen.PRN" MSG='IEEI_TripGen'
-FILEI ZDATI[2] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
-FILEO PAO[1] = "{SCENARIO_DIR}\Output\IEEI_PA_{year}.DBF",
-FORM=10.3, DBF=T, LIST=Z, P[1], A[1]
-FILEI ZDATI[1] = "{SCENARIO_DIR}\Input\se.dbf"
-
-ZONES={Total Zones}
-
-PHASE=ILOOP
-  CoeffHH     = 0.423546369 * 2
-  CoeffIND    = 0.235065256 * 2
-  CoeffSER    = 0.158333776 * 2
-  CoeffOFFHTR = 0.148286574 * 2
-  CoeffRET    = 0.208675310 * 2
-  CoeffSG     = 0.225389103 * 2
-				  	; adjustent factor reflects change required to make estimated trip generation rates match observed trips
-
-GrwthRate=1.0								; for future year models, replace this 1.0 with the assumed growth rate       
-
-  IF (I<={Internal Zones})
-    TOTALSG = ZI.1.SG_RET + ZI.1.SG_HOS + ZI.1.SG_AIR + ZI.1.SG_COL
-    OFFHTRET = ZI.1.OFF + ZI.1.HTRET
-    A[1]=(ZI.1.HH * CoeffHH) + (ZI.1.IND * CoeffIND) + (ZI.1.RET * CoeffRET) +
-       (OFFHTRET * CoeffOFFHTR) + (ZI.1.SER * CoeffSER) + (TOTALSG * CoeffSG)
-    P[1]= 0
-  ELSE
-    A[1]=0
-    P[1]= ZI.2.IEEI
-  ENDIF
-  ENDPHASE
-
-PHASE=ADJUST
-  BALANCE A2P=1
-  
-REPORT A=Y P=Y
-ENDPHASE
- 
-
-ENDRUN
-
-
 ; Script for program MATRIX in file "C:\projects\winfred\Cube\EE_nonResident_NHB.S"
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
@@ -134,7 +201,7 @@ FILEI RECI = "{SCENARIO_DIR}\Output\IEEI_PA_{year}.DBF"
 
 
 ZONES = {Total Zones}
-NHB_PCT = .30 ; 30% of External trips make NHB trips inside the region
+NHB_PCT = .30 ; 30% of External->Internal trips make NHB trips inside the region
 
 RO.Z=RI.Z
 RO.NHBNR_P = RI.P1 * NHB_PCT
@@ -234,43 +301,6 @@ LOOP TOD=1,4
   MW[TODTable] = MW[IETable] + MW[EITable]
 ENDLOOP
 
-ENDRUN
-
-
-; Script for program MATRIX in file "C:\projects\winfred\Cube\EE_TOD.S"
-; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TOD.PRN" MSG='EE TOD'
-FILEO MATO[4] = "{SCENARIO_DIR}\Output\EE_{year}_NT.MAT",
-MO=14, NAME=EE_NT, DEC=1*D
-FILEO MATO[3] = "{SCENARIO_DIR}\Output\EE_{year}_PM.MAT",
-MO=13, NAME=EE_PM, DEC=1*D
-FILEO MATO[2] = "{SCENARIO_DIR}\Output\EE_{year}_MD.MAT",
-MO=12, NAME=EE_MD, DEC=1*D
-FILEO MATO[1] = "{SCENARIO_DIR}\Output\EE_{year}_AM.MAT",
- MO=11, NAME=EE_AM, DEC=1*D
-FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
-
-
-MW[1]=mi.1.1     ;EE Daily Trips
-
-ZONES={Total Zones}
-
-;Define arrays of time of day factors
-ARRAY EEFct=4
-EEFct[1] = 0.141	;AM IE Factor
-EEFct[2] = 0.458	;MD IE Factor
-EEFct[3] = 0.154	;PM IE Factor
-EEFct[4] = 0.247  ;NT IE Factor
-
-
-
-
-;  MW[11] through MW[14] are the working tables (four time periods) for EE trips
-
-LOOP TOD=1,4                          
-  EETable = (10) + TOD
-  MW[EETable] = MW[1] * EEFct[TOD]
-ENDLOOP
 ENDRUN
 
 

@@ -33,6 +33,7 @@ LOOKUP, NAME=CONSTANTS, LOOKUP[1]=1, RESULT=@PURPNO@, INTERPOLATE=N, , LIST=Y, L
 ; Read mode choice coefficients
 LOOKUP, NAME=COEFF, LOOKUP[1]=1, RESULT=@PURPNO@, INTERPOLATE=N, LIST=Y, LOOKUPI=2
 
+zones={Internal Zones}
 
 IF (i=FirstZone)
 

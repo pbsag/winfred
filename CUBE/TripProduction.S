@@ -13,7 +13,7 @@ FILEO PAO[1] = "{SCENARIO_DIR}\OUTPUT\HH_PROD.DBF",
   NAMES = TAZ, HBWP, NHBWP, HBOP, HBSCP, HBSHP, NHBOP
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Output\se_classified_{year}{Alternative}.dbf"
 
-ZONES = {Total Zones}
+ZONES = {Internal Zones}
 
 LOOKUP LOOKUPI=1, NAME=hbw_lu,
   LOOKUP[1]=index, RESULT=vehicle0,

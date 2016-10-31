@@ -11,9 +11,9 @@ LG
 00
 
 
-Tue Sep 27 00:20:02 2016
+Mon Oct 31 00:23:08 2016
 
-C:\projects\winfred\CUBE\winfred.app
+C:\Projects\WinFred\CUBE\winfred.app
 C:\projects\winfred\CUBE\MCLOGSUM.APP
 VOYAGER
 
@@ -4251,7 +4251,7 @@ MATRIX
 
 1
 1
-1
+0
 -1.0
 Process Highway Skims
 999999
@@ -4274,9 +4274,9 @@ MAT
 ISCR1 
 999999
 1828
--385
+-535
 2134
--442
+-592
 -1
 -1
 0
@@ -4292,9 +4292,9 @@ MAT
 MATI1 
 999999
 1828
--446
+-596
 2134
--503
+-653
 -1
 -1
 0
@@ -5390,9 +5390,9 @@ MAT
 OPRN  
 999999
 2348
--445
+-535
 2649
--502
+-592
 0
 #OUTFIL1
 Matrix File 1
@@ -5406,9 +5406,9 @@ MAT
 MATO1 
 999999
 2348
--506
+-596
 2649
--563
+-653
 0
 #OUTFIL2
 Matrix File 2

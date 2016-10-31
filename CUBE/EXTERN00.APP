@@ -13,9 +13,9 @@ EE
 00
 
 
-Tue Oct 25 00:13:39 2016
+Mon Oct 31 00:23:08 2016
 
-C:\projects\winfred\CUBE\winfred.app
+C:\Projects\WinFred\CUBE\winfred.app
 C:\projects\winfred\CUBE\EXTERN00.APP
 VOYAGER
 
@@ -13480,9 +13480,9 @@ MAT
 MATO1 
 999999
 2844
--638
+-698
 3145
--695
+-755
 0
 #OUTFIL2
 Matrix File 2
@@ -13495,10 +13495,10 @@ MAT
 MAT
 MATO2 
 999999
-2839
-533
+2844
+-669
 3145
-476
+-726
 0
 #OUTFIL3
 Matrix File 3
@@ -13816,9 +13816,9 @@ MAT
 RECO2 
 999999
 2844
--760
+-791
 3145
--817
+-848
 0
 #OUTFIL23
 Record File 3
@@ -14040,9 +14040,9 @@ MAT
 PRINTO1
 999999
 2844
--821
+-852
 3145
--878
+-909
 0
 #OUTFIL37
 Print Data 2

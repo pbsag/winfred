@@ -11,9 +11,9 @@ CV
 00
 
 
-Mon Sep 26 22:58:31 2016
+Mon Oct 31 00:23:08 2016
 
-C:\projects\winfred\CUBE\winfred.app
+C:\Projects\WinFred\CUBE\winfred.app
 C:\projects\winfred\CUBE\COMMER00.APP
 VOYAGER
 
@@ -6720,7 +6720,7 @@ Print Data 1
 0
 0
 PRN
-C:\projects\winfred\CUBE\CVMAT00B.PRN
+{SCENARIO_DIR}\OUTPUT\CV_TLF_Data.PRN
 0
 MAT
 PRINTO1

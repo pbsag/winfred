@@ -16,7 +16,7 @@ TD
 00
 
 
-Tue Oct 25 01:05:03 2016
+Mon Oct 31 00:06:18 2016
 
 C:\projects\winfred\Cube\TRIPDI00.APP
 C:\PROJECTS\WINFRED\CUBE\TRIPDIST00.APP
@@ -11130,7 +11130,7 @@ Record File 1
 0
 0
 DBF
-{SCENARIO_DIR}\OUTPUT\HBW_shadowPrice.DBF
+{SCENARIO_DIR}\Output\HBW_shadowPrice.dbf
 0
 MAT
 RECO1 

@@ -22,9 +22,9 @@ TN
 00
 Transit Networks and Skims
 
-Mon Sep 26 22:36:03 2016
+Mon Oct 31 00:23:08 2016
 
-C:\projects\winfred\CUBE\winfred.app
+C:\Projects\WinFred\CUBE\winfred.app
 C:\projects\winfred\CUBE\TRANSIT.APP
 VOYAGER
 
