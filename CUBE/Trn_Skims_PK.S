@@ -27,9 +27,7 @@ FILEI NETI = "{SCENARIO_DIR}\Output\HWYTSPD.NET"
    PARAMETERS USERCLASSES=1-2,FARE=N, MAPSCALE={UNIT}, HDWAYPERIOD=1,
          NOROUTEERRS=999999, NOROUTEMSGS=999999,
          TRANTIME=LW.TRANTIME,
-         TRANTIME[21]=LI.M21TIMEPK,
-         TRANTIME[22]=LI.M22TIMEPK,
-         TRANTIME[26]=LI.M26TIMEPK
+         TRANTIME[21]=LI.M21TIMEPK
 
 ;**************************************************************
 ;END POTENTIAL SCRIPT ADJUSTMENT
@@ -55,8 +53,7 @@ FILEI NETI = "{SCENARIO_DIR}\Output\HWYTSPD.NET"
     PROCESS PHASE=SKIMIJ
          MW[1]=TIMEA(0,1)                                                              ; Walk time
          MW[2]=TIMEA(0,21)                                                             ; All bus time
-         MW[3]=TIMEA(0,22)                                                              ; Trolley time
-         MW[4]=TIMEA(0,26)                                                             ; Project mode time
+
 
 ;**************************************************************
 ;END POTENTIAL SCRIPT ADJUSTMENT
