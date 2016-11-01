@@ -63,7 +63,7 @@ RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEMAT00B.PRN"
 FILEO RECO[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_AdjustedTrips.DBF",
 fields=ZONE,AADT,EE_Total,IEEI
 FILEI ZDATI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
-FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"  ;Seed EE trip table after growth for given year are applied
 
 ; Sum EE productions and Attractions
 ; Adjust totals at external stations by the same growth factor as was used to adjust EE trips 

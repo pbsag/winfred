@@ -13,7 +13,7 @@ EE
 00
 
 
-Mon Oct 31 00:23:08 2016
+Tue Nov 01 17:51:52 2016
 
 C:\Projects\WinFred\CUBE\winfred.app
 C:\projects\winfred\CUBE\EXTERN00.APP
@@ -12327,7 +12327,7 @@ MATRIX
 1
 0
 -1.0
-
+Apply Growth Rates to IEEI
 999999
 2641
 -695
