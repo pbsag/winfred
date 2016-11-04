@@ -52,7 +52,7 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBW_Zonal_Trips.csv"
 		  personTrips[I] = ZI.2.HBWP
 		  
 		  ; Compute size term
-		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J])
+		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) 
       
        ; ShadowPrice
       MW[116] = ZI.3.SHADOW_PRIC[J]     
@@ -96,7 +96,7 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBW_Zonal_Trips.csv"
   	DEMAND = personTrips[I],
   	UTILITIESMW = 100,
   	ODEMANDMW = 200,
-  	DESTSPLIT= TOTAL All, INCLUDE=1-{Internal Zones},
+  	DESTSPLIT= TOTAL All, INCLUDE=1-169,
   	STARTMW = 800 
     
 ; Report coefficient values to summary file and debug file;
