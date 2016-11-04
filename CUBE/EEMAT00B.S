@@ -22,7 +22,7 @@ IF( I > {Internal Zones})
   RO.PROD1=ROWSUM(1)    
   RO.ATTR1=ROWSUM(2)
   RO.ZONE=I
-  RO.EE_Total = (RO.PROD1 + RO.ATTR1)/2
+  RO.EE_Total = (RO.PROD1 + RO.ATTR1)/2 
   RO.AADT = ZI.1.EXTTOTAL * ZI.1.GRWTH
   RO.IEEI = RO.AADT - RO.EE_Total
   
