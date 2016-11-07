@@ -271,7 +271,7 @@ FILEO MATO[2] = "{SCENARIO_DIR}\Output\IEEI_{year}_MD.MAT",
  MO=32, NAME=IEEI_MD, DEC=D
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\IEEI_{year}_AM.MAT",
  MO=31, NAME=IEEI_AM, DEC=D
-FILEI MATI[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT"
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_{YEAR}_PA.MAT"
 ZONES={Total Zones}
 
 ;Define arrays of time of day factors
@@ -304,6 +304,21 @@ LOOP TOD=1,4
   TODTable = (30) + TOD
   MW[TODTable] = MW[IETable] + MW[EITable]
 ENDLOOP
+
+ENDRUN
+
+
+; Script for program MATRIX in file "C:\Projects\WinFred\CUBE\IEEI_PA.S"
+; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\IEEI_PA.PRN"
+FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_{YEAR}_PA.MAT",
+    MO=3, NAME=IEEI
+FILEI MATI[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT"
+
+
+MW[1] = mi.1.1
+MW[2] = mi.1.1.t
+MW[3] = MW[1] + MW[2]
 
 ENDRUN
 
