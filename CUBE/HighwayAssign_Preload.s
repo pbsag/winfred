@@ -17,13 +17,14 @@ PHASE=LINKREAD
    T0 = 60* (LI.DISTANCE/LI.FFSPEED)
    C  = LI.CAPE_@PERIOD_NAME@
    LW.COSTa = T0 + 0.25*LI.DISTANCE
+   IF (LI.TRAFF_PHB = 'Y') ADDTOGROUP = 1
  
 ENDPHASE
 
 PHASE=ILOOP
   ; Assign EE trips 
   PATHLOAD PATH=LW.COSTa,  MW[1] = MI.1.5, VOL[1] = MW[1], 
-     MW[2] = MI.1.5, SELECTLINK=({SelectLink}), VOL[2]=MW[2] 
+     MW[2] = MI.1.5, SELECTLINK=({SelectLink}), VOL[2]=MW[2] , EXCLUDEGROUP=1
                                                                          
 ENDPHASE
 

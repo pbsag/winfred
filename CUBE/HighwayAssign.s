@@ -23,6 +23,7 @@ PHASE=LINKREAD
   LW.COSTb = T0 + 0.25*LI.DISTANCE
   LW.COSTc = T0 + 0.25*LI.DISTANCE
   LW.COSTd = T0 + 0.25*LI.DISTANCE
+  IF (LI.TRAFF_PHB = 'Y') ADDTOGROUP = 1
   
 /*
 1	Interstate/Principal Freeway
@@ -57,14 +58,14 @@ PHASE=ILOOP
   PATHLOAD VOL[4] = MI.1.4,  PATH=LW.COSTd 
   */
   PATHLOAD PATH=LW.COSTa , MW[1] = MI.1.1, VOL[1] = MW[1],   
-      MW[5] = MI.1.1, SELECTLINK=({SelectLink}), VOL[5]=MW[5] 
+      MW[5] = MI.1.1, SELECTLINK=({SelectLink}), VOL[5]=MW[5] ,EXCLUDEGROUP = 1
   PATHLOAD PATH=LW.COSTb , MW[2] = MI.1.2, VOL[2] = MW[2],
      ; MW[6] = MI.1.2, SELECTLINK=(L= 4451-4424), VOL[6]=MW[6]      
-  MW[6] = MI.1.2, SELECTLINK=({SelectLink}), VOL[6]=MW[6]    
+  MW[6] = MI.1.2, SELECTLINK=({SelectLink}), VOL[6]=MW[6]    ,EXCLUDEGROUP = 1
   PATHLOAD PATH=LW.COSTc , MW[3] = MI.1.3, VOL[3] = MW[3] ,
-      MW[7] = MI.1.3, SELECTLINK=({SelectLink}), VOL[7]=MW[7]  
+      MW[7] = MI.1.3, SELECTLINK=({SelectLink}), VOL[7]=MW[7]  ,EXCLUDEGROUP = 1
   PATHLOAD PATH=LW.COSTd , MW[4] = MI.1.4, VOL[4] = MW[4], 
-      MW[8] = MI.1.4, SELECTLINK=({SelectLink}), VOL[8]=MW[8]    
+      MW[8] = MI.1.4, SELECTLINK=({SelectLink}), VOL[8]=MW[8]    ,EXCLUDEGROUP = 1
   
 ENDPHASE
 
