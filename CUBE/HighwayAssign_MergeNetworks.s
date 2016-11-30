@@ -115,7 +115,7 @@ if (oft = 1 | oft =2 | oft =9 | oft = 10) ft = 1 ; Freeway
 if (oft = 3 | oft =4)                     ft = 2 ; Major Arterial
 if (oft = 5)                              ft = 3 ; Minor Arterial
 if (oft = 6 | oft = 7 | oft = 8)          ft = 4 ; Collector + Local         
-if (oft = 10)                             ft = 5 ; Connectors   
+if (oft > 10)                             ft = 5 ; Connectors   
 
 ; Write a header file for links
  if (A=1) print CSV=T,list='ScreenLine', 'A','B','Area Type','Fac Type','Fac Type Group', 'FFSPEED', 'Count' ,'Volume','Distance', 'AM_Vol', 'MD_Vol',  'PM_Vol', 'NT_Vol',  'AM_VMT', 'MD_VMT' , 'PM_VMT' , 'NT_VMT',   
