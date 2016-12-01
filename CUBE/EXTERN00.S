@@ -4,13 +4,17 @@
 RUN PGM=FRATAR PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEFRA00A.PRN" MSG='Future year EE Table'
 FILEI MATI[1] = "{CATALOG_DIR}\PARAMS\EE_seed.MAT"
 FILEI LOOKUPI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
+; This table contains the base year external station counts (EE AND IEEI)
+;   and a growth rate (field name = GRWTH).
+;   GRWTH is = 1 for the base year.  
+;   Future year tables are identical to the base year table except for the values of GRWTH.
+
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT",
  MO=1,NAME = EE_TRIPS, DEC=1*D
 
 ; Apply growth rate to base year EE seed matrix marginals
 ;  to obtain EE Marginals.
 ; Fratar external seed table to Productions and Attractions.
-
 
 PARAMETERS MAXRMSE=0.0001 MAXITERS=25
 ; USE A LOOKUP FILE TO find appropriate factors (1.0 is assumed unless expressly provided)
@@ -59,7 +63,7 @@ ENDRUN
 ; Script for program MATRIX in file "C:\PROJECTS\WINFRED\CUBE\EEMAT00B.S"
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEMAT00B.PRN"
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEMAT00B.PRN" MSG='Apply Growth Rates to IEEI'
 FILEO RECO[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_AdjustedTrips.DBF",
 fields=ZONE,AADT,EE_Total,IEEI
 FILEI ZDATI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
@@ -81,7 +85,7 @@ IF( I > {Internal Zones})
   RO.PROD1=ROWSUM(1)    
   RO.ATTR1=ROWSUM(2)
   RO.ZONE=I
-  RO.EE_Total = (RO.PROD1 + RO.ATTR1)/2
+  RO.EE_Total = (RO.PROD1 + RO.ATTR1)/2 
   RO.AADT = ZI.1.EXTTOTAL * ZI.1.GRWTH
   RO.IEEI = RO.AADT - RO.EE_Total
   
@@ -267,7 +271,7 @@ FILEO MATO[2] = "{SCENARIO_DIR}\Output\IEEI_{year}_MD.MAT",
  MO=32, NAME=IEEI_MD, DEC=D
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\IEEI_{year}_AM.MAT",
  MO=31, NAME=IEEI_AM, DEC=D
-FILEI MATI[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT"
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_{YEAR}_PA.MAT"
 ZONES={Total Zones}
 
 ;Define arrays of time of day factors
@@ -300,6 +304,21 @@ LOOP TOD=1,4
   TODTable = (30) + TOD
   MW[TODTable] = MW[IETable] + MW[EITable]
 ENDLOOP
+
+ENDRUN
+
+
+; Script for program MATRIX in file "C:\Projects\WinFred\CUBE\IEEI_PA.S"
+; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\IEEI_PA.PRN"
+FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_{YEAR}_PA.MAT",
+    MO=3, NAME=IEEI
+FILEI MATI[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT"
+
+
+MW[1] = mi.1.1
+MW[2] = mi.1.1.t
+MW[3] = MW[1] + MW[2]
 
 ENDRUN
 

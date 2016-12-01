@@ -3,13 +3,17 @@
 RUN PGM=FRATAR PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEFRA00A.PRN" MSG='Future year EE Table'
 FILEI MATI[1] = "{CATALOG_DIR}\PARAMS\EE_seed.MAT"
 FILEI LOOKUPI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
+; This table contains the base year external station counts (EE AND IEEI)
+;   and a growth rate (field name = GRWTH).
+;   GRWTH is = 1 for the base year.  
+;   Future year tables are identical to the base year table except for the values of GRWTH.
+
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT",
  MO=1,NAME = EE_TRIPS, DEC=1*D
 
 ; Apply growth rate to base year EE seed matrix marginals
 ;  to obtain EE Marginals.
 ; Fratar external seed table to Productions and Attractions.
-
 
 PARAMETERS MAXRMSE=0.0001 MAXITERS=25
 ; USE A LOOKUP FILE TO find appropriate factors (1.0 is assumed unless expressly provided)
