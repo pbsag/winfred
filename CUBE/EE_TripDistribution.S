@@ -2,7 +2,7 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=DISTRIBUTION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TripDistribution.PRN" MSG='IEEI_TripDist'
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Output\IEEI_PA_{year}.DBF"
-FILEO MATO[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT",
+FILEO MATO[1] = "{SCENARIO_DIR}\Output\IEEI_{year}_PA.MAT",
  MO=1, NAME=TRIPS, DEC=D
 FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\Hwyskim.MAT"
 
