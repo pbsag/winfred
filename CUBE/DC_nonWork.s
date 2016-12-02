@@ -37,7 +37,8 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\@PURP@@PERIOD@_Zonal_Trips.csv"
 		KDIST45       = COEFF(1,17)        ; distance calibration constant (4-5 Mile)
 		KDIST56       = COEFF(1,18)        ; distance calibration constant (5-6 Mile)
 		KDIST67       = COEFF(1,19)        ; distance calibration constant (6-7 Mile)
-
+    Coeff_HOS     = COEFF(1,20)        ; SizeTerm = Hospital coefficient
+    
 		; Mode choice logsums
 		MW[1] = MI.1.1 
 		
@@ -53,7 +54,7 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\@PURP@@PERIOD@_Zonal_Trips.csv"
       @isNHB@ personTrips[I] = ZI.2.NHBWP +  ZI.2.NHBOP + ZI.3.NHBNR_A
 		  
 		  ; Compute size term
-		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J])
+		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J]
       
 		  ; Log (sizeTerm)
 		  IF(MW[112] > 0)   MW[113] = Ln(MW[112])  
