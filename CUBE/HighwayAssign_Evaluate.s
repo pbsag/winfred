@@ -35,7 +35,7 @@ if (oft = 1 | oft =2 | oft =9 | oft = 10) ft = 1 ; Freeway
 if (oft = 3 | oft =4)                     ft = 2 ; Major Arterial
 if (oft = 5)                              ft = 3 ; Minor Arterial
 if (oft = 6 | oft = 7 | oft = 8)          ft = 4 ; Collector + Local         
-if (oft = 10)                             ft = 5 ; Connectors    
+if (oft > 10)                             ft = 5 ; Connectors    
  
 ; initialize arrays and variables
    ARRAY _err=10, _cns=10, _cnt=10, _RGP=10, _vols=10

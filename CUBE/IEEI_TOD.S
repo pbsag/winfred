@@ -25,8 +25,8 @@ EIFct[2] = 0.20   ;MD EI Factor
 EIFct[3] = 0.03   ;PM EI Factor 
 EIFct[4] = 0.11   ;NT EI Factor 
 
-MW[1]=mi.1.1      ;IEEI Daily Trips
-MW[2]=mi.1.1.T    ;IEEI Daily Trips
+MW[1] = mi.1.1 * 2      ;IEEI Daily Attractions
+MW[2] = mi.1.1.T * 2    ;IEEI Daily Productions
 
 ;  MW[11] through MW[14] are the working tables (four time periods) for IE trips
 ;  MW[21] through MW[24] are the working tables (four time periods) for EI trips
