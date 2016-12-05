@@ -271,7 +271,7 @@ FILEO MATO[2] = "{SCENARIO_DIR}\Output\IEEI_{year}_MD.MAT",
  MO=32, NAME=IEEI_MD, DEC=D
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\IEEI_{year}_AM.MAT",
  MO=31, NAME=IEEI_AM, DEC=D
-FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_{YEAR}_PA.MAT"
+FILEI MATI[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT"
 ZONES={Total Zones}
 
 ;Define arrays of time of day factors
