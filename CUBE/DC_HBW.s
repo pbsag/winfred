@@ -38,7 +38,9 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBW_Zonal_Trips.csv"
 		KDIST56       = COEFF(1,18)        ; distance calibration constant (5-6 Mile)
 		KDIST67       = COEFF(1,19)        ; distance calibration constant (6-7 Mile)
     Coeff_HOS     = COEFF(1,20)        ; SizeTerm = Hospital coefficient
-
+    Coeff_SG_RET  = COEFF(1,21)        ; SizeTerm = SG_RET coefficient
+    Coeff_SG_COL  = COEFF(1,22)        ; SizeTerm = SG_COL coefficient
+    
 		; Mode choice logsums
 		MW[1] = MI.1.1 
 		
@@ -53,7 +55,7 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBW_Zonal_Trips.csv"
 		  personTrips[I] = ZI.2.HBWP
 		  
 		  ; Compute size term
-		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J]
+		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J] + Coeff_SG_RET * ZI.1.SG_RET[J] + Coeff_SG_COL * ZI.1.SG_COL[J]
       
        ; ShadowPrice
       MW[116] = ZI.3.SHADOW_PRIC[J]     
