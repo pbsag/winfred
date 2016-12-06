@@ -1,0 +1,19 @@
+-------------------------
+CHECKING APPLICATION GROUP 'Trip Distribution'
+C:\projects\winfred\Cube\TRIPDI00.APP
+CHECKING EXECUTION ORDER
+CHECKING FILE EXISTENCE
+-------------------------
+APPLICATION GROUP: 'Trip Distribution' (C:\projects\winfred\Cube\TRIPDI00.APP)
+PROGRAM: DISTRIBUTION
+EXEC ORDER: 8
+THE 'Lookup File 1' DOES NOT EXIST
+{SCENARIO_DIR}\Output\HBU_FFFile.csv
+(='C:\projects\winfred\Base\Output\HBU_FFFile.csv' for Scenario 'Base')
+
+-------------------------
+CHECKING APPLICATION GROUP 'Destination Choice'
+C:\projects\winfred\CUBE\TRIPDIST00.APP
+CHECKING EXECUTION ORDER
+CHECKING FILE EXISTENCE
+-------------------------
