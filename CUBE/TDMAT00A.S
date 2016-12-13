@@ -9,7 +9,7 @@ zones={Internal Zones}
 RO.TAZ=I
 
 MW[1]= zi.1.UNV
-MW[2][144]= 4000*0.67
+MW[2][144]= 3000
 RO.UNVA=MW[2][I]
 
 WRITE RECO=1
