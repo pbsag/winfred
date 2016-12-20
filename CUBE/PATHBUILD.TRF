@@ -1,9 +1,9 @@
 #TripsRun File
 10
 3
-C:\PROJECTS\WINFRED\CUBE\DEMAND.S
+C:\PROJECTS\WINFRED\CUBE\PATHBUILD.S
 58,80,
-Trip Generation,00
+Highway Paths,00
 C:\projects\winfred\CUBE\WinFred Model.PRN
 2
 #PROJECTSTRUCT
@@ -25,23 +25,21 @@ C:\projects\winfred\CUBE\WinFred Model.PRN
 2:TrnAssignment,00,C:\projects\winfred\CUBE\TRNASS00.APP
 #END
 1
-C:\Users\ZhengY\AppData\Local\Temp\Cit6841.tmp
+C:\Users\ZhengY\AppData\Local\Temp\Cit4BBA.tmp
 1
 Base
-#GROUP=Trip Generation, 00:2:C:\projects\winfred\Cube\DEMAND.APP
+#GROUP=Highway Paths, 00:2:C:\projects\winfred\Cube\PATHBUILD.APP
 #PROGRAM
-#PROGNAME=GENERATION<0:13;4
-#EXEC=2
+#PROGNAME=HIGHWAY<0:13;2
+#EXEC=1
 #INCLUSTER=0
-#PROGARGS=C:\projects\winfred\Cube\TripProduction.S
+#PROGARGS=C:\projects\winfred\Cube\HwySkims_FreeFlow.S
 
 1
 #END
 #OUTPUT
-{SCENARIO_DIR}\OUTPUT\LOGS\TripProduction.prn
-{SCENARIO_DIR}\OUTPUT\HH_PROD.DBF
-{SCENARIO_DIR}\Output\HBU_PROD.DBF
-{SCENARIO_DIR}\Output\hbw.csv
+{SCENARIO_DIR}\Output\Logs\HwySkims_FreeFlow.PRN
+{SCENARIO_DIR}\Output\IMPED11.MAT
 #END
 #ENDOFPROGS
 1
