@@ -368,10 +368,10 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\@PURP@@PERIOD@_Zonal_Trips.csv"
 		KDIST45       = COEFF(1,17)        ; distance calibration constant (4-5 Mile)
 		KDIST56       = COEFF(1,18)        ; distance calibration constant (5-6 Mile)
 		KDIST67       = COEFF(1,19)        ; distance calibration constant (6-7 Mile)
-    Coeff_HOS     = COEFF(1,20)        ; SizeTerm = Hospital coefficient
-    Coeff_SG_RET  = COEFF(1,21)        ; SizeTerm = SG_RET coefficient
-    Coeff_SG_COL  = COEFF(1,22)        ; SizeTerm = SG_COL coefficient
-    
+    Coeff_HOS_SG  = COEFF(1,20)        ; SizeTerm = Hospital coefficient
+    Coeff_RET_SG  = COEFF(1,21)        ; SizeTerm = SG_RET coefficient
+    Coeff_COL_SG  = COEFF(1,22)        ; SizeTerm = SG_COL coefficient
+    Coeff_STU_PT  = COEFF(1,23)        ; SizeTerm = STU_PT coefficient
     
 		; Mode choice logsums
 		MW[1] = MI.1.1 
@@ -387,12 +387,12 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\@PURP@@PERIOD@_Zonal_Trips.csv"
 		  @noNHB@ personTrips[I] = ZI.2.@PURP@P
       @isNHB@ personTrips[I] = ZI.2.NHBWP +  ZI.2.NHBOP + ZI.3.NHBNR_A
       
-		  IF (@PURP@ == 'HBO')
-		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J] + Coeff_SG_RET * ZI.1.SG_RET[J] + Coeff_SG_COL * ZI.1.SG_COL[J]
+		  IF ('@PURP@' == 'HBO')
+		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS_SG * ZI.1.SG_HOS[J] + Coeff_RET_SG * ZI.1.SG_RET[J] + Coeff_COL_SG * ZI.1.SG_COL[J] + Coeff_STU_PT * ZI.1.STU_PT[J]
 ;      		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J]
       ELSE
       ; Compute size term
-		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J] + Coeff_SG_RET * ZI.1.SG_RET[J] + Coeff_SG_COL * ZI.1.SG_COL[J]
+		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS_SG * ZI.1.SG_HOS[J] + Coeff_RET_SG * ZI.1.SG_RET[J] + Coeff_COL_SG * ZI.1.SG_COL[J]
 ;      		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J]
       ENDIF
 
