@@ -47,10 +47,10 @@ IF (LI.1.VDOT_FFSPD > 0)
 ENDIF
 
 ; Capacities by time of day are derived from CAPE with adjustment factors.
-CAPE_AM = CAPE * 2.79 ; 2.5  ; AM Capacity
-CAPE_MD = CAPE * 4.40 ; 5.5  ; MD Capacity
-CAPE_PM = CAPE * 3.18 ; 2.5  ; PM Capacity
-CAPE_NT = CAPE * 5.63 ; 4.5  ; NT Capacity
+CAPE_AM = CAPE * 2.5 ;2.79 ; 2.5  ; AM Capacity
+CAPE_MD = CAPE * 5.5 ;4.40 ; 5.5  ; MD Capacity
+CAPE_PM = CAPE * 2.5 ;3.18 ; 2.5  ; PM Capacity
+CAPE_NT = CAPE * 4.5 ;5.63 ; 4.5  ; NT Capacity
 
 ENDPROCESS
 
