@@ -25,7 +25,7 @@ PARAMETERS  ZONES={Total Zones}
 
 PROCESS PHASE=LINKREAD
 
-  ; use Peak congested speed as speed for feedback skim
+  ; use OffPeak congested speed as speed for feedback skim
   SPEED = LI.SPEED_OP_CNG
 
 ENDPROCESS
