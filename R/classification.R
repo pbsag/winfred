@@ -38,7 +38,7 @@ names(class_veh) <- tolower(names(class_veh))
 
 
 # read land use and extract se information for year
-year <- 12
+year <- 15
 taz <- read.dbf(se_file) %>% tbl_df()
 
 
@@ -85,13 +85,15 @@ households <- taz %>%
 
 # list of marginal targets to iterate over
 marginals <- c("p_share", "w_share", "v_share")
-maxiterations <- 15
+maxiterations <- 50
 
 # append initial seed matrix to zonal data frame
 households <- households %>%
   mutate_each_(funs(ifelse(. == 0, 0.001, .)), marginals) %>%  # don't allow zero marginals
   left_join(hhseed)
 
+households <- households %>%
+  mutate(share = ifelse(is.na(share)==T,0,share))
 
 # vector to store convergence information
 gap <- vector("list", length(marginals))
