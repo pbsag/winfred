@@ -7,7 +7,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\Dest_@PURP@.MAT"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\@PURP@_time_TDLF.PRN"
 
              MW[1]=MI.1.@PURP@
-             MW[2]=MI.2.Time
+             MW[2]=MI.2.Total_Time
              gps=26-1
              Array trips=36
              

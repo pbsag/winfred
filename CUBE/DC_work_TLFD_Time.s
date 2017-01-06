@@ -7,7 +7,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\Dest_HBW.MAT"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\LOGS\work_ttfd.PRN"
 
              MW[1]=MI.1.HBW
-             MW[2]=MI.2.Time
+             MW[2]=MI.2.Total_Time
              gps=31-1
              Array trips=31             
              ; Time
