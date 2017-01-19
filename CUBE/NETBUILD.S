@@ -8,7 +8,7 @@ FILEO NETO = "{SCENARIO_DIR}\OUTPUT\HIGHWAY_CLEAN.NET",
   INCLUDE=A, B, ID, LENGTH, DIR, DISTANCE, FACTYPE, LANES,
           POST_SPD, RTE_NAME, AAWDT, TMS_ID, SCREENLN,
           TUNNEL, BRIDGE, TRK_PHB, PED_PHD, TRAFF_PHB, VDOT_CAP,
-          VDOT_FFSPD, COUNT, COUNT_YEAR, ROUTE_NAME, SCREEN_ID
+          VDOT_FFSPD, COUNT, COUNT_YEAR, ROUTE_NAME, SCREEN_ID,TRKCNT
 
 REPORT CAPACITY=Y, SPEED=Y, DEADLINKS=Y, UNCONNECTED=Y, DUPLICATES=Y
 
@@ -423,10 +423,10 @@ IF (LI.1.VDOT_FFSPD > 0)
 ENDIF
 
 ; Capacities by time of day are derived from CAPE with adjustment factors.
-CAPE_AM = CAPE * 2.79 ; 2.5  ; AM Capacity
-CAPE_MD = CAPE * 4.40 ; 5.5  ; MD Capacity
-CAPE_PM = CAPE * 3.18 ; 2.5  ; PM Capacity
-CAPE_NT = CAPE * 5.63 ; 4.5  ; NT Capacity
+CAPE_AM = CAPE * 2.10 ; 2.5 ; 2.19 ; 2.5  ; AM Capacity
+CAPE_MD = CAPE * 5.25 ; 5.5 ; 4.40 ; 5.5  ; MD Capacity
+CAPE_PM = CAPE * 2.50 ; 2.5 ; 3.18 ; 2.5  ; PM Capacity
+CAPE_NT = CAPE * 4.50 ; 4.5 ; 5.63 ; 4.5  ; NT Capacity
 
 ENDPROCESS
 
