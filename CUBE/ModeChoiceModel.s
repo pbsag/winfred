@@ -32,7 +32,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\@PURP@_MCPROB.MAT"
            AUT    = EDA + ESR 
            TOT    = AUT + TRN + ENM
            
-           IF(I==264 && J==264)
+           IF(I=={Internal Zones} && J=={Internal Zones})
               print,list= "EST_EDA"  ," = ",EDA , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\@PURP@ESTIMATED.DAT",
  append = F
               print,list= "EST_ESR"  ," = ",ESR , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\@PURP@ESTIMATED.DAT",
