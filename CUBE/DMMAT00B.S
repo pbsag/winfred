@@ -4,7 +4,7 @@
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\DMMAT00B.PRN" MSG='Household Joint Classification Model (IPF)'
 
 FILEI DBI[1] = "{CATALOG_DIR}\PARAMS\CLASSIFICATION\HH_SEED.DBF",
- AUTOARRAY=share
+ AUTOARRAY=workers, persons, vehicles, share
 FILEI DBI[2] = "{SCENARIO_DIR}\INPUT\SE.DBF",
  AUTOARRAY=ALLFIELDS
 
@@ -32,13 +32,14 @@ FILEO RECO[1] = "{SCENARIO_DIR}\OUTPUT\SE_CLASSIFIED_{YEAR}{ALTERNATIVE}.DBF",
 PAR ZONES=169
 
 ;SET DEFAULTS
-tolerance = 0.1			; tolerance
-DebugZone=113			; selected zone for reporting debug info
-MaxIterations=30			; iterations
+tolerance = 0.01		; tolerance
+DebugZone=92   			; selected zone for reporting debug info
+MaxIterations=50		; iterations
 
 
 ; Define arrays for distributions
 ARRAY TYPE=D, JOINT_DIST=ZONES,4,4,4
+ARRAY TYPE=D, HH_SEED=4,4,4
 ARRAY TYPE=D, V_Marginals=ZONES,4
 ARRAY TYPE=D, P_Marginals=ZONES,4
 ARRAY TYPE=D, W_Marginals=ZONES,4
@@ -48,6 +49,21 @@ ARRAY ZN_SKIP=444, HHLDS=ZONES
 ARRAY TYPE=D, WV=4,4
 ARRAY TYPE=D, PV=4,4
 
+;***********************************************************
+; FILL HH_SEED Matrix with values from HH_SEED.DBF
+;  AND PRINT TO DEBUG REPORT FILE
+IF (I==1)
+  LOOP itemNO=1, DBI.1.NUMRECORDS
+    IF (itemNO==1) PRINT PRINTO=2 LIST="Household Seed Matrix\n    Workers/HH    Persons/HH   Vehicles/HH   Share   Records in Seed Matrix= ", DBI.1.NUMRECORDS(4.0)
+    ;  value of workers and vehicles can be 0, so index must be increased to one
+    ;  workers = 0-3, worker index = 1-4	  vehicles = 0-3, vehicle index = 1=4
+    WRK_IDX = val(DBA.1.workers[itemNO]) + 1    ; Workers in the seed matrix dbf file is a character value
+    PER_IDX = (DBA.1.persons[itemNO])           ; Persons in the seed matrix dbf file is a numeric value
+    VEH_IDX = val(DBA.1.vehicles[itemNO]) + 1   ; Vehicles in the seed matrix dbf file is a character value
+    HH_SEED[WRK_IDX][PER_IDX][VEH_IDX]=DBA.1.share[itemNO]
+    PRINT PRINTO=2 FORM=14.0, LIST = WRK_IDX, PER_IDX, VEH_IDX, HH_SEED[WRK_IDX][PER_IDX][VEH_IDX](10.6)
+  ENDLOOP
+ENDIF
 ;***********************************************************
 ; FILL MARGINALS ARRAYS FROM INPUT FILES
 ;	For each zone, match distribution percentages based on average Workers/HH, Persons/HH and Vehicles/HH
@@ -155,14 +171,11 @@ IF(I == ZONES)
 		IF(DBA.2.HH[ZN] > 0)
 			; -------------------------------------------------------------------------------------------
 			; Initialize targets from seed matrix for each zone
-			; Seeds are in order - vehs 0-3, pers 1-4 witin vehs, wrks 0-3 within pers
-			RECNO=0
 			LOOP WRKS = 1,4    ; Workers
 				LOOP PERS = 1,4  ; Persons
 					LOOP VEHS = 1,4  ; Vehicles
 					IPWD= (100*WRKS) + (10*PERS) + VEHS
-					RECNO = RECNO + 1
-					JOINT_DIST[ZN][WRKS][PERS][VEHS] = DBA.1.share[RECNO]	; HH SEEDS are in an array shares[64]. Initialize the joint distribution with the seed.
+					JOINT_DIST[ZN][WRKS][PERS][VEHS] = HH_SEED[WRKS][PERS][VEHS]
 					IF(JOINT_DIST[ZN][WRKS][PERS][VEHS]=0) ZN_SKIP[IPWD]=1
 					ENDLOOP ;Vehicless
 				ENDLOOP ;Persons
@@ -182,7 +195,7 @@ IF(I == ZONES)
 						IF(WRKS==2) M_WRKS1 = M_WRKS1 + JOINT_DIST[ZN][2][PERS][VEHS]
 						IF(WRKS==3) M_WRKS2 = M_WRKS2 + JOINT_DIST[ZN][3][PERS][VEHS]
 						IF(WRKS==4) M_WRKS3 = M_WRKS3 + JOINT_DIST[ZN][4][PERS][VEHS]
-
+            
 						IF(PERS==1) M_PERS1 = M_PERS1 + JOINT_DIST[ZN][WRKS][1][VEHS]
 						IF(PERS==2) M_PERS2 = M_PERS2 + JOINT_DIST[ZN][WRKS][2][VEHS]
 						IF(PERS==3) M_PERS3 = M_PERS3 + JOINT_DIST[ZN][WRKS][3][VEHS]
@@ -221,11 +234,11 @@ IF(I == ZONES)
 				"\nTAZ = ", zn(4.0), " IPF ITERATION=",ITER(5.0), " TOLERANCE = ", tolerance, "  Aggregate % diff. = ", (margin0*100)(6.2),
 				"\n               MRG1    MRG2    MRG3    MRG4",
 				"\n WORKER MODEL RESULTS ",M_WRKS0(10.4)," ",M_WRKS1(10.4)," ",M_WRKS2(10.4)," ",M_WRKS3(10.4),
-				"\n  TARGET VALUES   ",W_Marginals[ZN][1](10.4)," ",W_Marginals[ZN][2](10.4)," ",W_Marginals[ZN][3](10.4)," ",W_Marginals[ZN][4](10.4),
+				"\n TARGET VALUES        ",W_Marginals[ZN][1](10.4)," ",W_Marginals[ZN][2](10.4)," ",W_Marginals[ZN][3](10.4)," ",W_Marginals[ZN][4](10.4),
 				"\n\n PERSON MODEL RESULTS ",M_PERS1(10.4)," ",M_PERS2(10.4)," ",M_PERS3(10.4)," ",M_PERS4(10.4),
-				"\n  TARGET VALUES   ",P_Marginals[ZN][1](10.4)," ",P_Marginals[ZN][2](10.4)," ",P_Marginals[ZN][3](10.4)," ",P_Marginals[ZN][4](10.4),
+				"\n TARGET VALUES        ",P_Marginals[ZN][1](10.4)," ",P_Marginals[ZN][2](10.4)," ",P_Marginals[ZN][3](10.4)," ",P_Marginals[ZN][4](10.4),
 				"\n\n VEHICLE MODEL RESULTS",M_VEHS1(10.4)," ",M_VEHS2(10.4)," ",M_VEHS3(10.4)," ",M_VEHS4(10.4),
-				"\n  TARGET VALUES   ",V_Marginals[ZN][1](10.4)," ",V_Marginals[ZN][2](10.4)," ",V_Marginals[ZN][3](10.4)," ",V_Marginals[ZN][4](10.4),
+				"\n TARGET VALUES        ",V_Marginals[ZN][1](10.4)," ",V_Marginals[ZN][2](10.4)," ",V_Marginals[ZN][3](10.4)," ",V_Marginals[ZN][4](10.4),
 				"\n"
 			ENDIF
 
