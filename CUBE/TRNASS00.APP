@@ -19,7 +19,7 @@ TA
 00
 
 
-Wed Feb 15 08:52:41 2017
+Wed Feb 15 12:03:42 2017
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\CUBE\TRNASS00.APP
