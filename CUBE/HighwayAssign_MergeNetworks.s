@@ -84,15 +84,15 @@ NT_VHT=li.4.VHT_2
 TOTAL_VHT = AM_VHT + MD_VHT + PM_VHT + NT_VHT   
 
 ; Volume to Capacity Ratio
-AM_VC=li.1.VC_2 
-MD_VC=li.2.VC_2 
-PM_VC=li.3.VC_2 
-NT_VC=li.4.VC_2
+AM_VC_E=li.1.VC_2 
+MD_VC_E=li.2.VC_2 
+PM_VC_E=li.3.VC_2 
+NT_VC_E=li.4.VC_2
 
 IF (Total_Vol > 0)
-  TOTAL_VC = AM_VC * (AM_Vol/Total_Vol) + MD_VC * (MD_Vol/Total_Vol)+ PM_VC * (PM_Vol/Total_Vol) + NT_VC * (NT_Vol/Total_Vol) 
+  TOTAL_VC_E = AM_VC_E * (AM_Vol/Total_Vol) + MD_VC_E * (MD_Vol/Total_Vol)+ PM_VC_E * (PM_Vol/Total_Vol) + NT_VC_E * (NT_Vol/Total_Vol) 
 ELSE
-  TOTAL_VC = 0
+  TOTAL_VC_E = 0
 ENDIF
 
 ; Select Link Volumes
@@ -102,6 +102,18 @@ sl_IEEI=li.1.V7_2 +li.2.V7_2 +li.3.V7_2 +li.4.V7_2
 sl_CV=li.1.V8_2 +li.2.V8_2 +li.3.V8_2 +li.4.V8_2  
 sl_EE=li.1.V2_1 +li.2.V2_1 +li.3.V2_1 +li.4.V2_1  
 sl_tot=sl_DA+ sl_SR +  sl_IEEI + sl_CV + sl_EE
+
+; LOS D VOCs 
+AM_VC_D=li.1.V_2/CAPD_AM 
+MD_VC_D=li.2.V_2/CAPD_MD 
+PM_VC_D=li.3.V_2/CAPD_PM 
+NT_VC_D=li.4.V_2/CAPD_NT 
+
+IF (Total_Vol > 0)
+  TOTAL_VC_D = AM_VC_D * (AM_Vol/Total_Vol) + MD_VC_D * (MD_Vol/Total_Vol)+ PM_VC_D * (PM_Vol/Total_Vol) + NT_VC_D * (NT_Vol/Total_Vol) 
+ELSE
+  TOTAL_VC_D = 0
+ENDIF
 
 ; write out peak and off-peak congested time to use in feedback
 SPEED_PK_CNG =  li.1.CSPD_2  ; AM Congested Speed
