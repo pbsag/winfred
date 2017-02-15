@@ -22,7 +22,7 @@ LOOKUP LOOKUPI=1,
        
 PHASE=ILOOP
   IF (I <= {Internal Zones})
-    TOTALSG = ZI.1.SG_RET + ZI.1.SG_HOS + ZI.1.SG_AIR + ZI.1.SG_COL
+    TOTALSG = 0.5*ZI.1.SG_RET + ZI.1.SG_HOS + 0*ZI.1.SG_AIR + 0*ZI.1.SG_COL
     OFFHTRET = ZI.1.OFF + ZI.1.HTRET
     A[1]=(ZI.1.HH * G_RATES(1,1)) + (ZI.1.IND * G_RATES(1,2)) + (ZI.1.RET * G_RATES(1,5)) +
        (OFFHTRET * G_RATES(1,4)) + (ZI.1.SER * G_RATES(1,3)) + (TOTALSG * G_RATES(1,6))

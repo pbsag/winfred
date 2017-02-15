@@ -11,8 +11,8 @@ setpa p[1]=zi.1.p1, a[1]=zi.1.a1  ;Set P and A Fields
 
 ; Gamma Function parameters
 alpha   =  1.3544
-beta    = -4.0016
-epsilon =  .14
+beta    = -3.0016
+epsilon =  .2
 
 MW[2]=mi.1.1      ; total travel time
 
