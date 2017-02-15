@@ -41,9 +41,9 @@ PHASE=LINKREAD
 */
 
 ; Group facility types
-  IF(LI.FACTYPE=1,2,9,10)    LINKCLASS=1 ; Freeway
+  IF(LI.FACTYPE=1,2,9)    LINKCLASS=1 ; Freeway
   IF(LI.FACTYPE=3,4)    LINKCLASS=2 ; Major Arterial
-  IF(LI.FACTYPE=5)      LINKCLASS=3 ; Minor Arterial
+  IF(LI.FACTYPE=5,10)      LINKCLASS=3 ; Minor Arterial
   IF(LI.FACTYPE=6,7)    LINKCLASS=4 ; Collector
   IF(LI.FACTYPE=8)      LINKCLASS=5 ; Local
   IF(LI.FACTYPE>10)     LINKCLASS=6 ; Connectors
