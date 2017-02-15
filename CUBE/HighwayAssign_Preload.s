@@ -27,6 +27,9 @@ PHASE=ILOOP
      MW[2] = MI.1.5, SELECTLINK=({SelectLink}), VOL[2]=MW[2] , EXCLUDEGROUP=1
                                                                          
 ENDPHASE
+PHASE=ADJUST
+FUNCTION { V =VOL[1] }
+ENDPHASE
 
 
 ENDRUN
