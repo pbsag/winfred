@@ -10,7 +10,7 @@ NB
 00
 Build Network from Minutp to Cube.  Add/Manipulate Link Variables.
 
-Thu Jan 26 14:26:03 2017
+Wed Feb 15 08:52:41 2017
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\NETBUILD.APP

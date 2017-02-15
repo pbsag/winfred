@@ -11,9 +11,9 @@ MC
 00
 
 
-Tue Dec 06 15:17:26 2016
+Wed Feb 15 08:52:41 2017
 
-C:\Projects\WinFred\CUBE\winfred.app
+C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\CUBE\MODECH00.APP
 VOYAGER
 

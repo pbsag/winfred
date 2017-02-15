@@ -13,9 +13,9 @@ EE
 00
 
 
-Thu Dec 01 20:49:02 2016
+Wed Feb 15 08:52:41 2017
 
-C:\Projects\WinFred\CUBE\winfred.app
+C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\CUBE\EXTERN00.APP
 VOYAGER
 

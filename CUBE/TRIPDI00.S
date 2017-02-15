@@ -4,7 +4,7 @@ RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\TDMAT00C.PRN" MSG='HBSC FF'
     zones = 1
     alpha = 1000000
     Beta = 0.25
-    gamma = -0.32
+    gamma = -0.35
 
 FILEO PRINTO[1] = "{SCENARIO_DIR}\Output\HBSC_FFFile.CSV",
  APPEND=F
@@ -527,7 +527,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\Dest_@PURP@.MAT"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\@PURP@_time_TDLF.PRN"
 
              MW[1]=MI.1.@PURP@
-             MW[2]=MI.2.Time
+             MW[2]=MI.2.Total_Time
              gps=26-1
              Array trips=36
              
@@ -615,7 +615,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\Dest_HBW.MAT"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\LOGS\work_ttfd.PRN"
 
              MW[1]=MI.1.HBW
-             MW[2]=MI.2.Time
+             MW[2]=MI.2.Total_Time
              gps=31-1
              Array trips=31             
              ; Time

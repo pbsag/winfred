@@ -18,7 +18,7 @@ TR
 00
 Add/Manipulate Various Trip tables
 
-Mon Sep 26 23:38:35 2016
+Wed Feb 15 08:52:41 2017
 
 C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\TRIPS.APP

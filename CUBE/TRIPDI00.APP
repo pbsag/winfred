@@ -15,9 +15,9 @@ TD
 00
 
 Runs Trip Distribution
-Tue Dec 06 15:26:23 2016
+Wed Feb 15 08:52:41 2017
 
-C:\Projects\WinFred\CUBE\winfred.app
+C:\projects\winfred\CUBE\winfred.app
 C:\projects\winfred\Cube\TRIPDI00.APP
 VOYAGER
 
