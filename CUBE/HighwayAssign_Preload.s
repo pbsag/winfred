@@ -23,7 +23,7 @@ ENDPHASE
 
 PHASE=ILOOP
   ; Assign EE trips 
-  PATHLOAD PATH=LW.COSTa,  MW[1] = MI.1.5, VOL[1] = MW[1], 
+  PATHLOAD PATH=LW.COSTa,  MW[1] = MI.1.5, VOL[1] = MW[1], PENI = 1,
      MW[2] = MI.1.5, SELECTLINK=({SelectLink}), VOL[2]=MW[2] , EXCLUDEGROUP=1
                                                                          
 ENDPHASE
