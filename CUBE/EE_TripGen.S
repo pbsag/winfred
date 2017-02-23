@@ -24,8 +24,9 @@ PHASE=ILOOP
   IF (I <= {Internal Zones})
     TOTALSG = 0.5*ZI.1.SG_RET + ZI.1.SG_HOS + 0*ZI.1.SG_AIR + 0*ZI.1.SG_COL
     OFFHTRET = ZI.1.OFF + ZI.1.HTRET
+    CBD = ZI.1.CBD * ZI.1.EMP_NOSG
     A[1]=(ZI.1.HH * G_RATES(1,1)) + (ZI.1.IND * G_RATES(1,2)) + (ZI.1.RET * G_RATES(1,5)) +
-       (OFFHTRET * G_RATES(1,4)) + (ZI.1.SER * G_RATES(1,3)) + (TOTALSG * G_RATES(1,6))
+       (OFFHTRET * G_RATES(1,4)) + (ZI.1.SER * G_RATES(1,3)) + (TOTALSG * G_RATES(1,6)) + (CBD * 0.5)
     P[1]= 0
   ELSE
     A[1]=0
