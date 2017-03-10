@@ -1,6 +1,6 @@
 ;; <<Report File>> ;;
 REPORTFILE,
-FileName='C:\projects\winfred\Report\WinFred_ModeChoice.rep',
+FileName='C:\projects\winfred_model\winfred\Report\WinFred_ModeChoice.rep',
 Db='{Scenario_dir}\OUTPUT\aLL_MCTRIPS.MAT',
 TitleRepeat = 1,
 BannerRepeat = 0,

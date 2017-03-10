@@ -1,6 +1,6 @@
 ;; <<Report File>> ;;
 REPORTFILE,
-FileName='C:\projects\winfred\Report\WinFred_TransitAssignment_OP.rep',
+FileName='C:\projects\winfred_model\winfred\Report\WinFred_TransitAssignment_OP.rep',
 Db='{scenario_DIR}\Output\Trn_OP.dbf',
 TitleRepeat = 1,
 BannerRepeat = 0,
