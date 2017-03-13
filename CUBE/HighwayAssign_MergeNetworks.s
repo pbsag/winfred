@@ -49,12 +49,19 @@ PM_CV=li.3.V4_2
 NT_CV=li.4.V4_2 
 TOTAL_CV = AM_CV + MD_CV + PM_CV + NT_CV
 
-; EE
-AM_EX=li.1.V1_1 
-MD_EX=li.2.V1_1 
-PM_EX=li.3.V1_1 
-NT_EX=li.4.V1_1 
-TOTAL_EX = AM_EX + MD_EX + PM_EX + NT_EX
+; EE Auto
+AM_EX_Auto=li.1.V1_1 
+MD_EX_Auto=li.2.V1_1 
+PM_EX_Auto=li.3.V1_1 
+NT_EX_Auto=li.4.V1_1 
+TOTAL_EX_Auto = AM_EX_Auto + MD_EX_Auto + PM_EX_Auto + NT_EX_Auto
+
+; EE TRK
+AM_EX_TRK=li.1.V2_1 
+MD_EX_TRK=li.2.V2_1 
+PM_EX_TRK=li.3.V2_1 
+NT_EX_TRK=li.4.V2_1 
+TOTAL_EX_TRK = AM_EX_TRK + MD_EX_TRK + PM_EX_TRK + NT_EX_TRK
 
 ;Sum period specific loaded attributes to all period (24 hour)...
 ; Congested Speed by Time Period
@@ -100,7 +107,7 @@ sl_DA=li.1.V5_2 +li.2.V5_2 +li.3.V5_2 +li.4.V5_2
 sl_SR=li.1.V6_2 +li.2.V6_2 +li.3.V6_2 +li.4.V6_2  
 sl_IEEI=li.1.V7_2 +li.2.V7_2 +li.3.V7_2 +li.4.V7_2  
 sl_CV=li.1.V8_2 +li.2.V8_2 +li.3.V8_2 +li.4.V8_2  
-sl_EE=li.1.V2_1 +li.2.V2_1 +li.3.V2_1 +li.4.V2_1  
+sl_EE=li.1.V3_1 +li.2.V3_1 +li.3.V3_1 +li.4.V3_1  
 sl_tot=sl_DA+ sl_SR +  sl_IEEI + sl_CV + sl_EE
 
 ; LOS D VOCs 

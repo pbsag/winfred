@@ -10,7 +10,7 @@ FILEI MATI[3] = "{SCENARIO_DIR}\OUTPUT\HBO_MCTRIPS.MAT"
 FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\HBW_MCTRIPS.MAT"
 FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\TOD_FACS.DBF"
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT",
-MO = 1,3-6 NAME = DA, SR, IEEI, CV, EE
+MO = 1,3-7 NAME = DA, SR, IEEI, CV, EE_AUTO, EE_TRK
 PARAMETERS  ZONES={Total Zones}
 
 ; Read alternative specific Constants
@@ -45,6 +45,7 @@ MW[4] = MI.5.1 ; IEEI trips
 
 MW[5] = MI.7.1 + MI.7.2 + MI.7.3 ;CV trips
 
-MW[6] = MI.6.1 ; EE trips
+MW[6] = MI.6.1 ; EE Auto trips
+MW[7] = MI.6.2 ; EE TRK trips
 
 ENDRUN

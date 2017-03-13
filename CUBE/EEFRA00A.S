@@ -9,7 +9,7 @@ FILEI LOOKUPI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
 ;   Future year tables are identical to the base year table except for the values of GRWTH.
 
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT",
- MO=1,NAME = EE_TRIPS, DEC=1*D
+ MO=3,2,NAME = EE_TRIPS_AUTO, EE_TRIPS_TRK,DEC=1*D
 
 ; Apply growth rate to base year EE seed matrix marginals
 ;  to obtain EE Marginals.
@@ -24,5 +24,17 @@ LOOKUP LOOKUPI=1, LIST=Y,
   FAIL[1]=1,FAIL[2]=1,FAIL[3]=1
 
 SETPA PGF[1]=GROWTHF(1,I) AGF[1]=MAX(GROWTHF(2,I),0.000001) MW[1]=MI.1.1 
+
+LOOKUP LOOKUPI=1, LIST=Y,
+  NAME=TRKPCT,
+  LOOKUP[1]=ZONE,RESULT=PCT_TRUCK,
+  LOOKUP[2]=ZONE,RESULT=PCT_TRUCK,
+  FAIL[1]=1,FAIL[2]=1,FAIL[3]=1
+
+SETPA PGF[2]=TRKPCT(1,I) AGF[2]=TRKPCT(2,I) MW[2]=MW[1]
+
+MW[3]=MW[1]-MW[2]
+
+
 
 ENDRUN
