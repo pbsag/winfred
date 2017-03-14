@@ -11,6 +11,7 @@ FILEO NETO = "{SCENARIO_DIR}\Output\PRELOADED_@PERIOD_NAME@.NET",
 
 ;Set run PARAMETERS and Controls
 PARAMETERS ZONES={Total ZONES}, MAXITERS=1, COMBINE=EQUI, GAP= 0.0, RELATIVEGAP = 0.00001
+PCE=1.5
 
 PHASE=LINKREAD
 
@@ -28,8 +29,8 @@ PHASE=ILOOP
   ; Assign EE trips 
   PATHLOAD PATH=LW.COSTa,  MW[1] = MI.1.5, VOL[1] = MW[1], PENI = 1,
      MW[3] = MI.1.5, SELECTLINK=({SelectLink}), VOL[3]=MW[3] , EXCLUDEGROUP=1
-  PATHLOAD PATH=LW.COSTb,  MW[2] = MI.1.6, VOL[2] = MW[2], PENI = 1,
-     MW[4] = MI.1.6, SELECTLINK=({SelectLink}), VOL[4]=MW[4] , EXCLUDEGROUP=1-2
+  PATHLOAD PATH=LW.COSTb,  MW[2] = MI.1.6*PCE, VOL[2] = MW[2], PENI = 1,
+     MW[4] = MI.1.6*PCE, SELECTLINK=({SelectLink}), VOL[4]=MW[4] , EXCLUDEGROUP=1-2
                                                                          
 ENDPHASE
 PHASE=ADJUST

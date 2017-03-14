@@ -43,8 +43,8 @@ MW[3] = MW[2]/2.19 ; shareride vehicle trips
 
 MW[4] = MI.5.1 ; IEEI trips
 
-MW[5] = MI.7.1 + MI.7.2 
-MW[8] = MI.7.3 ;CV trips
+MW[5] = MI.7.1 + MI.7.2  ; CV and CV_SUT trips
+MW[8] = MI.7.3 ; CV_MUT trips
 
 MW[6] = MI.6.1 ; EE Auto trips
 MW[7] = MI.6.2 ; EE TRK trips
