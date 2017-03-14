@@ -23,6 +23,7 @@ PHASE=LINKREAD
   LW.COSTb = T0 + 0.25*LI.DISTANCE
   LW.COSTc = T0 + 0.25*LI.DISTANCE
   LW.COSTd = T0 + 0.25*LI.DISTANCE
+    LW.COSTe = T0 + 0.25*LI.DISTANCE
   IF (LI.TRAFF_PHB = 'N') ADDTOGROUP = 1
   
 /*
@@ -65,13 +66,15 @@ PHASE=ILOOP
       MW[7] = MI.1.3, SELECTLINK=({SelectLink}), VOL[7]=MW[7]  ,EXCLUDEGROUP = 1
   PATHLOAD PATH=LW.COSTd , MW[4] = MI.1.4, VOL[4] = MW[4],  PENI = 1,
       MW[8] = MI.1.4, SELECTLINK=({SelectLink}), VOL[8]=MW[8]  ,EXCLUDEGROUP = 1
+  PATHLOAD PATH=LW.COSTd , MW[5] = MI.1.7, VOL[5] = MW[5],  PENI = 1,
+      MW[9] = MI.1.7, SELECTLINK=({SelectLink}), VOL[9]=MW[9]  ,EXCLUDEGROUP = 1
   
 ENDPHASE
 
 PHASE=ADJUST
 
 function {
-    V=VOL[1]+VOL[2]+VOL[3]+VOL[4]+  LW.EEVOL ; Add preloaded EE Volumes here
+    V=VOL[1]+VOL[2]+VOL[3]+VOL[4]+VOL[5]+  LW.EEVOL ; Add preloaded EE Volumes here
    ; V=VOL[1]+VOL[2]+VOL[4]
      ; TC[1] = Min(T0 * (1 + 0.83*(V/C)^5.5), T0*100)    ; Freeway     
      ; TC[2] = Min(T0 * (1 + 0.83*(V/C)^3.7), T0*100)    ; Major Arterial  
@@ -87,6 +90,6 @@ function {
   LW.COSTb=TIME + 0.25*LI.DISTANCE
   LW.COSTc=TIME + 0.25*LI.DISTANCE
   LW.COSTd=TIME + 0.25*LI.DISTANCE
-  
+  LW.COSTe=TIME + 0.25*LI.DISTANCE  
 ENDPHASE
 ENDRUN

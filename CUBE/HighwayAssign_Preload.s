@@ -19,6 +19,8 @@ PHASE=LINKREAD
    LW.COSTa = T0 + 0.25*LI.DISTANCE
    LW.COSTb = T0 + 0.25*LI.DISTANCE
    IF (LI.TRAFF_PHB = 'N') ADDTOGROUP = 1
+   IF (LI.TRK_PHB = 'N') ADDTOGROUP = 2
+
  
 ENDPHASE
 
@@ -27,7 +29,7 @@ PHASE=ILOOP
   PATHLOAD PATH=LW.COSTa,  MW[1] = MI.1.5, VOL[1] = MW[1], PENI = 1,
      MW[3] = MI.1.5, SELECTLINK=({SelectLink}), VOL[3]=MW[3] , EXCLUDEGROUP=1
   PATHLOAD PATH=LW.COSTb,  MW[2] = MI.1.6, VOL[2] = MW[2], PENI = 1,
-     MW[4] = MI.1.6, SELECTLINK=({SelectLink}), VOL[4]=MW[4] , EXCLUDEGROUP=1
+     MW[4] = MI.1.6, SELECTLINK=({SelectLink}), VOL[4]=MW[4] , EXCLUDEGROUP=1-2
                                                                          
 ENDPHASE
 PHASE=ADJUST
