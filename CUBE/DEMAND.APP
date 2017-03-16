@@ -10,10 +10,10 @@ DM
 00
 Run Trip Generation
 
-Wed Feb 15 12:03:42 2017
+Thu Mar 16 08:41:32 2017
 
-C:\projects\winfred\CUBE\winfred.app
-C:\projects\winfred\Cube\DEMAND.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\Cube\DEMAND.APP
 VOYAGER
 
 
@@ -49,7 +49,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\TripProduction.S
+C:\projects\winfred_model\winfred\Cube\TripProduction.S
 1
 GEN
 ISCR1 
@@ -1464,7 +1464,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\DMMAT00B.S
+C:\projects\winfred_model\WINFRED\CUBE\DMMAT00B.S
 1
 MAT
 ISCR1 

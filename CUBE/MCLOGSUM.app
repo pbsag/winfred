@@ -11,10 +11,10 @@ LG
 00
 
 
-Wed Feb 15 12:03:42 2017
+Thu Mar 16 08:41:33 2017
 
-C:\projects\winfred\CUBE\winfred.app
-C:\projects\winfred\CUBE\MCLOGSUM.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\CUBE\MCLOGSUM.APP
 VOYAGER
 
 
@@ -47,7 +47,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\ModeChoice_Logsum.s
+C:\projects\winfred_model\winfred\Cube\ModeChoice_Logsum.s
 1
 MAT
 ISCR1 
@@ -1961,7 +1961,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\MC_Logsum_Pilot.s
+C:\projects\winfred_model\winfred\Cube\MC_Logsum_Pilot.s
 1
 PIL
 ISCR1 
@@ -2178,7 +2178,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\MC_Logsum_Pilot_end.s
+C:\projects\winfred_model\winfred\Cube\MC_Logsum_Pilot_end.s
 1
 PIL
 ISCR1 
@@ -2395,7 +2395,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\Process_HwySkim_PK.S
+C:\projects\winfred_model\winfred\Cube\Process_HwySkim_PK.S
 1
 MAT
 ISCR1 
@@ -4268,7 +4268,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\Process_HwySkim_OP.S
+C:\projects\winfred_model\winfred\Cube\Process_HwySkim_OP.S
 1
 MAT
 ISCR1 

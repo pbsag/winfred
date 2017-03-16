@@ -9,10 +9,10 @@ PB
 00
 Build Initial Impedance Table
 
-Wed Feb 15 12:03:42 2017
+Thu Mar 16 08:41:32 2017
 
-C:\projects\winfred\CUBE\winfred.app
-C:\projects\winfred\Cube\PATHBUILD.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\Cube\PATHBUILD.APP
 VOYAGER
 
 
@@ -48,7 +48,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HwySkims_FreeFlow.S
+C:\projects\winfred_model\winfred\Cube\HwySkims_FreeFlow.S
 1
 HWY
 ISCR1 
@@ -2039,7 +2039,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HwySkims_FreeFlow_PK_OP.S
+C:\projects\winfred_model\winfred\Cube\HwySkims_FreeFlow_PK_OP.S
 1
 PIL
 ISCR1 

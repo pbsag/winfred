@@ -14,10 +14,10 @@ AS
 00
 Assign trips to Network
 
-Wed Feb 15 12:03:42 2017
+Thu Mar 16 08:41:33 2017
 
-C:\projects\winfred\CUBE\winfred.app
-C:\projects\winfred\Cube\ASSIGNMENT.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\Cube\ASSIGNMENT.APP
 VOYAGER
 
 
@@ -59,7 +59,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HighwayAssign.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign.s
 1
 HWY
 ISCR1 
@@ -2050,7 +2050,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HighwayAssign_MergeNetworks.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign_MergeNetworks.s
 1
 NET
 ISCR1 
@@ -3713,7 +3713,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HighwayAssign_Pilot.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign_Pilot.s
 1
 PIL
 ISCR1 
@@ -3971,7 +3971,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HighwayAssign_Evaluate.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign_Evaluate.s
 1
 NET
 ISCR1 
@@ -5634,7 +5634,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HighwayAssign_Preload.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign_Preload.s
 1
 HWY
 ISCR1 

@@ -11,10 +11,10 @@ CV
 00
 
 
-Wed Feb 15 12:03:42 2017
+Thu Mar 16 08:41:35 2017
 
-C:\projects\winfred\CUBE\winfred.app
-C:\projects\winfred\CUBE\COMMER00.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\CUBE\COMMER00.APP
 VOYAGER
 
 
@@ -47,7 +47,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\CV_TripGen.S
+C:\projects\winfred_model\winfred\Cube\CV_TripGen.S
 1
 GEN
 ISCR1 
@@ -1462,7 +1462,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\CV_TripDistribution.S
+C:\projects\winfred_model\winfred\Cube\CV_TripDistribution.S
 1
 DST
 ISCR1 
@@ -3155,7 +3155,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\CV_TimeOfDay.S
+C:\projects\winfred_model\winfred\Cube\CV_TimeOfDay.S
 1
 MAT
 ISCR1 
@@ -5028,7 +5028,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\CV_TLFD.S
+C:\projects\winfred_model\winfred\Cube\CV_TLFD.S
 1
 MAT
 ISCR1 
