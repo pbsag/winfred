@@ -7,7 +7,7 @@ FB
 00
 Winchester Frederick County Travel Demand Model
 
-Tue Mar 21 04:28:44 2017
+Tue Mar 21 06:05:48 2017
 C:\Projects\winfred\Cube\winfred_logo.bmp
 
 C:\Projects\winfred\CUBE\winfred.app
@@ -800,9 +800,9 @@ Zonal Data 1
       
 999999
 1809
--1695
+-1741
 2025
--1738
+-1784
 -1
 -1
 0
@@ -818,37 +818,19 @@ Zonal Data 2
       
 999999
 1809
--1741
-2025
--1784
--1
--1
-0
-#INFIL2
-Matrix File 1
-MC Logsums
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\@MCLS_MAT@_MCLS.MAT
-1
-0100
-      
-999999
-1809
 -1787
 2025
 -1830
 -1
 -1
 0
-#INFIL3
+#INFIL2
 Matrix File 2
 Highway Skims
 0
 0
 *
-{SCENARIO_DIR}\OUTPUT\op_Hwyskim.MAT
+{SCENARIO_DIR}\OUTPUT\PK_Hwyskim.MAT
 1
 0101
       
@@ -860,15 +842,15 @@ Highway Skims
 -1
 -1
 0
-#INFIL4
-Matrix File 2
-Highway Skims
+#INFIL3
+Lookup File 1
+DC Parameters
 0
 0
 *
-{SCENARIO_DIR}\OUTPUT\PK_Hwyskim.MAT
+{CATALOG_DIR}\PARAMS\DESTCHOICE_PARAMETERS.DBF
 1
-0103
+0104
       
 999999
 1809
@@ -878,41 +860,7 @@ Highway Skims
 -1
 -1
 0
-#INFIL5
-Lookup File 1
-DC Parameters
-0
-0
-*
-{CATALOG_DIR}\PARAMS\DESTCHOICE_PARAMETERS.DBF
-1
-0106
-      
-999999
-1809
--1925
-2025
--1968
--1
--1
-0
 #OUTFIL0
-Matrix File 1
-Dest <purpose>
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\Dest_@PURP@.MAT
-1
-0100
-      
-999999
-2325
--1787
-2537
--1830
-0
-#OUTFIL1
 Matrix File 1
 HBSC Trip Table
 0
@@ -924,9 +872,9 @@ HBSC Trip Table
       
 999999
 2325
--1833
+-1810
 2537
--1876
+-1853
 0
 #PROGRAM7
 9

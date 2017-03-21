@@ -1,11 +1,8 @@
 &PROJFIL
 EXP0 221Zonal Data 1   {SCENARIO_DIR}\OUTPUT\HH_PROD.DBF                           
 EXP0 231Zonal Data 2   {SCENARIO_DIR}\OUTPUT\se_classified_{year}{Alternative}.dbf 
-EXP1 0 1Matrix File 1  {SCENARIO_DIR}\OUTPUT\@MCLS_MAT@_MCLS.MAT                   
-EXP1 1 1Matrix File 2  {SCENARIO_DIR}\OUTPUT\op_Hwyskim.MAT                        
-EXP1 3 1Matrix File 2  {SCENARIO_DIR}\OUTPUT\PK_Hwyskim.MAT                        
-EXP1 6 1Lookup File 1  {CATALOG_DIR}\PARAMS\DESTCHOICE_PARAMETERS.DBF              
-EXP1 0 0Matrix File 1  {SCENARIO_DIR}\OUTPUT\Dest_@PURP@.MAT                       
+EXP1 1 1Matrix File 2  {SCENARIO_DIR}\OUTPUT\PK_Hwyskim.MAT                        
+EXP1 4 1Lookup File 1  {CATALOG_DIR}\PARAMS\DESTCHOICE_PARAMETERS.DBF              
 EXP3 1 0Matrix File 1  {SCENARIO_DIR}\Output\Dest_HBSC.MAT                         
 11
 0
@@ -15,7 +12,7 @@ TD
 00
 
 Runs Trip Distribution
-Tue Mar 21 00:20:00 2017
+Tue Mar 21 04:50:54 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\Cube\TRIPDI00.APP
@@ -1742,42 +1739,6 @@ Destination Choice
 0
 0
 #INFIL0
-Matrix File 1
-MC Logsums
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\@MCLS_MAT@_MCLS.MAT
-1
-0201
-      
-999999
-351
--1486
-747
--1558
--1
--9
-1
-#INFIL1
-Matrix File 2
-Highway Skims
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\op_Hwyskim.MAT
-1
-0202
-      
-999999
-351
--1563
-747
--1635
--1
--9
-1
-#INFIL2
 Zonal Data 3
 
 0
@@ -1795,7 +1756,7 @@ Zonal Data 3
 -1
 -1
 0
-#INFIL3
+#INFIL1
 Matrix File 2
 Highway Skims
 0
@@ -1813,7 +1774,7 @@ Highway Skims
 -1
 -9
 1
-#INFIL4
+#INFIL2
 Zonal Data 1
 
 0
@@ -1831,7 +1792,7 @@ Zonal Data 1
 -1
 -1
 0
-#INFIL5
+#INFIL3
 Zonal Data 2
 
 0
@@ -1849,7 +1810,7 @@ Zonal Data 2
 -1
 -1
 0
-#INFIL6
+#INFIL4
 Lookup File 1
 DC Parameters
 0
@@ -1867,7 +1828,7 @@ DC Parameters
 -1
 -9
 1
-#INFIL7
+#INFIL5
 Matrix File 1
 
 0
@@ -1885,22 +1846,6 @@ Matrix File 1
 -1
 -1
 0
-#OUTFIL0
-Matrix File 1
-
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\Dest_@PURP@.MAT
-1
-0201
-      
-999999
-1248
--1752
-1637
--1824
-1
 #PROGRAM2
 3
 0

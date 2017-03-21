@@ -1,22 +1,22 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\DC_nonWork_HBO.PRN" MSG='Apply Destination Choice Model HBO'
-FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\HBO_MCLS.MAT"
-FILEI MATI[2] = "C:\Projects\Winfred\Base\Output\OP_Hwyskim.MAT"
-FILEI ZDATI[1] = "{SCENARIO_DIR}\OUTPUT\se_classified_{year}{Alternative}.dbf"
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\DC_nonWork_HBSH.PRN" MSG='Apply Destination Choice Model HBSH'
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\HBSH_MCLS.MAT"
+FILEI MATI[2] = "C:\PROJECTS\WINFRED\BASE\OUTPUT\OP_HWYSKIM.MAT"
+FILEI ZDATI[1] = "{SCENARIO_DIR}\OUTPUT\SE_CLASSIFIED_{YEAR}{ALTERNATIVE}.DBF"
 FILEI ZDATI[2] = "{SCENARIO_DIR}\OUTPUT\HH_PROD.DBF"
-FILEI ZDATI[3] = "{SCENARIO_DIR}\Output\NHBNR_PA_{year}.DBF"
+FILEI ZDATI[3] = "{SCENARIO_DIR}\OUTPUT\NHBNR_PA_{YEAR}.DBF"
 FILEI LOOKUPI[1] = "{CATALOG_DIR}\PARAMS\DESTCHOICE_PARAMETERS.DBF"
-FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\Dest_HBO.MAT"
-FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\DESTCHOICE_HBO_DEBUG.RPT"
-FILEO PRINTO[2] = "{SCENARIO_DIR}\OUTPUT\DESTCHOICE_HBO_SUMMARY.TXT"
-FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBOPK_Zonal_Trips.csv"
+FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\DEST_HBSH.MAT"
+FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\DESTCHOICE_HBSH_DEBUG.RPT"
+FILEO PRINTO[2] = "{SCENARIO_DIR}\OUTPUT\DESTCHOICE_HBSH_SUMMARY.TXT"
+FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBSHPK_ZONAL_TRIPS.CSV"
 
 
 		ZONES = {Total Zones}
 		ARRAY personTrips = ZONES
 
 		; READ IN MODEL PARAMETERS
-		LOOKUP, NAME=COEFF, LOOKUP[1]=NVAR, RESULT=HBO, INTERPOLATE=N, LIST=Y, LOOKUPI=1
+		LOOKUP, NAME=COEFF, LOOKUP[1]=NVAR, RESULT=HBSH, INTERPOLATE=N, LIST=Y, LOOKUPI=1
 		Coeff_HH = COEFF(1,1)              ; SizeTerm = household coefficient
 		Coeff_OTH_OFF_EMP = COEFF(1,2)     ; SizeTerm = Other + Office Emp coefficient
 		Coeff_OFF_EMP = COEFF(1,3)         ; SizeTerm = Office Emp coefficient
@@ -52,11 +52,11 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBOPK_Zonal_Trips.csv"
 		JLOOP
 		
 		  ; Read productions
-		  personTrips[I] = ZI.2.HBOP
+		  personTrips[I] = ZI.2.HBSHP
       
-		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS_SG * ZI.1.SG_HOS[J] + Coeff_RET_SG * ZI.1.SG_RET[J] + Coeff_COL_SG * ZI.1.SG_COL[J] + Coeff_STU_PT * ZI.1.STU_PT[J]
-;      		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS * ZI.1.SG_HOS[J]
-
+		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS_SG * ZI.1.SG_HOS[J] + Coeff_RET_SG * ZI.1.SG_RET[J] + Coeff_COL_SG * ZI.1.SG_COL[J]
+      
+ 
 		  ; Log (sizeTerm)
 		  IF(MW[112] > 0)   MW[113] = Ln(MW[112])  
 		
@@ -101,9 +101,9 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBOPK_Zonal_Trips.csv"
     JLOOP
 		; Debug destination choice
 	  IF({DebugDC} = 1 && I = {SelOrigin} && J = {SelDest}) 
-	  	PRINT PRINTO=1 CSV=F LIST ='DESTINTION CHOICE TRACE HBO','\n\n'
+	  	PRINT PRINTO=1 CSV=F LIST ='DESTINTION CHOICE TRACE HBSH','\n\n'
 	  	PRINT PRINTO=1 CSV=F LIST =' Destination Choice Model Trace \n\nSelected Interchange for Tracing:    ',{SelOrigin}(4.0),'-',{SelDest}(4.0),'\n'
-	  	PRINT PRINTO=1 CSV=F LIST ='\n PURPOSE -                   HBO  '
+	  	PRINT PRINTO=1 CSV=F LIST ='\n PURPOSE -                   HBSH  '
 	  	PRINT PRINTO=1 CSV=F LIST ='\n Size Term is computed on the Destination '	  	      
 	  	PRINT PRINTO=1 CSV=F LIST ='\n SizeTerm = household coefficient                    ', Coeff_HH          , ' * ' , ZI.1.HH[J]  
 		  PRINT PRINTO=1 CSV=F LIST ='\n SizeTerm = Other + Office Emp coefficient           ', Coeff_OTH_OFF_EMP , ' * ' , ZI.1.EMP[J], ZI.1.RET[J] ,ZI.1.HTRET[J]   
