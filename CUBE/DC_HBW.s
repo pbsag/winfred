@@ -107,9 +107,9 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBW_Zonal_Trips.csv"
     JLOOP
 		; Debug destination choice
 	  IF({DebugDC} = 1 && I = {SelOrigin} && J = {SelDest}) 
-	  	PRINT PRINTO=1 CSV=F LIST ='DESTINTION CHOICE TRACE @PURP@','\n\n'
+	  	PRINT PRINTO=1 CSV=F LIST ='DESTINTION CHOICE TRACE HBW','\n\n'
 	  	PRINT PRINTO=1 CSV=F LIST =' Destination Choice Model Trace \n\nSelected Interchange for Tracing:    ',{SelOrigin}(4.0),'-',{SelDest}(4.0),'\n'
-	  	PRINT PRINTO=1 CSV=F LIST ='\n PURPOSE -                   @PURP@  '
+	  	PRINT PRINTO=1 CSV=F LIST ='\n PURPOSE -                   HBW  '
 	  	PRINT PRINTO=1 CSV=F LIST ='\n Size Term is computed on the Destination '	  	      
 	  	PRINT PRINTO=1 CSV=F LIST ='\n SizeTerm = household coefficient                    ', Coeff_HH          , ' * ' , ZI.1.HH[J]  
 		  PRINT PRINTO=1 CSV=F LIST ='\n SizeTerm = Other + Office Emp coefficient           ', Coeff_OTH_OFF_EMP , ' * ' , ZI.1.EMP[J], ZI.1.RET[J] ,ZI.1.HTRET[J]   

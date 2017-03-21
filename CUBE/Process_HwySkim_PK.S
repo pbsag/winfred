@@ -2,10 +2,11 @@
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\Process_HwySkim_PK.PRN" MSG='Process Highway Skims'
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\pk_Hwyskim.MAT",
  MO=11-15,DEC=5*D,NAME=TIME,DISTANCE,OTERM,DTERM,TOTAL_TIME
-FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\@pk_hwy_skim@"
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\PK_CNG_HwySkim.MAT"
 
 FILLMW MW[1]=MI.1.1(5)                ; highway skims
 
+; On the first iteration the freeflow skims have been copied over to 'PK_CNG_HwySkim.MAT'
 ; Reset invalid values to zero
   JLOOP
       IF (MW[1] > 1000)
