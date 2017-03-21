@@ -11,10 +11,10 @@ Area Type
 00
 
 
-Thu Mar 16 08:41:32 2017
+Tue Mar 21 00:19:59 2017
 
-C:\projects\winfred_model\winfred\Cube\NETBUILD.APP
-C:\projects\winfred_model\winfred\Cube\NETWOR00.APP
+C:\Projects\winfred\Cube\NETBUILD.APP
+C:\Projects\winfred\Cube\NETWOR00.APP
 VOYAGER
 
 
@@ -53,7 +53,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\AT_1.S
+C:\Projects\winfred\Cube\AT_1.S
 1
 NET
 ISCR1 
@@ -1536,7 +1536,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\AT_4.s
+C:\Projects\winfred\Cube\AT_4.s
 1
 NET
 ISCR1 
@@ -3019,7 +3019,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\AT_5.s
+C:\Projects\winfred\Cube\AT_5.s
 1
 NET
 ISCR1 
@@ -4502,7 +4502,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\AT_2.s
+C:\Projects\winfred\Cube\AT_2.s
 1
 MAT
 ISCR1 
@@ -6375,7 +6375,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\AT_3.s
+C:\Projects\winfred\Cube\AT_3.s
 1
 NET
 ISCR1 
@@ -7858,7 +7858,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\AT_6.s
+C:\Projects\winfred\Cube\AT_6.s
 1
 NET
 ISCR1 
@@ -9341,7 +9341,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\AT_7.s
+C:\Projects\winfred\Cube\AT_7.s
 1
 MAT
 ISCR1 

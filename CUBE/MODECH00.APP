@@ -11,10 +11,10 @@ MC
 00
 
 
-Thu Mar 16 08:41:35 2017
+Tue Mar 21 00:20:02 2017
 
-C:\projects\winfred_model\winfred\CUBE\winfred.app
-C:\projects\winfred_model\winfred\CUBE\MODECH00.APP
+C:\Projects\winfred\CUBE\winfred.app
+C:\Projects\winfred\CUBE\MODECH00.APP
 VOYAGER
 
 
@@ -88,7 +88,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\MC_Pilot.s
+C:\Projects\winfred\Cube\MC_Pilot.s
 1
 PIL
 ISCR1 
@@ -305,7 +305,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\MC_Pilot_end.s
+C:\Projects\winfred\Cube\MC_Pilot_end.s
 1
 PIL
 ISCR1 
@@ -522,7 +522,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\ModeChoiceModel.s
+C:\Projects\winfred\Cube\ModeChoiceModel.s
 1
 MAT
 ISCR1 
@@ -2395,7 +2395,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\MC_Merge_HBO_HBSH.s
+C:\Projects\winfred\Cube\MC_Merge_HBO_HBSH.s
 1
 MAT
 ISCR1 
@@ -4268,7 +4268,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\CUBE\MCMAT00A.S
+C:\Projects\winfred\CUBE\MCMAT00A.S
 1
 MAT
 ISCR1 

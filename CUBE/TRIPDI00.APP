@@ -15,10 +15,10 @@ TD
 00
 
 Runs Trip Distribution
-Thu Mar 16 08:41:33 2017
+Tue Mar 21 00:20:00 2017
 
-C:\projects\winfred_model\winfred\CUBE\winfred.app
-C:\projects\winfred_model\winfred\Cube\TRIPDI00.APP
+C:\Projects\winfred\CUBE\winfred.app
+C:\Projects\winfred\Cube\TRIPDI00.APP
 VOYAGER
 
 
@@ -54,7 +54,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\TripDistribution_GravityModel_HBSC.s
+C:\Projects\winfred\Cube\TripDistribution_GravityModel_HBSC.s
 1
 DST
 ISCR1 
@@ -1725,7 +1725,7 @@ PRINTO10
 1
 5
 
-C:\projects\winfred_model\winfred\CUBE\TRIPDIST00.APP
+C:\Projects\winfred\CUBE\TRIPDIST00.APP
 Destination Choice
 
 0
@@ -1928,7 +1928,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\TripDistribution_D2DFlowsl_HBSC.s
+C:\Projects\winfred\Cube\TripDistribution_D2DFlowsl_HBSC.s
 1
 MAT
 ISCR1 
@@ -3801,7 +3801,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\Cube\TripDistribution_remove_SchoolBus.s
+C:\Projects\winfred\Cube\TripDistribution_remove_SchoolBus.s
 1
 MAT
 ISCR1 
@@ -5674,7 +5674,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\winfred\CUBE\TDMAT00C.S
+C:\Projects\winfred\CUBE\TDMAT00C.S
 1
 MAT
 ISCR1 
@@ -7547,7 +7547,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\WINFRED\CUBE\TDDST00A.S
+C:\Projects\WINFRED\CUBE\TDDST00A.S
 1
 DST
 ISCR1 
@@ -9240,7 +9240,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\WINFRED\CUBE\TDMAT00A.S
+C:\Projects\WINFRED\CUBE\TDMAT00A.S
 1
 MAT
 ISCR1 
@@ -11113,7 +11113,7 @@ Script File
 0
 0
 S
-C:\projects\winfred_model\WINFRED\CUBE\TDMAT00B.S
+C:\Projects\WINFRED\CUBE\TDMAT00B.S
 1
 MAT
 ISCR1 
