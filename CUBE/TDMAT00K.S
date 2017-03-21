@@ -6,7 +6,7 @@ FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\OP_HWYSKIM.MAT"
 FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\DEST_HBSH.MAT"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\OUTPUT\HBSH_TIME_TDLF.PRN"
 
-             MW[1]=MI.1.HBO
+             MW[1]=MI.1.HBSH
              MW[2]=MI.2.Total_Time
              gps=26-1
              Array trips=36
