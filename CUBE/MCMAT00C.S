@@ -1,11 +1,11 @@
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\ModeChoiceModel_HBW.PRN"
-FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\HBW_MCTRIPS.MAT",
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\ModeChoiceModel_NHB.PRN"
+FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\NHB_MCTRIPS.MAT",
  MO = 21-25, NAME = DA, SR, WLB, PMB, NOM
-FILEI ZDATI[1] = "{SCENARIO_DIR}\Input\TrnWalkPercent.dbf"
-FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\Dest_HBW.MAT"
-FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\HBW_MCPROB.MAT"
+FILEI ZDATI[1] = "{SCENARIO_DIR}\INPUT\TRNWALKPERCENT.DBF"
+FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\DEST_NHB.MAT"
+FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\NHB_MCPROB.MAT"
 
         MW[1] = MI.2.1
         FILLMW MW[11] = MI.1.1(10)
@@ -33,21 +33,21 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\HBW_MCPROB.MAT"
            TOT    = AUT + TRN + ENM
            
            IF(I=={Internal Zones} && J=={Internal Zones})
-              print,list= "EST_EDA"  ," = ",EDA , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_EDA"  ," = ",EDA , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F
-              print,list= "EST_ESR"  ," = ",ESR , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_ESR"  ," = ",ESR , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F
-              print,list= "EST_ELB"  ," = ",ELB , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_ELB"  ," = ",ELB , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F
-              print,list= "EST_EPM"  ," = ",EPM , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_EPM"  ," = ",EPM , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F
-              print,list= "EST_ENM"  ," = ",ENM , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_ENM"  ," = ",ENM , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F
-              print,list= "EST_TRN"  ," = ",TRN , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_TRN"  ," = ",TRN , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F
-              print,list= "EST_AUT"  ," = ",AUT , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_AUT"  ," = ",AUT , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F
-              print,list= "EST_TOT"  ," = ",TOT , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\HBWESTIMATED.DAT",
+              print,list= "EST_TOT"  ," = ",TOT , FILE = "{SCENARIO_DIR}\OUTPUT\LOGS\NHBESTIMATED.DAT",
  append = F            
            ENDIF         
         ENDJLOOP

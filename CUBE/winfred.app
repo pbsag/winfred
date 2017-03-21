@@ -7,10 +7,10 @@ FB
 00
 Winchester Frederick County Travel Demand Model
 
-Tue Mar 21 06:05:48 2017
+Tue Mar 21 11:07:21 2017
 C:\Projects\winfred\Cube\winfred_logo.bmp
 
-C:\Projects\winfred\CUBE\winfred.app
+C:\Projects\Winfred\CUBE\winfred.app
 VOYAGER
 
 
@@ -466,9 +466,9 @@ NHB MC
       
 999999
 1836
--2677
+-2746
 2052
--2720
+-2789
 -1
 -1
 0
@@ -484,9 +484,9 @@ HBW MC
       
 999999
 1836
--2723
+-2792
 2052
--2766
+-2835
 -1
 -1
 0
@@ -502,9 +502,9 @@ HBO MC
       
 999999
 1836
--2769
+-2838
 2052
--2812
+-2881
 -1
 -1
 0
@@ -520,67 +520,13 @@ HBSC MC
       
 999999
 1836
--2815
+-2884
 2052
--2858
+-2927
 -1
 -1
 0
 #INFIL4
-Matrix File 5
-IEEI <Period>
-0
-0
-*
-{SCENARIO_DIR}\Output\IEEI_{Year}_@PERIOD_NAME@.MAT
-1
-0005
-      
-999999
-1836
--2861
-2052
--2904
--1
--1
-0
-#INFIL5
-Matrix File 6
-EE <Period>
-0
-0
-*
-{SCENARIO_DIR}\Output\EE_{year}_@PERIOD_NAME@.MAT
-1
-0006
-      
-999999
-1836
--2907
-2052
--2950
--1
--1
-0
-#INFIL6
-Matrix File 7
-CV <Period>
-0
-0
-*
-{SCENARIO_DIR}\Output\CV_{Year}_@PERIOD_NAME@.MAT
-1
-0007
-      
-999999
-1836
--2953
-2052
--2996
--1
--1
-0
-#INFIL7
 Lookup File 1
 TOD Facs
 0
@@ -592,29 +538,13 @@ TOD Facs
       
 999999
 1836
--2999
+-2930
 2052
--3042
+-2973
 -1
 -1
 0
 #OUTFIL0
-Matrix File 1
-ODAUTO <Period>
-0
-0
-*
-{SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT
-1
-0001
-      
-999999
-2352
--2792
-2564
--2835
-0
-#OUTFIL1
 Matrix File 1
 PK Transit
 0
@@ -626,11 +556,11 @@ PK Transit
       
 999999
 2352
--2838
+-2815
 2564
--2881
+-2858
 0
-#OUTFIL2
+#OUTFIL1
 Matrix File 2
 OP Transit
 0
@@ -642,9 +572,9 @@ OP Transit
       
 999999
 2352
--2884
+-2861
 2564
--2927
+-2904
 0
 #PROGRAM5
 6
@@ -1248,42 +1178,6 @@ modechoice
 0
 0
 #INFIL0
-Matrix File 1
-Logsum <purpose>
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\@PURP@_MCPROB.MAT
-1
-0301
-      
-999999
-1862
--2212
-2078
--2255
--1
--1
-0
-#INFIL1
-Matrix File 2
-Dest <purpose>
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\Dest_@PURPNAME@.MAT
-1
-0302
-      
-999999
-1862
--2258
-2078
--2301
--1
--1
-0
-#INFIL2
 Zonal Data 1
 
 0
@@ -1295,27 +1189,11 @@ Zonal Data 1
       
 999999
 1862
--2304
-2078
--2347
--1
--1
-0
-#OUTFIL0
-Matrix File 1
-MC <purpose>
-0
-0
-*
-{SCENARIO_DIR}\OUTPUT\@PURP@_MCTRIPS.MAT
-1
-0301
-      
-999999
-2378
 -2258
-2590
+2078
 -2301
+-1
+-1
 0
 #PROGRAM10
 12

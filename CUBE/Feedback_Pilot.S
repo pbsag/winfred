@@ -7,7 +7,7 @@ FB_ITER = 1
 ;pk_hwy_skim = 'PK_FreeFlow_Skim.MAT'
 ;OP_hwy_skim = 'OP_FreeFlow_Skim.MAT'
 
-;ELSE 
+ELSE 
 ;pk_hwy_skim = 'PK_CNG_HwySkim.MAT'
 ;OP_hwy_skim = 'OP_CNG_HwySkim.MAT'
 ENDIF

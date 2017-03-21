@@ -6,6 +6,7 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\OP_CNG_HwySkim.MAT"
 
 FILLMW MW[1]=MI.1.1(5)                ; highway skims
 
+; On the first iteration the freeflow skims have been copied over the congested skims matrix
 ; Reset invalid values to zero
   JLOOP
       IF (MW[1] > 1000)
