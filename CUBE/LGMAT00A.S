@@ -156,7 +156,6 @@ LOOP ACC=1,2
   ;************************** END UTILITY CALCULATIONS ************************************
 
   ;***************************    MODE AVAILABILITY CHECKS    ************************************
-;  LOOP _m=1,@MARKETS@
     JLOOP
        ; Transit not available if no line-haul in-vehicle time on the transit path
        ; Walk to bus or trolley
