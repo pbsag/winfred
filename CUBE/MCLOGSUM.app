@@ -10,7 +10,7 @@ LG
 00
 
 
-Tue Mar 21 09:15:27 2017
+Thu Mar 23 09:18:59 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\CUBE\MCLOGSUM.APP
@@ -1893,47 +1893,6 @@ PRINTO10
 -2923
 0
 #PROGRAM1
-3
-0
-3
-
-
-
-
-0
-1
-1
--1.0
-
-999999
-660
--1126
-85
-0
-1
-Purpose Loop - Logsums and Probabilities
-1
-1
-0
-7
-0
-0
-PURPOSE
-1
-4
-1
--1
-2017
-3
-2
-21
-4
-17
-23
-8
-0
-0
-#PROGRAM2
 1
 0
 1
@@ -1978,7 +1937,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\OUTPUT\PK_CNG_HwySkim.MAT
+{SCENARIO_DIR}\OUTPUT\@pk_hwy_skim@
 0
 MAT
 MATI1 
@@ -3806,7 +3765,7 @@ PRINTO10
 1217
 -2145
 0
-#PROGRAM3
+#PROGRAM2
 6
 0
 2
@@ -3851,7 +3810,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\OUTPUT\OP_CNG_HwySkim.MAT
+{SCENARIO_DIR}\OUTPUT\@pk_hwy_skim@
 0
 MAT
 MATI1 
@@ -5679,7 +5638,7 @@ PRINTO10
 2114
 -2471
 0
-#PROGRAM4
+#PROGRAM3
 7
 0
 5
@@ -7552,7 +7511,7 @@ PRINTO10
 1235
 -3048
 0
-#PROGRAM5
+#PROGRAM4
 8
 0
 6
@@ -9425,7 +9384,7 @@ PRINTO10
 2160
 -2547
 0
-#PROGRAM6
+#PROGRAM5
 9
 0
 7

@@ -2,10 +2,10 @@
 EXP0 1 1Matrix File 1  {SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT              
 EXP1 1 0Network File   {SCENARIO_DIR}\Output\LOADED_{Year}{Alternative}.NET        
 EXP1 4 0Print Data 1   {SCENARIO_DIR}\Output\Hwy_eval_period.csv                   
-EXP4 4 0Print Data 1   {SCENARIO_DIR}\Output\Hwy_eval.csv                          
-EXP4 5 0Print Data 2   {SCENARIO_DIR}\Output\Hwy_eval_links.csv                    
-EXP5 1 1Matrix File 1  {SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT              
-EXP5 211Network File   {SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET        
+EXP2 4 0Print Data 1   {SCENARIO_DIR}\Output\Hwy_eval.csv                          
+EXP2 5 0Print Data 2   {SCENARIO_DIR}\Output\Hwy_eval_links.csv                    
+EXP3 1 1Matrix File 1  {SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT              
+EXP3 211Network File   {SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET        
 11
 0
 0
@@ -14,7 +14,7 @@ AS
 00
 Assign trips to Network
 
-Tue Mar 21 10:40:08 2017
+Thu Mar 23 08:43:45 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\Cube\ASSIGNMENT.APP
@@ -3687,264 +3687,6 @@ PRINTO30
 -2054
 0
 #PROGRAM2
-3
-0
-2
-
-
-PILOT
-
-1
-1
-0
--1.0
-
-999999
-1188
--668
-1328
--717
-0
-0
-0
-#INFIL0
-Script File
-
-0
-0
-S
-C:\Projects\winfred\Cube\HighwayAssign_Pilot.s
-1
-PIL
-ISCR1 
-999999
-964
--669
-1180
--712
--1
--1
-0
-#INFIL1
-Variable File
-
-0
-0
-VAR
-*.VAR
-0
-VRI
-VARI  
-999999
-777
--709
-1173
--781
--1
--1
-0
-#OUTFIL0
-Print Data 1
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO1
-999999
-1455
--670
-1844
--742
-0
-#OUTFIL1
-Print Data 2
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO2
-999999
-1448
--403
-1844
--475
-0
-#OUTFIL2
-Print Data 3
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO3
-999999
-1448
--480
-1844
--552
-0
-#OUTFIL3
-Print Data 4
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO4
-999999
-1448
--557
-1844
--629
-0
-#OUTFIL4
-Print Data 5
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO5
-999999
-1448
--634
-1844
--706
-0
-#OUTFIL5
-Print Data 6
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO6
-999999
-1448
--711
-1844
--783
-0
-#OUTFIL6
-Print Data 7
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO7
-999999
-1448
--788
-1844
--860
-0
-#OUTFIL7
-Print Data 8
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO8
-999999
-1448
--865
-1844
--937
-0
-#OUTFIL8
-Print Data 9
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO9
-999999
-1448
--942
-1844
--1014
-0
-#OUTFIL9
-Print Data 10
-
-0
-0
-PRN
-*.PRN
-0
-PIL
-PRINTO10
-999999
-1448
--1019
-1844
--1091
-0
-#PROGRAM3
-4
-0
-1
-
-
-
-
-0
-1
-1
--1.0
-
-999999
-502
--695
-122
-0
-1
-Time of day
-1
-1
-0
-10
-0
-0
-PER
-1
-4
-1
--1
-2017
-3
-2
-21
-10
-22
-27
-40
-0
-0
-#PROGRAM4
 5
 0
 12
@@ -5607,7 +5349,7 @@ PRINTO30
 6603
 -3283
 0
-#PROGRAM5
+#PROGRAM3
 6
 0
 3
@@ -7598,7 +7340,7 @@ PRINTO10
 1565
 -4552
 0
-#PROGRAM6
+#PROGRAM4
 7
 0
 10
@@ -10409,7 +10151,7 @@ PRINTO10
 1896
 -4208
 0
-#PROGRAM7
+#PROGRAM5
 8
 0
 9
@@ -13220,7 +12962,7 @@ PRINTO10
 787
 -4208
 0
-#PROGRAM8
+#PROGRAM6
 9
 0
 5
@@ -16031,7 +15773,7 @@ PRINTO10
 787
 -3444
 0
-#PROGRAM9
+#PROGRAM7
 10
 0
 6
@@ -18842,7 +18584,7 @@ PRINTO10
 1948
 -3444
 0
-#PROGRAM10
+#PROGRAM8
 11
 0
 7
@@ -21653,7 +21395,7 @@ PRINTO10
 787
 -3839
 0
-#PROGRAM11
+#PROGRAM9
 12
 0
 8

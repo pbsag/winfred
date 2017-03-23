@@ -1,0 +1,20 @@
+-------------------------
+CHECKING APPLICATION GROUP 'Transit Network'
+C:\Projects\winfred\CUBE\TRANSIT.APP
+CHECKING EXECUTION ORDER
+CHECKING FILE EXISTENCE
+-------------------------
+APPLICATION GROUP: 'Transit Network' (C:\Projects\winfred\CUBE\TRANSIT.APP)
+PROGRAM: PUBLIC TRANSPORT
+EXEC ORDER: 5
+THE 'Network File' DOES NOT EXIST
+{SCENARIO_DIR}\OUTPUT\HWYTSPD.NET
+(='C:\Projects\Winfred\Base\OUTPUT\HWYTSPD.NET' for Scenario 'Base')
+
+APPLICATION GROUP: 'Transit Network' (C:\Projects\winfred\CUBE\TRANSIT.APP)
+PROGRAM: PUBLIC TRANSPORT
+EXEC ORDER: 5
+THE 'NTLegs File 1' DOES NOT EXIST
+{SCENARIO_DIR}\OUTPUT\NTLEG1_TEM.NTL
+(='C:\Projects\Winfred\Base\OUTPUT\NTLEG1_TEM.NTL' for Scenario 'Base')
+
