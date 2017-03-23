@@ -7,10 +7,10 @@ FB
 00
 Winchester Frederick County Travel Demand Model
 
-Thu Mar 23 15:40:52 2017
+Thu Mar 23 16:22:47 2017
 C:\Projects\winfred\Cube\winfred_logo.bmp
 
-C:\Projects\Winfred\CUBE\winfred.app
+C:\Projects\winfred\CUBE\winfred.app
 VOYAGER
 
 
@@ -596,42 +596,6 @@ Highway Assignment
 -1982
 0
 0
-0
-#INFIL0
-Matrix File 1
-OD Auto <Period>
-0
-0
-*
-{SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT
-1
-0001
-      
-999999
-3393
--1894
-3609
--1937
--1
--1
-0
-#INFIL1
-Network File
-
-0
-0
-*
-{SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET
-1
-0321
-      
-999999
-3393
--1940
-3609
--1983
--1
--1
 0
 #OUTFIL0
 Network File

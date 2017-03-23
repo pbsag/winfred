@@ -1,11 +1,8 @@
 &PROJFIL
-EXP0 1 1Matrix File 1  {SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT              
 EXP1 1 0Network File   {SCENARIO_DIR}\Output\LOADED_{Year}{Alternative}.NET        
 EXP1 4 0Print Data 1   {SCENARIO_DIR}\Output\Hwy_eval_period.csv                   
 EXP2 4 0Print Data 1   {SCENARIO_DIR}\Output\Hwy_eval.csv                          
 EXP2 5 0Print Data 2   {SCENARIO_DIR}\Output\Hwy_eval_links.csv                    
-EXP3 1 1Matrix File 1  {SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT              
-EXP3 211Network File   {SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET        
 11
 0
 0
@@ -14,7 +11,7 @@ AS
 00
 Assign trips to Network
 
-Thu Mar 23 15:09:06 2017
+Thu Mar 23 16:22:37 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\Cube\ASSIGNMENT.APP
@@ -77,7 +74,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT
+{SCENARIO_DIR}\Output\ODAUTO_AM.MAT
 0
 HWY
 MATI1 
@@ -87,8 +84,8 @@ MATI1
 1550
 -1032
 -1
--9
-1
+-1
+0
 #INFIL2
 Matrix File 2
 
@@ -437,7 +434,7 @@ Network File
 0
 0
 NET
-{SCENARIO_DIR}\Output\PRELOADED_@PERIOD_NAME@.NET
+{SCENARIO_DIR}\Output\PRELOADED_AM.NET
 0
 HWY
 NETI  
@@ -1229,7 +1226,7 @@ Print File
 0
 0
 PRN
-{SCENARIO_DIR}\Output\Logs\HighwayAssign_@PERIOD_NAME@.PRN
+{SCENARIO_DIR}\Output\Logs\HighwayAssign_AM.PRN
 0
 HWY
 OPRN  
@@ -1245,7 +1242,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\Output\SL_Loaded_@PERIOD_NAME@.MAT
+{SCENARIO_DIR}\Output\SL_Loaded_AM.MAT
 0
 HWY
 MATO1 
@@ -1581,7 +1578,7 @@ Network File
 0
 0
 NET
-{SCENARIO_DIR}\Output\LOADED_@PERIOD_NAME@.NET
+{SCENARIO_DIR}\Output\LOADED_AM.NET
 0
 HWY
 NETO  
@@ -1741,7 +1738,7 @@ Path File 1
 0
 0
 PTH
-{SCENARIO_DIR}\Output\LOADED_@PERIOD_NAME@.PTH
+{SCENARIO_DIR}\Output\LOADED_AM.PTH
 0
 HWY
 PATHO1
@@ -5394,7 +5391,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT
+{SCENARIO_DIR}\Output\ODAUTO_AM.MAT
 0
 HWY
 MATI1 
@@ -5404,8 +5401,8 @@ MATI1
 415
 -1032
 -1
--9
-1
+-1
+0
 #INFIL2
 Matrix File 2
 
@@ -5764,8 +5761,8 @@ NETI
 415
 -1078
 -1
--9
-1
+-1
+0
 #INFIL22
 Sub Area Net
 
@@ -6546,7 +6543,7 @@ Print File
 0
 0
 PRN
-{SCENARIO_DIR}\OUTPUT\LOGS\HighwayAssign_Preload_@PERIOD_NAME@.PRN
+{SCENARIO_DIR}\OUTPUT\LOGS\HighwayAssign_Preload_AM.PRN
 0
 HWY
 OPRN  
@@ -6562,7 +6559,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\Output\SL_Preloaded_@PERIOD_NAME@.MAT
+{SCENARIO_DIR}\Output\SL_Preloaded_AM.MAT
 0
 HWY
 MATO1 
@@ -6898,7 +6895,7 @@ Network File
 0
 0
 NET
-{SCENARIO_DIR}\Output\PRELOADED_@PERIOD_NAME@.NET
+{SCENARIO_DIR}\Output\PRELOADED_AM.NET
 0
 HWY
 NETO  
@@ -7058,7 +7055,7 @@ Path File 1
 0
 0
 PTH
-{SCENARIO_DIR}\Output\PRELOADED_@PERIOD_NAME@.PTH
+{SCENARIO_DIR}\Output\PRELOADED_AM.PTH
 0
 HWY
 PATHO1

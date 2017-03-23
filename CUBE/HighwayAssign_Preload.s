@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\HighwayAssign_Preload_AM.PRN" MSG='Preload External Trips - AM'
+RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\HighwayAssign_Preload_AM.PRN" MSG='Preload External Trips'
 FILEI TURNPENI = "{SCENARIO_DIR}\Input\TurnPenalties.pen"
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\SL_Preloaded_AM.MAT",
 MO=3-4, NAME=SL_EE_AUTO,SL_EE_TRK
