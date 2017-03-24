@@ -1,4 +1,4 @@
-; Script for program HIGHWAY in file "C:\projects\winfred\Cube\HwySkims_FreeFlow.S"
+; Script for program HIGHWAY in file "C:\Projects\winfred\Cube\HwySkims_FreeFlow.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=HIGHWAY PRNFILE="{SCENARIO_DIR}\Output\Logs\HwySkims_FreeFlow.PRN" MSG='Build Initial Skims'
 FILEI NETI = "{SCENARIO_DIR}\output\Interim{Year}{Alternative}.net"

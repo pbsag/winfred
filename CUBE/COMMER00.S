@@ -1,4 +1,4 @@
-; Script for program GENERATION in file "C:\projects\winfred\Cube\CV_TripGen.S"
+; Script for program GENERATION in file "C:\Projects\winfred\Cube\CV_TripGen.S"
 ;;<<Default Template>><<GENERATION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\CV_TripGen.PRN" MSG='CV Trip Generation'
@@ -36,7 +36,7 @@ ENDPHASE
 ENDRUN
 
 
-; Script for program DISTRIBUTION in file "C:\projects\winfred\Cube\CV_TripDistribution.S"
+; Script for program DISTRIBUTION in file "C:\Projects\winfred\Cube\CV_TripDistribution.S"
 ;;<<Default Template>><<DISTRIBUTION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=DISTRIBUTION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\CV_TripDistribution.PRN" MSG='CV Trip Distribution'
@@ -109,7 +109,7 @@ TITLE='** MUT Combo Travel Time Frequency **'
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\projects\winfred\Cube\CV_TimeOfDay.S"
+; Script for program MATRIX in file "C:\Projects\winfred\Cube\CV_TimeOfDay.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\CV_TimeOfDay.PRN" MSG='CV TOD Distribution'
 FILEO MATO[4] = "{SCENARIO_DIR}\Output\CV_{year}_NT.MAT",
@@ -148,7 +148,7 @@ ENDLOOP
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\projects\winfred\Cube\CV_TLFD.S"
+; Script for program MATRIX in file "C:\Projects\winfred\Cube\CV_TLFD.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\CV_TLFD.PRN" MSG='Trip Length Frequency'
 FILEO RECO[3] = "{SCENARIO_DIR}\OUTPUT\TLFD_MUT.DBF",

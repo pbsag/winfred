@@ -1,4 +1,4 @@
-; Script for program NETWORK in file "C:\projects\winfred\Cube\TransitSpeeds.S"
+; Script for program NETWORK in file "C:\Projects\winfred\Cube\TransitSpeeds.S"
 
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\Output\LOGS\TransitSpeeds.PRN" MSG='Transit Speeds'
@@ -96,7 +96,7 @@ endloop
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\projects\winfred\Cube\Build_WalkAccess_Connectors.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Projects\winfred\Cube\Build_WalkAccess_Connectors.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\Output\LOGS\Build_WalkAccess_Conenctors.PRN" MSG='Build Walk Access Connectors'
 FILEO REPORTO = "{SCENARIO_DIR}\Output\LOGS\TNPTR00B.PRN"
@@ -147,7 +147,7 @@ ENDPROCESS
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\projects\winfred\Cube\WalkAccess_Connectors_by_Mode.S"
+; Script for program MATRIX in file "C:\Projects\winfred\Cube\WalkAccess_Connectors_by_Mode.S"
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\Output\LOGS\WalkAccess_Connectors_by_Mode.PRN" MSG='Subdivide Connectors into Separate Files by Mode'
@@ -210,7 +210,7 @@ if (mode=4) PRINT LIST="NT LEG=",zonei(5.0),"-",zonej(5.0)," MODE=",mode(2.0)," 
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\projects\winfred\Cube\Trn_Skims_PK.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Projects\winfred\Cube\Trn_Skims_PK.S"
 ;;<<Default Template>><<PUBLIC TRANSPORT>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\Output\LOGS\Trn_Skims_PK.PRN" MSG='PK-Walk Access Paths / Skims'
@@ -285,7 +285,7 @@ FILEI NETI = "{SCENARIO_DIR}\Output\HWYTSPD.NET"
 ENDRUN
 
 
-; Script for program PUBLIC TRANSPORT in file "C:\projects\winfred\Cube\Trn_Skims_OP.S"
+; Script for program PUBLIC TRANSPORT in file "C:\Projects\winfred\Cube\Trn_Skims_OP.S"
 ;;<<Default Template>><<PUBLIC TRANSPORT>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=PUBLIC TRANSPORT PRNFILE="{SCENARIO_DIR}\Output\LOGS\Trn_Skims_OP.PRN" MSG='OP-Walk Access Paths / Skims'

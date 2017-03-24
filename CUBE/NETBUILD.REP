@@ -1,12 +1,26 @@
 -------------------------
 CHECKING APPLICATION GROUP 'Network'
-C:\projects\winfred\Cube\NETBUILD.APP
+C:\Projects\winfred\Cube\NETBUILD.APP
 CHECKING EXECUTION ORDER
 CHECKING FILE EXISTENCE
 -------------------------
 -------------------------
 CHECKING APPLICATION GROUP 'Area Type'
-C:\projects\winfred\Cube\NETWOR00.APP
+C:\Projects\winfred\Cube\NETWOR00.APP
 CHECKING EXECUTION ORDER
 CHECKING FILE EXISTENCE
 -------------------------
+APPLICATION GROUP: 'Area Type' (C:\Projects\winfred\Cube\NETWOR00.APP)
+PROGRAM: NETWORK
+EXEC ORDER: 1
+THE 'Starting Network' DOES NOT EXIST
+{SCENARIO_DIR}\OUTPUT\highway_clean.net
+(='C:\Projects\Winfred\Base\OUTPUT\highway_clean.net' for Scenario 'Base')
+
+APPLICATION GROUP: 'Area Type' (C:\Projects\winfred\Cube\NETWOR00.APP)
+PROGRAM: NETWORK
+EXEC ORDER: 3
+THE 'Starting Network' DOES NOT EXIST
+{SCENARIO_DIR}\OUTPUT\HIGHWAY_CLEAN.NET
+(='C:\Projects\Winfred\Base\OUTPUT\HIGHWAY_CLEAN.NET' for Scenario 'Base')
+

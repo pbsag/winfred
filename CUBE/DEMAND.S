@@ -1,4 +1,4 @@
-; Script for program MATRIX in file "C:\PROJECTS\WINFRED\CUBE\DMMAT00B.S"
+; Script for program MATRIX in file "C:\Projects\WINFRED\CUBE\DMMAT00B.S"
 ; Household Joint Probability Model (IPF)
 
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
@@ -628,7 +628,7 @@ ENDIF ; End Analysis
 ENDRUN
 
 
-; Script for program GENERATION in file "C:\projects\winfred\Cube\TripProduction.S"
+; Script for program GENERATION in file "C:\Projects\winfred\Cube\TripProduction.S"
 ;;<<Default Template>><<GENERATION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\TripProduction.prn" MSG='Household Trip Production'

@@ -1,6 +1,13 @@
 -------------------------
 CHECKING APPLICATION GROUP 'Trip Generation'
-C:\projects\winfred\Cube\DEMAND.APP
+C:\Projects\winfred\Cube\DEMAND.APP
 CHECKING EXECUTION ORDER
 CHECKING FILE EXISTENCE
 -------------------------
+APPLICATION GROUP: 'Trip Generation' (C:\Projects\winfred\Cube\DEMAND.APP)
+PROGRAM: GENERATION
+EXEC ORDER: 2
+THE 'Zonal Data 1' DOES NOT EXIST
+{SCENARIO_DIR}\Output\se_classified_{year}{Alternative}.dbf
+(='C:\Projects\Winfred\Base\Output\se_classified_2015A.dbf' for Scenario 'Base')
+
