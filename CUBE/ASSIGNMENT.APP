@@ -11,7 +11,7 @@ AS
 00
 Assign trips to Network
 
-Thu Mar 23 16:22:37 2017
+Thu Mar 23 20:00:57 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\Cube\ASSIGNMENT.APP
@@ -2032,7 +2032,7 @@ NETWORK
 1
 0
 -1.0
-
+Merge Assigned Networks
 999999
 2641
 -695
@@ -3695,7 +3695,7 @@ NETWORK
 1
 0
 -1.0
-
+Assignment Evaluation
 999999
 2641
 -1090

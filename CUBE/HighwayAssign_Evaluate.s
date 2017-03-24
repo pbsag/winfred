@@ -1,6 +1,6 @@
 ;;<<Default Template>><<NETWORK>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\Output\HighwayAssign_Evaluate.PRN"
+RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\Output\HighwayAssign_Evaluate.PRN" MSG='Assignment Evaluation'
 FILEO PRINTO[2] = "{SCENARIO_DIR}\Output\Hwy_eval_links.csv"
 FILEI LINKI[1] = "{SCENARIO_DIR}\Output\LOADED_{Year}{Alternative}.NET"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\Output\Hwy_eval.csv"
