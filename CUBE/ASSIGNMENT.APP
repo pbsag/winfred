@@ -11,7 +11,7 @@ AS
 00
 Assign trips to Network
 
-Thu Mar 23 21:11:11 2017
+Fri Mar 24 15:02:06 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\Cube\ASSIGNMENT.APP
