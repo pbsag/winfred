@@ -22,10 +22,10 @@ TN
 00
 Transit Networks and Skims
 
-Tue Mar 21 00:20:00 2017
+Thu Mar 23 23:23:08 2017
 
-C:\Projects\winfred\CUBE\winfred.app
-C:\Projects\winfred\CUBE\TRANSIT.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\CUBE\TRANSIT.APP
 VOYAGER
 
 
@@ -58,7 +58,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\TransitSpeeds.S
+C:\projects\winfred_model\winfred\Cube\TransitSpeeds.S
 1
 NET
 ISCR1 
@@ -1721,7 +1721,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\Build_WalkAccess_Connectors.S
+C:\projects\winfred_model\winfred\Cube\Build_WalkAccess_Connectors.S
 1
 PTR
 ISCR1 
@@ -4206,7 +4206,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\WalkAccess_Connectors_by_Mode.S
+C:\projects\winfred_model\winfred\Cube\WalkAccess_Connectors_by_Mode.S
 1
 MAT
 ISCR1 
@@ -6079,7 +6079,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\Trn_Skims_PK.S
+C:\projects\winfred_model\winfred\Cube\Trn_Skims_PK.S
 1
 PTR
 ISCR1 
@@ -8564,7 +8564,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\Trn_Skims_OP.S
+C:\projects\winfred_model\winfred\Cube\Trn_Skims_OP.S
 1
 PTR
 ISCR1 

@@ -10,10 +10,10 @@ LG
 00
 
 
-Thu Mar 23 09:18:59 2017
+Thu Mar 23 23:23:08 2017
 
-C:\Projects\winfred\CUBE\winfred.app
-C:\Projects\winfred\CUBE\MCLOGSUM.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\CUBE\MCLOGSUM.APP
 VOYAGER
 
 
@@ -46,7 +46,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\LGMAT00A.S
+C:\projects\winfred_model\WINFRED\CUBE\LGMAT00A.S
 1
 MAT
 ISCR1 
@@ -1919,7 +1919,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\Process_HwySkim_PK.S
+C:\projects\winfred_model\winfred\Cube\Process_HwySkim_PK.S
 1
 MAT
 ISCR1 
@@ -3792,7 +3792,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\Process_HwySkim_OP.S
+C:\projects\winfred_model\winfred\Cube\Process_HwySkim_OP.S
 1
 MAT
 ISCR1 
@@ -5665,7 +5665,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\LGMAT00C.S
+C:\projects\winfred_model\WINFRED\CUBE\LGMAT00C.S
 1
 MAT
 ISCR1 
@@ -7538,7 +7538,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\LGMAT00D.S
+C:\projects\winfred_model\WINFRED\CUBE\LGMAT00D.S
 1
 MAT
 ISCR1 
@@ -9411,7 +9411,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\LGMAT00E.S
+C:\projects\winfred_model\WINFRED\CUBE\LGMAT00E.S
 1
 MAT
 ISCR1 

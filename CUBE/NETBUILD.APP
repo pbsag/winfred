@@ -10,10 +10,10 @@ NB
 00
 Build Network from Minutp to Cube.  Add/Manipulate Link Variables.
 
-Tue Mar 21 00:19:59 2017
+Thu Mar 23 23:23:06 2017
 
-C:\Projects\winfred\CUBE\winfred.app
-C:\Projects\winfred\Cube\NETBUILD.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\Cube\NETBUILD.APP
 VOYAGER
 
 
@@ -27,7 +27,7 @@ English
 1
 2
 
-C:\Projects\winfred\Cube\NETWOR00.APP
+C:\projects\winfred_model\winfred\Cube\NETWOR00.APP
 Area Type
 
 0
@@ -136,7 +136,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\FreeFlowSpeeds.s
+C:\projects\winfred_model\winfred\Cube\FreeFlowSpeeds.s
 1
 NET
 ISCR1 
@@ -1799,7 +1799,7 @@ Script File
 0
 0
 S
-C:\Projects\WINFRED\CUBE\NBNET00A.S
+C:\projects\winfred_model\WINFRED\CUBE\NBNET00A.S
 1
 NET
 ISCR1 

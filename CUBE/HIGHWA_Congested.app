@@ -11,10 +11,10 @@ PB
 00
 Build Congested Impedance Table
 
-Tue Mar 21 10:41:35 2017
+Thu Mar 23 23:23:08 2017
 
-C:\Projects\winfred\CUBE\winfred.app
-C:\Projects\winfred\Cube\HIGHWA_Congested.app
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\Cube\HIGHWA_Congested.app
 VOYAGER
 
 
@@ -50,7 +50,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\HwySkims_Congested_PK.S
+C:\projects\winfred_model\winfred\Cube\HwySkims_Congested_PK.S
 1
 HWY
 ISCR1 
@@ -2041,7 +2041,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\HwySkims_Congested_OP.S
+C:\projects\winfred_model\winfred\Cube\HwySkims_Congested_OP.S
 1
 HWY
 ISCR1 
@@ -4032,7 +4032,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\HwySkims_Congested_Pilot_end.S
+C:\projects\winfred_model\winfred\Cube\HwySkims_Congested_Pilot_end.S
 1
 PIL
 ISCR1 

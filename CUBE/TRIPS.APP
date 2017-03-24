@@ -14,10 +14,10 @@ TR
 00
 Add/Manipulate Various Trip tables
 
-Thu Mar 23 08:42:57 2017
+Thu Mar 23 23:23:07 2017
 
-C:\Projects\winfred\CUBE\winfred.app
-C:\Projects\winfred\Cube\TRIPS.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\Cube\TRIPS.APP
 VOYAGER
 
 
@@ -53,7 +53,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\TOD_Model.s
+C:\projects\winfred_model\winfred\Cube\TOD_Model.s
 1
 MAT
 ISCR1 
@@ -1746,7 +1746,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\CUBE\TRMAT00G.S
+C:\projects\winfred_model\winfred\CUBE\TRMAT00G.S
 1
 MAT
 ISCR1 
@@ -3439,7 +3439,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\TRMAT00A.S
+C:\projects\winfred_model\WINFRED\CUBE\TRMAT00A.S
 1
 MAT
 ISCR1 
@@ -5312,7 +5312,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\TRMAT00B.S
+C:\projects\winfred_model\WINFRED\CUBE\TRMAT00B.S
 1
 MAT
 ISCR1 
@@ -7185,7 +7185,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\TRMAT00C.S
+C:\projects\winfred_model\WINFRED\CUBE\TRMAT00C.S
 1
 MAT
 ISCR1 

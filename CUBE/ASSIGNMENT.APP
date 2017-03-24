@@ -11,10 +11,10 @@ AS
 00
 Assign trips to Network
 
-Thu Mar 23 20:00:57 2017
+Thu Mar 23 23:23:07 2017
 
-C:\Projects\winfred\CUBE\winfred.app
-C:\Projects\winfred\Cube\ASSIGNMENT.APP
+C:\projects\winfred_model\winfred\CUBE\winfred.app
+C:\projects\winfred_model\winfred\Cube\ASSIGNMENT.APP
 VOYAGER
 
 
@@ -56,7 +56,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\HighwayAssign.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign.s
 1
 HWY
 ISCR1 
@@ -2047,7 +2047,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\HighwayAssign_MergeNetworks.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign_MergeNetworks.s
 1
 NET
 ISCR1 
@@ -3710,7 +3710,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\HighwayAssign_Evaluate.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign_Evaluate.s
 1
 NET
 ISCR1 
@@ -5373,7 +5373,7 @@ Script File
 0
 0
 S
-C:\Projects\winfred\Cube\HighwayAssign_Preload.s
+C:\projects\winfred_model\winfred\Cube\HighwayAssign_Preload.s
 1
 HWY
 ISCR1 
@@ -7364,7 +7364,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\ASHWY00E.S
+C:\projects\winfred_model\WINFRED\CUBE\ASHWY00E.S
 1
 HWY
 ISCR1 
@@ -10175,7 +10175,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\ASHWY00G.S
+C:\projects\winfred_model\WINFRED\CUBE\ASHWY00G.S
 1
 HWY
 ISCR1 
@@ -12986,7 +12986,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\ASHWY00H.S
+C:\projects\winfred_model\WINFRED\CUBE\ASHWY00H.S
 1
 HWY
 ISCR1 
@@ -15797,7 +15797,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\ASHWY00I.S
+C:\projects\winfred_model\WINFRED\CUBE\ASHWY00I.S
 1
 HWY
 ISCR1 
@@ -18608,7 +18608,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\ASHWY00J.S
+C:\projects\winfred_model\WINFRED\CUBE\ASHWY00J.S
 1
 HWY
 ISCR1 
@@ -21419,7 +21419,7 @@ Script File
 0
 0
 S
-C:\PROJECTS\WINFRED\CUBE\ASHWY00K.S
+C:\projects\winfred_model\WINFRED\CUBE\ASHWY00K.S
 1
 HWY
 ISCR1 
