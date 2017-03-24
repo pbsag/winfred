@@ -10,7 +10,7 @@ LG
 00
 
 
-Thu Mar 23 09:18:59 2017
+Thu Mar 23 20:59:12 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\CUBE\MCLOGSUM.APP
@@ -1937,7 +1937,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\OUTPUT\@pk_hwy_skim@
+{SCENARIO_DIR}\OUTPUT\PK_CNG_HwySkim.MAT
 0
 MAT
 MATI1 
@@ -3810,7 +3810,7 @@ Matrix File 1
 0
 0
 MAT
-{SCENARIO_DIR}\OUTPUT\@pk_hwy_skim@
+{SCENARIO_DIR}\OUTPUT\OP_CNG_HwySkim.MAT
 0
 MAT
 MATI1 
