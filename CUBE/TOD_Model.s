@@ -1,20 +1,20 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\Output\Logs\TOD_Model_@PERIOD_NAME@.PRN" MSG='Convert PA Trips to OD Trips'
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\Output\Logs\TOD_Model_AM.PRN" MSG='Convert PA Trips to OD Trips - AM'
 
-FILEI MATI[7] = "{SCENARIO_DIR}\Output\CV_{Year}_@PERIOD_NAME@.MAT"
-FILEI MATI[6] = "{SCENARIO_DIR}\Output\EE_{year}_@PERIOD_NAME@.MAT"
-FILEI MATI[5] = "{SCENARIO_DIR}\Output\IEEI_{Year}_@PERIOD_NAME@.MAT"
+FILEI MATI[7] = "{SCENARIO_DIR}\Output\CV_{Year}_AM.MAT"
+FILEI MATI[6] = "{SCENARIO_DIR}\Output\EE_{year}_AM.MAT"
+FILEI MATI[5] = "{SCENARIO_DIR}\Output\IEEI_{Year}_AM.MAT"
 FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\NHB_MCTRIPS.MAT"
 FILEI MATI[4] = "{SCENARIO_DIR}\OUTPUT\HBSC_MCTRIPS.MAT"
 FILEI MATI[3] = "{SCENARIO_DIR}\OUTPUT\HBO_MCTRIPS.MAT"
 FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\HBW_MCTRIPS.MAT"
 FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\TOD_FACS.DBF"
-FILEO MATO[1] = "{SCENARIO_DIR}\Output\ODAUTO_@PERIOD_NAME@.MAT",
-MO = 1,3-6 NAME = DA, SR, IEEI, CV, EE
+FILEO MATO[1] = "{SCENARIO_DIR}\Output\ODAUTO_AM.MAT",
+MO = 1,3-8 NAME = DA, SR, IEEI, CV, EE_AUTO, EE_TRK, CV_MUT
 PARAMETERS  ZONES={Total Zones}
 
 ; Read alternative specific Constants
-LOOKUP, NAME=TOD_FACS, LOOKUP[1]=1, RESULT=@PERIOD_COL@, INTERPOLATE=N, , LIST=Y, LOOKUPI=1
+LOOKUP, NAME=TOD_FACS, LOOKUP[1]=1, RESULT=3, INTERPOLATE=N, , LIST=Y, LOOKUPI=1
 
 HBW_PA  = TOD_FACS(1,1)       
 HBW_AP  = TOD_FACS(1,2)     
@@ -43,8 +43,10 @@ MW[3] = MW[2]/2.19 ; shareride vehicle trips
 
 MW[4] = MI.5.1 ; IEEI trips
 
-MW[5] = MI.7.1 + MI.7.2 + MI.7.3 ;CV trips
+MW[5] = MI.7.1 + MI.7.2  ; CV and CV_SUT trips
+MW[8] = MI.7.3 ; CV_MUT trips
 
-MW[6] = MI.6.1 ; EE trips
+MW[6] = MI.6.1 ; EE Auto trips
+MW[7] = MI.6.2 ; EE TRK trips
 
 ENDRUN

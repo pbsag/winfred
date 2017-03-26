@@ -3,7 +3,7 @@ RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\TDMAT00C.PRN" MSG='HBSC FF'
     zones = 1
     alpha = 1000000
     Beta = 0.25
-    gamma = -0.32
+    gamma = -0.35
 
 FILEO PRINTO[1] = "{SCENARIO_DIR}\Output\HBSC_FFFile.CSV",
  APPEND=F

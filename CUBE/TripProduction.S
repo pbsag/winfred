@@ -11,6 +11,9 @@ FILEI LOOKUPI[1] = "{CATALOG_DIR}\PARAMS\TRIP_PROD\HBW.DBF"
 FILEO PAO[1] = "{SCENARIO_DIR}\OUTPUT\HH_PROD.DBF",
   FORM=10.3, LIST = Z, P[1], P[2], P[3], P[4], P[5], P[6], DBF=T, 
   NAMES = TAZ, HBWP, NHBWP, HBOP, HBSCP, HBSHP, NHBOP
+FILEO PAO[2] = "{SCENARIO_DIR}\Output\HBU_PROD.DBF",
+  FORM=10.3, LIST = Z, P[7], DBF=T,
+  NAMES = TAZ, HBU
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Output\se_classified_{year}{Alternative}.dbf"
 
 ZONES = {Internal Zones}
@@ -112,6 +115,21 @@ PROCESS PHASE=ILOOP
     zi.1.p2v0 * nhbo_lu(1, 2) + zi.1.p2v1 * nhbo_lu(2, 2) + zi.1.p2v2 * nhbo_lu(3, 2) + zi.1.p2v3 * nhbo_lu(4, 2) +
     zi.1.p3v0 * nhbo_lu(1, 3) + zi.1.p3v1 * nhbo_lu(2, 3) + zi.1.p3v2 * nhbo_lu(3, 3) + zi.1.p3v3 * nhbo_lu(4, 3) +
     zi.1.p4v0 * nhbo_lu(1, 4) + zi.1.p4v1 * nhbo_lu(2, 4) + zi.1.p4v2 * nhbo_lu(3, 4) + zi.1.p4v3 * nhbo_lu(4, 4)
+   
+    
+   ;# University trips productions
+  P[7] = 0 +
+    zi.1.UNV * hbo_lu(2,3)
+;  P[7][144] = 0
+  
+   ;# Unviersity-based other productions
+;  P[8] = 0 
+;  P[8][144] = zi.1.UNV[144] * 1.29
+  
+   ;# Unviersity-based other productions
+;  P[9] = 0 
+;  P[9][144] = zi.1.UNV[144] * 0.93
+  
     
   p1v0 = zi.1.p1v0 * nhbo_lu(1, 1)
   p1v1 = zi.1.p1v1 * nhbo_lu(2, 1)

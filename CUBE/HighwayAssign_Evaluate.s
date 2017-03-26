@@ -1,6 +1,6 @@
 ;;<<Default Template>><<NETWORK>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\Output\HighwayAssign_Evaluate.PRN"
+RUN PGM=NETWORK PRNFILE="{SCENARIO_DIR}\Output\HighwayAssign_Evaluate.PRN" MSG='Assignment Evaluation'
 FILEO PRINTO[2] = "{SCENARIO_DIR}\Output\Hwy_eval_links.csv"
 FILEI LINKI[1] = "{SCENARIO_DIR}\Output\LOADED_{Year}{Alternative}.NET"
 FILEO PRINTO[1] = "{SCENARIO_DIR}\Output\Hwy_eval.csv"
@@ -35,7 +35,7 @@ if (oft = 1 | oft =2 | oft =9 | oft = 10) ft = 1 ; Freeway
 if (oft = 3 | oft =4)                     ft = 2 ; Major Arterial
 if (oft = 5)                              ft = 3 ; Minor Arterial
 if (oft = 6 | oft = 7 | oft = 8)          ft = 4 ; Collector + Local         
-if (oft = 10)                             ft = 5 ; Connectors    
+if (oft > 10)                             ft = 5 ; Connectors    
  
 ; initialize arrays and variables
    ARRAY _err=10, _cns=10, _cnt=10, _RGP=10, _vols=10

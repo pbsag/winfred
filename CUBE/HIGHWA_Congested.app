@@ -11,10 +11,10 @@ PB
 00
 Build Congested Impedance Table
 
-Mon Sep 26 23:44:20 2016
-C:\projects\winfred\Cube\RVARC.BMP
-C:\projects\winfred\CUBE\winfred.app
-C:\projects\winfred\Cube\HIGHWA_Congested.app
+Tue Mar 21 10:41:35 2017
+
+C:\Projects\winfred\CUBE\winfred.app
+C:\Projects\winfred\Cube\HIGHWA_Congested.app
 VOYAGER
 
 
@@ -39,8 +39,8 @@ Build PK congested skims
 999999
 1268
 -1317
-1476
--1381
+1423
+-1366
 0
 0
 0
@@ -50,15 +50,15 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HwySkims_Congested_PK.S
+C:\Projects\winfred\Cube\HwySkims_Congested_PK.S
 1
 HWY
 ISCR1 
 999999
-951
--1229
-1257
--1286
+1044
+-1249
+1260
+-1292
 -1
 -1
 0
@@ -433,10 +433,10 @@ NET
 HWY
 NETI  
 999999
-951
--1290
-1257
--1347
+1044
+-1295
+1260
+-1338
 -1
 -9
 1
@@ -505,10 +505,10 @@ Terminal Time
 ZON
 ZDATI1
 999999
-951
--1351
-1257
--1408
+1044
+-1341
+1260
+-1384
 -1
 -9
 1
@@ -685,10 +685,10 @@ Lookup File 1
 LOK
 LOOKUPI1
 999999
-951
--1412
-1257
--1469
+1044
+-1387
+1260
+-1430
 -1
 -9
 1
@@ -1225,10 +1225,10 @@ PRN
 HWY
 OPRN  
 999999
-1492
--1289
-1793
--1346
+1435
+-1295
+1647
+-1338
 0
 #OUTFIL1
 Matrix File 1
@@ -1241,10 +1241,10 @@ MAT
 HWY
 MATO1 
 999999
-1492
--1350
-1793
--1407
+1435
+-1341
+1647
+-1384
 0
 #OUTFIL2
 Matrix File 2
@@ -2030,8 +2030,8 @@ Build OP congested skims
 999999
 2746
 -1344
-2954
--1408
+2901
+-1393
 0
 0
 0
@@ -2041,15 +2041,15 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HwySkims_Congested_OP.S
+C:\Projects\winfred\Cube\HwySkims_Congested_OP.S
 1
 HWY
 ISCR1 
 999999
-2429
--1256
-2735
--1313
+2522
+-1276
+2738
+-1319
 -1
 -1
 0
@@ -2424,10 +2424,10 @@ NET
 HWY
 NETI  
 999999
-2429
--1317
-2735
--1374
+2522
+-1322
+2738
+-1365
 -1
 -1
 0
@@ -2496,10 +2496,10 @@ Terminal Time
 ZON
 ZDATI1
 999999
-2429
--1378
-2735
--1435
+2522
+-1368
+2738
+-1411
 -1
 -1
 0
@@ -2676,10 +2676,10 @@ Lookup File 1
 LOK
 LOOKUPI1
 999999
-2429
--1439
-2735
--1496
+2522
+-1414
+2738
+-1457
 -1
 -1
 0
@@ -3216,10 +3216,10 @@ PRN
 HWY
 OPRN  
 999999
-2970
--1316
-3271
--1373
+2913
+-1322
+3125
+-1365
 0
 #OUTFIL1
 Matrix File 1
@@ -3232,10 +3232,10 @@ MAT
 HWY
 MATO1 
 999999
-2970
--1377
-3271
--1434
+2913
+-1368
+3125
+-1411
 1
 #OUTFIL2
 Matrix File 2
@@ -4021,8 +4021,8 @@ PILOT
 999999
 1294
 -1792
-1481
--1856
+1434
+-1841
 0
 0
 0
@@ -4032,15 +4032,15 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\HwySkims_Congested_Pilot_end.S
+C:\Projects\winfred\Cube\HwySkims_Congested_Pilot_end.S
 1
 PIL
 ISCR1 
 999999
-977
--1794
-1283
--1851
+1070
+-1793
+1286
+-1836
 -1
 -1
 0

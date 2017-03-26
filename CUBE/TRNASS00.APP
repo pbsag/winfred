@@ -19,10 +19,10 @@ TA
 00
 
 
-Mon Oct 31 00:23:08 2016
+Tue Mar 21 00:20:02 2017
 
-C:\Projects\WinFred\CUBE\winfred.app
-C:\projects\winfred\CUBE\TRNASS00.APP
+C:\Projects\winfred\CUBE\winfred.app
+C:\Projects\winfred\CUBE\TRNASS00.APP
 VOYAGER
 
 
@@ -55,7 +55,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\Transit_Assignment_PK.S
+C:\Projects\winfred\Cube\Transit_Assignment_PK.S
 1
 PTR
 ISCR1 
@@ -2540,7 +2540,7 @@ Script File
 0
 0
 S
-C:\projects\winfred\Cube\Transit_Assignment_OP.S
+C:\Projects\winfred\Cube\Transit_Assignment_OP.S
 1
 PTR
 ISCR1 

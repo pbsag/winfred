@@ -1,4 +1,4 @@
-; Script for program FRATAR in file "C:\projects\winfred\CUBE\EEFRA00A.S"
+; Script for program FRATAR in file "C:\Projects\winfred\CUBE\EEFRA00A.S"
 
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=FRATAR PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEFRA00A.PRN" MSG='Future year EE Table'
@@ -10,7 +10,7 @@ FILEI LOOKUPI[1] = "{SCENARIO_DIR}\INPUT\EXTERNALTRIPS.DBF"
 ;   Future year tables are identical to the base year table except for the values of GRWTH.
 
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT",
- MO=1,NAME = EE_TRIPS, DEC=1*D
+ MO=3,2,NAME = EE_TRIPS_AUTO, EE_TRIPS_TRK,DEC=1*D
 
 ; Apply growth rate to base year EE seed matrix marginals
 ;  to obtain EE Marginals.
@@ -24,23 +24,35 @@ LOOKUP LOOKUPI=1, LIST=Y,
   LOOKUP[2]=ZONE,RESULT=GRWTH,
   FAIL[1]=1,FAIL[2]=1,FAIL[3]=1
 
-SETPA PGF[1]=GROWTHF(1,I) AGF[1]=GROWTHF(2,I) MW[1]=MI.1.1 
+SETPA PGF[1]=GROWTHF(1,I) AGF[1]=MAX(GROWTHF(2,I),0.000001) MW[1]=MI.1.1 
+
+LOOKUP LOOKUPI=1, LIST=Y,
+  NAME=TRKPCT,
+  LOOKUP[1]=ZONE,RESULT=PCT_TRUCK,
+  LOOKUP[2]=ZONE,RESULT=PCT_TRUCK,
+  FAIL[1]=1,FAIL[2]=1,FAIL[3]=1
+
+SETPA PGF[2]=TRKPCT(1,I) AGF[2]=TRKPCT(2,I) MW[2]=MW[1]
+
+MW[3]=MW[1]-MW[2]
+
+
 
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\projects\winfred\Cube\EE_TOD.S"
+; Script for program MATRIX in file "C:\Projects\winfred\Cube\EE_TOD.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TOD.PRN" MSG='EE TOD'
 FILEI LOOKUPI[1] = "{CATALOG_DIR}\Params\EE_TOD_RATES.dbf"
 FILEO MATO[4] = "{SCENARIO_DIR}\Output\EE_{year}_NT.MAT",
-MO=14, NAME=EE_NT, DEC=1*D
+MO=14,18, NAME=EE_NT_AUTO,EE_NT_TRK, DEC=1*D
 FILEO MATO[3] = "{SCENARIO_DIR}\Output\EE_{year}_PM.MAT",
-MO=13, NAME=EE_PM, DEC=1*D
+MO=13,17, NAME=EE_PM_AUTO,EE_PM_TRK, DEC=1*D
 FILEO MATO[2] = "{SCENARIO_DIR}\Output\EE_{year}_MD.MAT",
-MO=12, NAME=EE_MD, DEC=1*D
+MO=12,16, NAME=EE_MD_AUTO,EE_MD_TRK, DEC=1*D
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\EE_{year}_AM.MAT",
- MO=11, NAME=EE_AM, DEC=1*D
+ MO=11,15, NAME=EE_AM_AUTO,EE_AM_TRK, DEC=1*D
 FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
 
 
@@ -50,17 +62,26 @@ LOOKUP LOOKUPI=1,
          LOOKUP[1]=PERIOD, RESULT=SHARE,
          FAIL[1]=0,FAIL[2]=0,FAIL[3]=0,
          LIST=Y    
-MW[1]=mi.1.1     ;EE Daily Trips
+MW[1]=mi.1.1     ;EE Daily Auto Trips
 
 ;  MW[11] through MW[14] are the working tables (four time periods) for EE trips
 LOOP TOD=1,4                          
   EETable = (10) + TOD
   MW[EETable] = MW[1] * TODFAC(1,TOD)
 ENDLOOP
+
+ 
+MW[2]=mi.1.2     ;EE Daily TRK Trips
+
+;  MW[15] through MW[18] are the working tables (four time periods) for EE trips
+LOOP TOD=1,4                          
+  EETable = (14) + TOD
+  MW[EETable] = MW[2] * TODFAC(1,TOD)
+ENDLOOP
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\PROJECTS\WINFRED\CUBE\EEMAT00B.S"
+; Script for program MATRIX in file "C:\Projects\WINFRED\CUBE\EEMAT00B.S"
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EEMAT00B.PRN" MSG='Apply Growth Rates to IEEI'
@@ -78,8 +99,8 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
 ;;     station is the same for EE as it is for IEEI trips at that same station.
 
 ; Working matrices to allow calculation of production and attraction totals
-MW[1]=mi.1.1
-MW[2]=mi.1.1.t 
+MW[1]=mi.1.1 + mi.1.2
+MW[2]=mi.1.1.t + mi.1.2.t
 
 IF( I > {Internal Zones})
   RO.PROD1=ROWSUM(1)    
@@ -95,7 +116,7 @@ ENDIF
 ENDRUN
 
 
-; Script for program GENERATION in file "C:\projects\winfred\Cube\EE_TripGen.S"
+; Script for program GENERATION in file "C:\Projects\winfred\Cube\EE_TripGen.S"
 ;;<<Default Template>><<GENERATION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=GENERATION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TripGen.PRN" MSG='IEEI_TripGen'
@@ -120,10 +141,11 @@ LOOKUP LOOKUPI=1,
        
 PHASE=ILOOP
   IF (I <= {Internal Zones})
-    TOTALSG = ZI.1.SG_RET + ZI.1.SG_HOS + ZI.1.SG_AIR + ZI.1.SG_COL
+    TOTALSG = 0.5*ZI.1.SG_RET + ZI.1.SG_HOS + 0*ZI.1.SG_AIR + 0*ZI.1.SG_COL
     OFFHTRET = ZI.1.OFF + ZI.1.HTRET
+    CBD = ZI.1.CBD * ZI.1.EMP_NOSG
     A[1]=(ZI.1.HH * G_RATES(1,1)) + (ZI.1.IND * G_RATES(1,2)) + (ZI.1.RET * G_RATES(1,5)) +
-       (OFFHTRET * G_RATES(1,4)) + (ZI.1.SER * G_RATES(1,3)) + (TOTALSG * G_RATES(1,6))
+       (OFFHTRET * G_RATES(1,4)) + (ZI.1.SER * G_RATES(1,3)) + (TOTALSG * G_RATES(1,6)) + (CBD * 0.5)
     P[1]= 0
   ELSE
     A[1]=0
@@ -141,7 +163,7 @@ ENDPHASE
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\projects\winfred\Cube\EE_HwySkims.S"
+; Script for program MATRIX in file "C:\Projects\winfred\Cube\EE_HwySkims.S"
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_HwySkims.PRN" MSG='Process Highway Skims'
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\Hwyskim.MAT",
@@ -195,7 +217,7 @@ FILLMW MW[1]=MI.1.1(5)                ; highway skims
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\projects\winfred\Cube\EE_nonResident_NHB.S"
+; Script for program MATRIX in file "C:\Projects\winfred\Cube\EE_nonResident_NHB.S"
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_nonResident_NHB.PRN" MSG='NR-NHB Model'
@@ -215,7 +237,7 @@ WRITE RECO=1
 ENDRUN
 
 
-; Script for program DISTRIBUTION in file "C:\projects\winfred\Cube\EE_TripDistribution.S"
+; Script for program DISTRIBUTION in file "C:\Projects\winfred\Cube\EE_TripDistribution.S"
 ;;<<Default Template>><<DISTRIBUTION>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=DISTRIBUTION PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\EE_TripDistribution.PRN" MSG='IEEI_TripDist'
@@ -229,8 +251,8 @@ setpa p[1]=zi.1.p1, a[1]=zi.1.a1  ;Set P and A Fields
 
 ; Gamma Function parameters
 alpha   =  1.3544
-beta    = -4.0016
-epsilon =  .14
+beta    = -3.0016
+epsilon =  .2
 
 MW[2]=mi.1.1      ; total travel time
 
@@ -259,7 +281,7 @@ TITLE='** IEEI Travel Time Frequency **'
 ENDRUN
 
 
-; Script for program MATRIX in file "C:\projects\winfred\Cube\IEEI_TOD.S"
+; Script for program MATRIX in file "C:\Projects\winfred\Cube\IEEI_TOD.S"
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\IEEI_TOD.PRN" MSG='IEEI TOD'
@@ -271,7 +293,7 @@ FILEO MATO[2] = "{SCENARIO_DIR}\Output\IEEI_{year}_MD.MAT",
  MO=32, NAME=IEEI_MD, DEC=D
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\IEEI_{year}_AM.MAT",
  MO=31, NAME=IEEI_AM, DEC=D
-FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_{YEAR}_PA.MAT"
+FILEI MATI[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT"
 ZONES={Total Zones}
 
 ;Define arrays of time of day factors
@@ -287,8 +309,8 @@ EIFct[2] = 0.20   ;MD EI Factor
 EIFct[3] = 0.03   ;PM EI Factor 
 EIFct[4] = 0.11   ;NT EI Factor 
 
-MW[1]=mi.1.1      ;IEEI Daily Trips
-MW[2]=mi.1.1.T    ;IEEI Daily Trips
+MW[1] = mi.1.1 * 2     ;IEEI Daily Attractions
+MW[2] = mi.1.1.T * 2   ;IEEI Daily Productions
 
 ;  MW[11] through MW[14] are the working tables (four time periods) for IE trips
 ;  MW[21] through MW[24] are the working tables (four time periods) for EI trips
@@ -304,21 +326,6 @@ LOOP TOD=1,4
   TODTable = (30) + TOD
   MW[TODTable] = MW[IETable] + MW[EITable]
 ENDLOOP
-
-ENDRUN
-
-
-; Script for program MATRIX in file "C:\Projects\WinFred\CUBE\IEEI_PA.S"
-; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\IEEI_PA.PRN"
-FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\IEEI_{YEAR}_PA.MAT",
-    MO=3, NAME=IEEI
-FILEI MATI[1] = "{SCENARIO_DIR}\Output\IEEI_{year}.MAT"
-
-
-MW[1] = mi.1.1
-MW[2] = mi.1.1.t
-MW[3] = MW[1] + MW[2]
 
 ENDRUN
 

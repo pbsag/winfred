@@ -15,8 +15,8 @@ FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\EE_{Year}.MAT"
 ;;     station is the same for EE as it is for IEEI trips at that same station.
 
 ; Working matrices to allow calculation of production and attraction totals
-MW[1]=mi.1.1
-MW[2]=mi.1.1.t 
+MW[1]=mi.1.1 + mi.1.2
+MW[2]=mi.1.1.t + mi.1.2.t
 
 IF( I > {Internal Zones})
   RO.PROD1=ROWSUM(1)    
