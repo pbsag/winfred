@@ -86,11 +86,11 @@ PM_Time=li.3.TIME_2
 NT_Time=li.4.TIME_2 
 
 ; Vehicle Miles of Travel
-AM_VDT=li.1.VDT_2 
-MD_VDT=li.2.VDT_2 
-PM_VDT=li.3.VDT_2 
-NT_VDT=li.4.VDT_2 
-TOTAL_VDT = AM_VDT + MD_VDT + PM_VDT + NT_VDT
+AM_VMT=li.1.VDT_2 
+MD_VMT=li.2.VDT_2 
+PM_VMT=li.3.VDT_2 
+NT_VMT=li.4.VDT_2 
+TOTAL_VMT = AM_VMT + MD_VMT + PM_VMT + NT_VMT
 
 ; Vehcile Hours of Travel 
 AM_VHT=li.1.VHT_2                               
@@ -153,7 +153,7 @@ if (oft > 10)                             ft = 5 ; Connectors
  
 IF (Li.1.AAWDT>0)
  ; Write out links with counts
- print CSV=T list = LI.1.SCREEN_ID , LI.1.A, LI.1.B, LI.1.ATYPE, LI.1.FACTYPE, FT,  FFSPEED, LI.1.AAWDT, TOTAL_VOL, LI.1.DISTANCE,  AM_Vol, MD_Vol,  PM_Vol, NT_Vol, li.1.VDT_2, li.2.VDT_2, li.3.VDT_2 , li.4.VDT_2, li.1.VHT_2,  li.2.VHT_2,  li.3.VHT_2,  li.4.VHT_2, li.1.CSPD_2, li.2.CSPD_2, li.3.CSPD_2, li.4.CSPD_2 printo=1
+ print CSV=T list = LI.1.SCREENLN , LI.1.A, LI.1.B, LI.1.ATYPE, LI.1.FACTYPE, FT,  FFSPEED, LI.1.AAWDT, TOTAL_VOL, LI.1.DISTANCE,  AM_Vol, MD_Vol,  PM_Vol, NT_Vol, li.1.VDT_2, li.2.VDT_2, li.3.VDT_2 , li.4.VDT_2, li.1.VHT_2,  li.2.VHT_2,  li.3.VHT_2,  li.4.VHT_2, li.1.CSPD_2, li.2.CSPD_2, li.3.CSPD_2, li.4.CSPD_2 printo=1
 
  ENDIF
  
