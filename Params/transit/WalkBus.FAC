@@ -19,12 +19,13 @@
 
 ;Runfactors
  RUNFACTOR[1]   = 2.50
-
  RUNFACTOR[21]  = 1.00
+ RUNFACTOR[26]  = 9.99
 
 
 ;Boarding and Transfer Penalties
  BRDPEN[21]  = 2.0
+ BRDPEN[26]  = 2.0
  XFERPEN=0.00, from=21-100, to=21-100
  XFERFACTOR=1.00, from=21-100, to=21-100
  XFERCONST=5.0, from=21-100, to=21-100
