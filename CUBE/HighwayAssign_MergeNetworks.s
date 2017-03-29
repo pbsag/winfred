@@ -44,19 +44,12 @@ PM_IEEI=li.3.V3_2
 NT_IEEI=li.4.V3_2 
 TOTAL_IEEI = AM_IEEI + MD_IEEI + PM_IEEI + NT_IEEI
 
-; Commercial Vehicles_CV and SUT
-AM_CV=li.1.V4_2 
-MD_CV=li.2.V4_2 
-PM_CV=li.3.V4_2 
-NT_CV=li.4.V4_2 
+; Commercial Vehicles
+AM_CV=li.1.V4_2 + li.1.V5_2/PCE 
+MD_CV=li.2.V4_2 + li.2.V5_2/PCE 
+PM_CV=li.3.V4_2 + li.3.V5_2/PCE  
+NT_CV=li.4.V4_2 + li.4.V5_2/PCE  
 TOTAL_CV = AM_CV + MD_CV + PM_CV + NT_CV
-
-; Commercial Vehicles_MUT
-AM_CV_MUT=li.1.V5_2/PCE
-MD_CV_MUT=li.2.V5_2/PCE
-PM_CV_MUT=li.3.V5_2/PCE
-NT_CV_MUT=li.4.V5_2/PCE
-TOTAL_CV_MUT = AM_CV_MUT + MD_CV_MUT + PM_CV_MUT + NT_CV_MUT
 
 ; EE Auto
 AM_EX_Auto=li.1.V1_1 
@@ -115,11 +108,10 @@ ENDIF
 sl_DA=li.1.V6_2 +li.2.V6_2 +li.3.V6_2 +li.4.V6_2  
 sl_SR=li.1.V7_2 +li.2.V7_2 +li.3.V7_2 +li.4.V7_2  
 sl_IEEI=li.1.V8_2 +li.2.V8_2 +li.3.V8_2 +li.4.V8_2  
-sl_CV=li.1.V9_2 +li.2.V9_2 +li.3.V9_2 +li.4.V9_2  
-sl_CV_MUT=li.1.V10_2/PCE +li.2.V10_2/PCE +li.3.V10_2/PCE +li.4.V10_2/PCE  
+sl_CV=li.1.V9_2 +li.2.V9_2 +li.3.V9_2 +li.4.V9_2 + li.1.V10_2/PCE +li.2.V10_2/PCE +li.3.V10_2/PCE +li.4.V10_2/PCE   
 sl_EE_AUTO=li.1.V3_1 +li.2.V3_1 +li.3.V3_1 +li.4.V3_1  
 sl_EE_TRK=li.1.V4_1/PCE +li.2.V4_1/PCE +li.3.V4_1/PCE +li.4.V4_1/PCE  
-sl_tot=sl_DA+ sl_SR +  sl_IEEI + sl_CV +sl_CV_MUT+ sl_EE_AUTO +sl_EE_TRK
+sl_tot=sl_DA+ sl_SR +  sl_IEEI + sl_CV + sl_EE_AUTO +sl_EE_TRK
 
 ; LOS D VOCs 
 AM_VC_D=li.1.V_2/CAPD_AM 
