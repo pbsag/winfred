@@ -16,7 +16,12 @@ TOTAL_VOL=ROUND(LI.1.TOTAL_VOL)     ; Total Volume
 oft=LI.1.FACTYPE                     ; Facility Type
 atg=LI.1.ATYPE                      ; Area Type
 
-ftg=INT(LI.1.FACTYPE/10)
+;ftg=INT(LI.1.FACTYPE/10)+1
+if (oft = 1 | oft =2 | oft =9 | oft = 10) ftg = 1 ; Freeway       
+if (oft = 3 | oft =4)                     ftg = 2 ; Major Arterial
+if (oft = 5)                              ftg = 3 ; Minor Arterial
+if (oft = 6 | oft = 7 | oft = 8)          ftg = 4 ; Collector + Local         
+if (oft > 10)                             ftg = 5 ; Connectors  
 sl=LI.1.SCREENLN              ;MPO Scrreenline/Cutline
 
 count=LI.1.AAWDT               ; Count
@@ -127,15 +132,12 @@ if (oft > 10)                             ft = 5 ; Connectors
    IF (COUNT>0) VOLCNT=TOTAL_VOL/COUNT, _TVOL=TOTAL_VOL, NETDIFF=TOTAL_VOL-COUNT, ABSDIFF=ABS(NETDIFF), ERRORSQ=NETDIFF^2, PCTDIFF=100*NETDIFF/COUNT, _group=1
    IF (COUNT>  5000) _group=2
    IF (COUNT> 10000) _group=3
-   IF (COUNT> 15000) _group=4
-   IF (COUNT> 20000) _group=5
-   IF (COUNT> 30000) _group=6
-   IF (COUNT> 50000) _group=7
-   IF (COUNT> 60000) _group=8
+   IF (COUNT> 20000) _group=4
+
    
    IF (COUNT>0)
-     _ERR[_group]=ERRORSQ+_ERR[_group], _CNS[_group] = COUNT+_CNS[_group], _cnt[_group]= _cnt[_group]+1, _VOLS[_group]=_TVOL+_VOLS[_group]
-     _ERR[9]=ERRORSQ+_ERR[9], _CNS[9]=COUNT+_CNS[9], _CNT[9]=_CNT[9]+1, _VOLS[9]=_TVOL+_VOLS[9]
+     _ERR[_group]=ERRORSQ+_ERR[_group], _CNS[_group] = COUNT+_CNS[_group], _CNT[_group]= _CNT[_group]+1, _VOLS[_group]=_TVOL+_VOLS[_group]
+     _ERR[5]=ERRORSQ+_ERR[5], _CNS[5]=COUNT+_CNS[5], _CNT[5]=_CNT[5]+1, _VOLS[5]=_TVOL+_VOLS[5]
      
      FT_ERR[ft]=ERRORSQ+ FT_ERR[ft], FT_CNS[ft]=COUNT+FT_CNS[ft], FT_CNT[ft]=FT_CNT[ft]+1, FT_VOLS[ft]=_TVOL+FT_VOLS[ft]
      FT_ERR[100]=ERRORSQ+FT_ERR[100], FT_CNS[100]=COUNT+FT_CNS[100], FT_CNT[100]=FT_CNT[100]+1, FT_VOLS[100]=_TVOL+FT_VOLS[100]
@@ -249,58 +251,55 @@ PHASE=SUMMARY
 if (_countsum>0)   ;condition on _countsum>0
 
 ;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-;+++ Loop to write out the Percent Root Mean Square Error
-LOOP _iter=1,8
+; -- Volume and Count difference by Volume Groups
+LOOP _iter=1,4
 
    if (_iter=1) vol_label = '    1 -  5000', _limit='100'
    if (_iter=2) vol_label = ' 5000 - 10000', _limit=' 45'
-   if (_iter=3) vol_label = '10000 - 15000', _limit=' 35'
-   if (_iter=4) vol_label = '15000 - 20000', _limit=' 30'
-   if (_iter=5) vol_label = '20000 - 30000', _limit=' 27'
-   if (_iter=6) vol_label = '30000 - 50000', _limit=' 25'
-   if (_iter=7) vol_label = '50000 - 60000', _limit=' 20'
-   if (_iter=8) vol_label = 'Above 60000' , _limit=' 19'
+   if (_iter=3) vol_label = '10000 - 20000', _limit=' 35'
+   if (_iter=4) vol_label = '20000 - 50000', _limit=' 27'
+
    
    ; Write header
    if (_iter=1) print CSV=T, list = 'ALL DAY: Volume Count Deviation Summary' printo=1
    if (_iter=1) print CSV=T, list = '\n A. Volume Count % Diff By Volume Group' printo=1
-   if (_iter=1) print CSV=T, list = '\n Vol Grp', 'Count Range', 'Volume', 'Count',  'Model Dev(%)', 'Target', 'No of Links' printo=1
+   if (_iter=1) print CSV=T, list = '\n Vol Grp', 'Count Range', 'No of Links', 'Volume', 'Count',  'Model Dev (%)', 'Target (%)' printo=1
   
    if (_cnt[_iter]>0) print CSV=T, 
    list= _iter(2.0c),   
             vol_label,
+            _cnt[_iter],
             _vols[_iter],
             _cns[_iter],
             ((_VOLS[_iter]/_cns[_iter])-1)*100,
-            _limit,
-            _cnt[_iter] PRINTO=1
+            _limit,  PRINTO=1
 
 ENDLOOP    
 
-_iter=9, vol_label = 'All ', _limit=' 10'
+_iter=5, vol_label = 'All ', _limit=' 10'
   print CSV=T,  list = _iter(2.0c),  
           vol_label, 
+          _cnt[_iter],
           _vols[_iter],
  					_cns[_iter],
           ((_VOLS[_iter]/_cns[_iter])-1)*100,
-          _limit,
-          _cnt[_iter], PRINTO=1
+          _limit,   PRINTO=1
  
 ;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-; Summary for Vol/Cnt by FT2 
+; -- Volume and Count difference by Facility types
 _iter=0
 LOOP _iter=1,100
 
-   if (_iter=1) _limit=' 20%' , fac_Label = 'Freeway          ', pct_diff =  '7%'
-   if (_iter=2) _limit=' 35%' , fac_Label = 'Major Arterial   ', pct_diff = '10%'
-   if (_iter=3) _limit=' 50%' , fac_Label = 'Minor Arterial   ', pct_diff = '15%'
-   if (_iter=4) _limit=' 90%' , fac_Label = 'Collector & Local', pct_diff = '25%'    
-   if (_iter=5) _limit=' 50%' , fac_Label = 'Connectors       ', pct_diff = ' NA'
-   if (_iter=100) _limit=' 20%', fac_Label = 'Total           ', pct_diff = '10%'
+   if (_iter=1)  fac_Label = 'Freeway          ', pct_diff =  '7'
+   if (_iter=2)  fac_Label = 'Major Arterial   ', pct_diff = '10'
+   if (_iter=3)  fac_Label = 'Minor Arterial   ', pct_diff = '15'
+   if (_iter=4)  fac_Label = 'Collector & Local', pct_diff = '25'    
+   if (_iter=5)  fac_Label = 'Connectors       ', pct_diff = ' NA'
+   if (_iter=100)  fac_Label = 'Total           ', pct_diff = '10'
 
-  ; -- Volume and Count difference by Facility types
+  ; Write header
   if (_iter=1) print list="\n","\n B. Volume Count  % Diff  by Facility Type " PRINTO=1
-  if (_iter=1) print CSV=T,list='Type','FT2 Grp','No of Links','Volume','Count','Target % Deviation','Model % Deviation' printo=1
+  if (_iter=1) print CSV=T,list='Type','FT2 Grp','No of Links','Volume','Count','Model Dev (%)','Target (%)' printo=1
    
   if ((_cntbyft[_iter]>0)&(_iter<100)) print CSV=T,
     list= _iter(3.0c),
@@ -308,10 +307,10 @@ LOOP _iter=1,100
           _lnkbyft[_iter],
           _volbyft[_iter],
           _cntbyft[_iter],
-          pct_diff,
-          ((_volbyft[_iter]/_cntbyft[_iter]) -1)*100 PRINTO=1
+          ((_volbyft[_iter]/_cntbyft[_iter]) -1)*100,
+          pct_diff, PRINTO=1
      
- if (_iter=100) _limit=' 30- 40%'
+ if (_iter=100) _limit=' 40'
   ENDLOOP
   
 _iter=100   
@@ -321,34 +320,70 @@ _iter=100
           _lnkbyft[_iter],
           _volbyft[_iter],
           _cntbyft[_iter],
-           pct_diff,
-          ((_volbyft[_iter]/_cntbyft[_iter])-1)*100 PRINTO=1
-       
+          ((_volbyft[_iter]/_cntbyft[_iter])-1)*100,
+          pct_diff, PRINTO=1
+
+          
+;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+;--  Volume and Count RMSE difference by Volume Groups 
+LOOP _iter=1,4
+
+   if (_iter=1) vol_label = '    1 -  5000', _limit='100'
+   if (_iter=2) vol_label = ' 5000 - 10000', _limit=' 45'
+   if (_iter=3) vol_label = '10000 - 20000', _limit=' 35'
+   if (_iter=4) vol_label = '20000 - 50000', _limit=' 27'
+
+; Write header
+   if (_iter=1) print list="\n","\n C. Volume and Count RMSE by Volume Groups" PRINTO=1
+   if (_iter=1) print CSV=T,list='\n Vol Grp', 'Count Range','No of Links', 'Volume','Count','MODEL RMSE (%)','TARGET RMSE (%)' printo=1 
+
+   
+   if (_cnt[_iter]>0) print CSV=T, 
+   list= _iter(2.0c),   
+         vol_label,
+         _cnt[_iter],
+         _vols[_iter],
+         _cns[_iter],
+         sqrt(_ERR[_iter]/(_CNT[_iter]-1))/(_CNS[_iter]/_CNT[_iter])*100,
+         _limit, PRINTO=1
+
+ENDLOOP    
+
+_iter=5, vol_label = 'All ', _limit=' 40'
+  print CSV=T,
+  list = _iter(2.0c),  
+         vol_label, 
+         _cnt[_iter],
+         _vols[_iter],
+ 				 _cns[_iter],
+         sqrt(_ERR[_iter]/(_CNT[_iter]-1))/(_CNS[_iter]/_CNT[_iter])*100,
+         _limit, PRINTO=1
+
 
 ;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ; --  Volume and Count RMSE difference by Facility types  
 _iter=0
 LOOP _iter=1,100
 
-   if (_iter=1) _limit=' 20%' , fac_Label = 'Freeway          ', pct_diff =  '7%'
-   if (_iter=2) _limit=' 35%' , fac_Label = 'Major Arterial   ', pct_diff = '10%'
-   if (_iter=3) _limit=' 50%' , fac_Label = 'Minor Arterial   ', pct_diff = '15%'
-   if (_iter=4) _limit=' 90%' , fac_Label = 'Collector & Local', pct_diff = '25%'    
-   if (_iter=5) _limit=' 50%' , fac_Label = 'Connectors       ', pct_diff = ' NA'
-   if (_iter=100) _limit=' 20%', fac_Label = 'Total           ', pct_diff = '10%'
+   if (_iter=1) _limit=' 25' , fac_Label = 'Freeway          '
+   if (_iter=2) _limit=' 35' , fac_Label = 'Major Arterial   '
+   if (_iter=3) _limit=' 50' , fac_Label = 'Minor Arterial   '
+   if (_iter=4) _limit=' 90' , fac_Label = 'Collector & Local'    
+   if (_iter=5) _limit=' 50' , fac_Label = 'Connectors       '
+   if (_iter=100) _limit=' 40', fac_Label = 'Total           '
 
-; -- Volume and Count difference by Facility types
-if (_iter=1) print list="\n","\n B. Volume and Count RMSE by Facility Type" PRINTO=1
-if (_iter=1) print CSV=T,list='Type','FT2 Grp','No of Links','Volume','Count','TARGET RMSE','MODEL RMSE' printo=1 
+; Write header
+if (_iter=1) print list="\n","\n D. Volume and Count RMSE by Facility Type" PRINTO=1
+if (_iter=1) print CSV=T,list='Type','FT2 Grp','No of Links','Volume','Count','MODEL RMSE (%)','TARGET RMSE (%)' printo=1 
 
   if ((_cntbyft[_iter]>0)&(_iter<100)) print CSV=T,
     list= _iter(3.0c),
            fac_Label,
           _lnkbyft[_iter],
           _volbyft[_iter],
-          _cntbyft[_iter],
-          _limit,     
-          sqrt(FT_err[_iter]/(FT_cnt[_iter]-1))/(FT_cns[_iter]/FT_cnt[_iter])*100 PRINTO=1
+          _cntbyft[_iter],          
+          sqrt(FT_err[_iter]/(FT_cnt[_iter]-1))/(FT_cns[_iter]/FT_cnt[_iter])*100,
+          _limit,  PRINTO=1
      
  if (_iter=100) _limit=' 30- 40%'
   ENDLOOP
@@ -359,16 +394,16 @@ _iter=100
            fac_Label,  
           _lnkbyft[_iter],
           _volbyft[_iter],
-          _cntbyft[_iter],
-          _limit,     
-          sqrt(FT_err[_iter]/(FT_cnt[_iter]-1))/(FT_cns[_iter]/FT_cnt[_iter])*100 PRINTO=1
+          _cntbyft[_iter],     
+          sqrt(FT_err[_iter]/(FT_cnt[_iter]-1))/(FT_cns[_iter]/FT_cnt[_iter])*100,
+          _limit,  PRINTO=1
                   
  
 ;+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ;Summary for Vol/Cnt by FT1 
 _iter=0
 LOOP _iter=1,100
-  if (_iter=1) print list="\n","\n C. VOLUME AND COUNT SUMMARY BY 1-DIGIT FACILITY TYPE ", PRINTO=1
+  if (_iter=1) print list="\n","\n E. VOLUME AND COUNT SUMMARY BY 1-DIGIT FACILITY TYPE ", PRINTO=1
   if (_iter=1) print CSV=T,list='FT Grp','No of Links','Volume','Count',' % Diff', 'VMT (Volume)', 'VMT(Count)', 
                                  '% Diff VMT', 'VHT(Volume)', 'VHT (Count)', '% Diff VHT'   printo=1 
   
@@ -408,7 +443,7 @@ ENDLOOP
 ;+++ Summary for for Vol/Cnt by AT1
 _iter=0
 LOOP _iter=1,100
-  if (_iter=1) print list="\n","\n D. VOLUME AND COUNT SUMMARY BY 1-DIGIT AREA TYPE", PRINTO=1
+  if (_iter=1) print list="\n","\n F. VOLUME AND COUNT SUMMARY BY 1-DIGIT AREA TYPE", PRINTO=1
   if (_iter=1) print CSV=T,list='AT Grp','No of Links','Volume','Count',' % Diff', 'VMT (Volume)', 'VMT(Count)', 
                                  '% Diff VMT', 'VHT(Volume)', 'VHT (Count)', '% Diff VHT'   printo=1 
 
@@ -453,7 +488,7 @@ ENDLOOP
 ;+++ one for Vol/Cnt by LNS 
 _iter=0
 LOOP _iter=1,100
-  if (_iter=1) print list="\n","\n E. VOLUME AND COUNT SUMMARY BY LANES PER DIRECTION ", PRINTO=1
+  if (_iter=1) print list="\n","\n G. VOLUME AND COUNT SUMMARY BY LANES PER DIRECTION ", PRINTO=1
   if (_iter=1) print CSV=T,list='Lanes/Direction','No of Links','Volume','Count',' % Diff', 'VMT (Volume)', 'VMT(Count)', 
                                  '% Diff VMT', 'VHT(Volume)', 'VHT (Count)', '% Diff VHT'   printo=1 
 
@@ -496,7 +531,7 @@ ENDLOOP
 ;+++ one for Vol/Cnt by SL (MPO Scrrenline/Cutline)
 _iter=0
 LOOP _iter=1,100
-  if (_iter=1) print list="\n","\n F. VOLUME AND COUNT SUMMARY BY MPO SCREENLINE & CUTLINE ", PRINTO=1
+  if (_iter=1) print list="\n","\n H. VOLUME AND COUNT SUMMARY BY MPO SCREENLINE & CUTLINE ", PRINTO=1
   if (_iter=1) print CSV=T,list='Screen/Cut-Line','No of Links','Volume','Count',' % Diff', 'VMT (Volume)', 'VMT(Count)', 
                                  '% Diff VMT', 'VHT(Volume)', 'VHT (Count)', '% Diff VHT'   printo=1 
                                  

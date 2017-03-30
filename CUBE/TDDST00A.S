@@ -1,16 +1,11 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=DISTRIBUTION PRNFILE="{SCENARIO_DIR}\Output\LOGS\HBUTripDistributions.PRN" MSG='Gravity Model - HBU'
-FILEI LOOKUPI[1] = "{SCENARIO_DIR}\Output\HBU_FFFile.csv"
 FILEI MATI[1] = "{SCENARIO_DIR}\Output\OP_Hwyskim.MAT"
 FILEI ZDATI[2] = "{SCENARIO_DIR}\Output\HBU_ATTR.dbf"
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\Dest_HBU.MAT",
  MO=1,NAME=UNV
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Output\HBU_PROD.DBF"
 
-  LOOKUP,
-   LOOKUPI=1,
-   INTERPOLATE=Y, NAME=FF,
-    LOOKUP[1]=1,RESULT=2
     
   ;   output distributed trips by purpose
   PARAMETERS
@@ -21,15 +16,13 @@ FILEI ZDATI[1] = "{SCENARIO_DIR}\Output\HBU_PROD.DBF"
 
   ;  get the los matrix into work matrix 11
   MW[11] = MI.1.Total_Time
-  MW[12] = MI.1.Distance
+  PAF=0
+  MW[1] = A[1] * MW[11]
+  ATTRSUM=ROWSUM(1)
+  IF (ATTRSUM>0) PAF=P[1]/ATTRSUM
+  MW[1]=PAF * MW[1]
 
 
-  ;  do gravity models, each followed by a frequency summation
-  GRAVITY   PURPOSE=1, LOS=MW[11], FFACTORS=FF
-  ;
 
-; The DISTRIBUTION module does not have any explicit phases.  The module does run within an implied ILOOP
-; where I is the origin zones.  The module has a built in GRAVITY statement for implementing this commonly
-; used distribution method.  User defined distribution process can also be defined.
-
+ 
 ENDRUN

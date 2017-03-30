@@ -1,7 +1,7 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
 RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\DC_nonWork_HBO.PRN" MSG='Apply Destination Choice Model HBO'
 FILEI MATI[1] = "{SCENARIO_DIR}\OUTPUT\HBO_MCLS.MAT"
-FILEI MATI[2] = "C:\Projects\Winfred\Base\Output\OP_Hwyskim.MAT"
+FILEI MATI[2] = "{SCENARIO_DIR}\OUTPUT\OP_Hwyskim.MAT"
 FILEI ZDATI[1] = "{SCENARIO_DIR}\OUTPUT\se_classified_{year}{Alternative}.dbf"
 FILEI ZDATI[2] = "{SCENARIO_DIR}\OUTPUT\HH_PROD.DBF"
 FILEI ZDATI[3] = "{SCENARIO_DIR}\Output\NHBNR_PA_{year}.DBF"
@@ -40,7 +40,7 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBOPK_Zonal_Trips.csv"
     Coeff_HOS_SG  = COEFF(1,20)        ; SizeTerm = Hospital coefficient
     Coeff_RET_SG  = COEFF(1,21)        ; SizeTerm = SG_RET coefficient
     Coeff_COL_SG  = COEFF(1,22)        ; SizeTerm = SG_COL coefficient
-    Coeff_STU_PT  = COEFF(1,23)        ; SizeTerm = STU_PT coefficient
+    Coeff_STU  = COEFF(1,23)           ; SizeTerm = STU coefficient
     
 		; Mode choice logsums
 		MW[1] = MI.1.1 
@@ -55,7 +55,7 @@ FILEO PRINTO[3] = "{SCENARIO_DIR}\OUTPUT\HBOPK_Zonal_Trips.csv"
 		  ; Read productions
 		  personTrips[I] = ZI.2.HBOP
       
-		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS_SG * ZI.1.SG_HOS[J] + Coeff_RET_SG * ZI.1.SG_RET[J] + Coeff_COL_SG * ZI.1.SG_COL[J] + Coeff_STU_PT * ZI.1.STU_PT[J]
+		  MW[112] = Coeff_HH * ZI.1.HH[J] + Coeff_OFF_EMP * ZI.1.OFF[J] + Coeff_RET_EMP * (ZI.1.RET[J] + ZI.1.HTRET[J]) + Coeff_OTH_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.OFF[J]  - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_OTH_OFF_EMP * (ZI.1.EMP_NOSG[J] - ZI.1.RET[J] - ZI.1.HTRET[J]) + Coeff_HOS_SG * ZI.1.SG_HOS[J] + Coeff_RET_SG * ZI.1.SG_RET[J] + Coeff_COL_SG * ZI.1.SG_COL[J] + Coeff_STU * ZI.1.STU[J]
 
 		  ; Log (sizeTerm)
 		  IF(MW[112] > 0)   MW[113] = Ln(MW[112])  

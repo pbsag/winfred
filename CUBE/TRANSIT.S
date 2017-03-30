@@ -61,15 +61,16 @@ endloop
   LOOP _nn=1,_numberofcurves
     if ((FACTYPE >= LF[_nn]) & (FACTYPE <= HF[_nn]) & (ATYPE >= LA[_nn]) & (ATYPE <= HA[_nn]))
     if ((LM[_nn] >= 21) & (HM[_nn] <= 21)) spdratioM21 = SR[_nn]
+    if ((LM[_nn] >= 26) & (HM[_nn] <= 26)) spdratioM26 = SR[_nn]  
     endif
   ENDLOOP
      ; APPLY DEFAULT CURVES
      IF (_AUTOSPEED>0)
        _TSPD21=spdratioM21*_AUTOSPEED  ; Bus Speeds
-
+       _TSPD26=spdratioM26*_AUTOSPEED  ; Project mode
        
        M21TIMEPK=60*(DISTANCE)/_TSPD21
-
+       M26TIMEPK=60*(DISTANCE)/_TSPD26
  
  
      ENDIF
@@ -86,7 +87,6 @@ endloop
       list="\n\n"
       list="     An     Bn   Dist   ASpd   TSpd   Ttim    Crv"
       list=A(7.0),B(7.0),DISTANCE(7.2),_AUTOSPEED(7.2),_TSPD21(7.2),M21TIMEPK(7.2),_CURVEMODE21(7.0)," MODE21"
-      list=A(7.0),B(7.0),DISTANCE(7.2),_AUTOSPEED(7.2),_TSPD22(7.2),M22TIMEPK(7.2),_CURVEMODE22(7.0)," MODE22"
       list=A(7.0),B(7.0),DISTANCE(7.2),_AUTOSPEED(7.2),_TSPD26(7.2),M26TIMEPK(7.2),_CURVEMODE26(7.0)," MODE26"
       list="\n\n"
  ENDIF
@@ -116,7 +116,8 @@ FILEI NETI = "{SCENARIO_DIR}\Output\HWYTSPD.NET"
 PARAMETERS USERCLASSES=1,FARE=N, MAPSCALE={UNIT.n,RadioBtn-CHARACTER,"","0.01 Miles", ,"0.1 Miles","0.01 Miles"}, HDWAYPERIOD=1,
            NOROUTEERRS=999999, NOROUTEMSGS=999999,
            TRANTIME=LW.TRANTIME,
-           TRANTIME[21]=LI.M21TIMEPK
+           TRANTIME[21]=LI.M21TIMEPK,
+           TRANTIME[26]=LI.M26TIMEPK
 
 ;**************************************************************
 ;END POTENTIAL SCRIPT ADJUSTMENT
@@ -240,7 +241,8 @@ FILEI NETI = "{SCENARIO_DIR}\Output\HWYTSPD.NET"
    PARAMETERS USERCLASSES=1-2,FARE=N, MAPSCALE={UNIT}, HDWAYPERIOD=1,
          NOROUTEERRS=999999, NOROUTEMSGS=999999,
          TRANTIME=LW.TRANTIME,
-         TRANTIME[21]=LI.M21TIMEPK
+         TRANTIME[21]=LI.M21TIMEPK,
+         TRANTIME[26]=LI.M26TIMEPK
 
 ;**************************************************************
 ;END POTENTIAL SCRIPT ADJUSTMENT
@@ -266,6 +268,7 @@ FILEI NETI = "{SCENARIO_DIR}\Output\HWYTSPD.NET"
     PROCESS PHASE=SKIMIJ
          MW[1]=TIMEA(0,1)                                                              ; Walk time
          MW[2]=TIMEA(0,21)                                                             ; All bus time
+         MW[4]=TIMEA(0,26)                                                             ; Project mode time
 
 
 ;**************************************************************
@@ -315,8 +318,9 @@ FILEI LINEI[1] = "{SCENARIO_DIR}\Input\TROUTE.LIN"
    PARAMETERS USERCLASSES=1-2,FARE=N, MAPSCALE={UNIT}, HDWAYPERIOD=2,
          NOROUTEERRS=999999, NOROUTEMSGS=999999,
          TRANTIME=LW.TRANTIME,
-         TRANTIME[21]=LI.M21TIMEPK
-
+         TRANTIME[21]=LI.M21TIMEPK,
+         TRANTIME[26]=LI.M26TIMEPK
+         
 ;**************************************************************
 ;END POTENTIAL SCRIPT ADJUSTMENT
 ;**************************************************************
@@ -341,7 +345,7 @@ FILEI LINEI[1] = "{SCENARIO_DIR}\Input\TROUTE.LIN"
     PROCESS PHASE=SKIMIJ
          MW[1]=TIMEA(0,1)                                                              ; Walk time
          MW[2]=TIMEA(0,21)                                                             ; All bus time
-
+         MW[4]=TIMEA(0,26)                                                             ; Project mode time
 
 ;**************************************************************
 ;END POTENTIAL SCRIPT ADJUSTMENT

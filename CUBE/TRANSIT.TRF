@@ -4,10 +4,10 @@
 C:\PROJECTS\WINFRED\CUBE\TRANSIT.S
 58,80,
 Transit Network,00
-C:\Projects\winfred\CUBE\WinFred Model.PRN
+C:\projects\winfred\CUBE\WinFred Model.PRN
 2
 #PROJECTSTRUCT
-1:WinFred Model,00,C:\Projects\winfred\CUBE\winfred.app
+1:WinFred Model,00,C:\projects\winfred\CUBE\winfred.app
 2:Network,00,C:\Projects\winfred\Cube\NETBUILD.APP
 3:Area Type,00,C:\Projects\winfred\Cube\NETWOR00.APP
 2:Highway Paths,00,C:\Projects\winfred\Cube\PATHBUILD.APP
@@ -25,7 +25,7 @@ C:\Projects\winfred\CUBE\WinFred Model.PRN
 2:TrnAssignment,00,C:\Projects\winfred\CUBE\TRNASS00.APP
 #END
 1
-C:\Users\T7500\AppData\Local\Temp\CitC872.tmp
+C:\Users\ZhengY\AppData\Local\Temp\CitBCC9.tmp
 1
 Base
 #GROUP=Transit Network, 00:5:C:\Projects\winfred\CUBE\TRANSIT.APP

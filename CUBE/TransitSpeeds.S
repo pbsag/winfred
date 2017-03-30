@@ -60,15 +60,16 @@ endloop
   LOOP _nn=1,_numberofcurves
     if ((FACTYPE >= LF[_nn]) & (FACTYPE <= HF[_nn]) & (ATYPE >= LA[_nn]) & (ATYPE <= HA[_nn]))
     if ((LM[_nn] >= 21) & (HM[_nn] <= 21)) spdratioM21 = SR[_nn]
+    if ((LM[_nn] >= 26) & (HM[_nn] <= 26)) spdratioM26 = SR[_nn]  
     endif
   ENDLOOP
      ; APPLY DEFAULT CURVES
      IF (_AUTOSPEED>0)
        _TSPD21=spdratioM21*_AUTOSPEED  ; Bus Speeds
-
+       _TSPD26=spdratioM26*_AUTOSPEED  ; Project mode
        
        M21TIMEPK=60*(DISTANCE)/_TSPD21
-
+       M26TIMEPK=60*(DISTANCE)/_TSPD26
  
  
      ENDIF
@@ -85,7 +86,6 @@ endloop
       list="\n\n"
       list="     An     Bn   Dist   ASpd   TSpd   Ttim    Crv"
       list=A(7.0),B(7.0),DISTANCE(7.2),_AUTOSPEED(7.2),_TSPD21(7.2),M21TIMEPK(7.2),_CURVEMODE21(7.0)," MODE21"
-      list=A(7.0),B(7.0),DISTANCE(7.2),_AUTOSPEED(7.2),_TSPD22(7.2),M22TIMEPK(7.2),_CURVEMODE22(7.0)," MODE22"
       list=A(7.0),B(7.0),DISTANCE(7.2),_AUTOSPEED(7.2),_TSPD26(7.2),M26TIMEPK(7.2),_CURVEMODE26(7.0)," MODE26"
       list="\n\n"
  ENDIF
