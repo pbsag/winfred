@@ -1,5 +1,5 @@
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=DISTRIBUTION PRNFILE="{SCENARIO_DIR}\Output\LOGS\HBUTripDistributions.PRN" MSG='Gravity Model - HBU'
+RUN PGM=DISTRIBUTION PRNFILE="{SCENARIO_DIR}\Output\LOGS\HBUTripDistributions.PRN" MSG='HBU Distribution'
 FILEI MATI[1] = "{SCENARIO_DIR}\Output\OP_Hwyskim.MAT"
 FILEI ZDATI[2] = "{SCENARIO_DIR}\Output\HBU_ATTR.dbf"
 FILEO MATO[1] = "{SCENARIO_DIR}\Output\Dest_HBU.MAT",

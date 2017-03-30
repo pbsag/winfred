@@ -9,8 +9,12 @@ zones={Internal Zones}
 RO.TAZ=I
 
 MW[1]= zi.1.HBU
-MW[2][144]= 7820
+a = a+MW[1]
+MW[2][144]=a
 RO.UNVA=MW[2][I]
+
+
+
 
 WRITE RECO=1
 
