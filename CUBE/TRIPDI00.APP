@@ -11,7 +11,7 @@ TD
 00
 
 Runs Trip Distribution
-Wed Mar 29 17:12:17 2017
+Thu Mar 30 12:13:01 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\Cube\TRIPDI00.APP
@@ -7476,7 +7476,7 @@ DISTRIBUTION
 1
 0
 -1.0
-Gravity Model - HBU
+HBU Distribution
 999999
 2088
 -1805
