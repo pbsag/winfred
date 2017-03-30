@@ -16,12 +16,12 @@ TOTAL_VOL=ROUND(LI.1.TOTAL_VOL)     ; Total Volume
 oft=LI.1.FACTYPE                     ; Facility Type
 atg=LI.1.ATYPE                      ; Area Type
 
-ftg=INT(LI.1.FACTYPE/10)+1
-;if (oft = 1 | oft =2 | oft =9 | oft = 10) ftg = 1 ; Freeway       
-;if (oft = 3 | oft =4)                     ftg = 2 ; Major Arterial
-;if (oft = 5)                              ftg = 3 ; Minor Arterial
-;if (oft = 6 | oft = 7 | oft = 8)          ftg = 4 ; Collector + Local         
-;if (oft > 10)                             ftg = 5 ; Connectors  
+;ftg=INT(LI.1.FACTYPE/10)+1
+if (oft = 1 | oft =2 | oft =9 | oft = 10) ftg = 1 ; Freeway       
+if (oft = 3 | oft =4)                     ftg = 2 ; Major Arterial
+if (oft = 5)                              ftg = 3 ; Minor Arterial
+if (oft = 6 | oft = 7 | oft = 8)          ftg = 4 ; Collector + Local         
+if (oft > 10)                             ftg = 5 ; Connectors  
 sl=LI.1.SCREENLN              ;MPO Scrreenline/Cutline
 
 count=LI.1.AAWDT               ; Count
