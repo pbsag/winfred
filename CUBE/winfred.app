@@ -7,10 +7,10 @@ FB
 00
 Winchester Frederick County Travel Demand Model
 
-Mon Mar 27 13:02:18 2017
+Fri Mar 31 08:12:05 2017
 C:\Projects\winfred\Cube\winfred_logo.bmp
 
-C:\Projects\winfred\CUBE\winfred.app
+C:\projects\winfred\CUBE\winfred.app
 VOYAGER
 
 
@@ -3580,7 +3580,7 @@ Geodatabase
 0
 0
 NET
-{CATALOG_DIR}\maps\WinFredGeoDatabase.mdb\loaded_network
+{CATALOG_DIR}\maps\WinFredGeoDatabase.mdb\loaded_{Year}{Alternative}
 0
 NET
 NETO  
