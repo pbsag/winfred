@@ -7,10 +7,10 @@ FB
 00
 Winchester Frederick County Travel Demand Model
 
-Wed Apr 05 15:34:24 2017
+Wed Apr 05 16:48:46 2017
 C:\Projects\WinFred\_extra\winfred_logo.bmp
 
-C:\Projects\Winfred\CUBE\winfred.app
+C:\Projects\winfred\CUBE\winfred.app
 VOYAGER
 
 
@@ -265,7 +265,7 @@ Land Use Data
 *
 {SCENARIO_DIR}\Input\se.dbf
 1
-0000
+0001
       
 999999
 845
@@ -287,9 +287,9 @@ Zones with Area type
       
 999999
 1425
--1101
+-1073
 1719
--1151
+-1123
 0
 #OUTFIL1
 Network File
@@ -303,9 +303,25 @@ Network File
       
 999999
 1425
--1157
+-1129
 1719
--1207
+-1179
+0
+#OUTFIL2
+Network File
+
+0
+0
+*
+{SCENARIO_DIR}\OUTPUT\HIGHWAY_CLEAN.NET
+1
+0201
+      
+999999
+1425
+-1185
+1719
+-1235
 0
 #PROGRAM2
 3
@@ -1178,6 +1194,70 @@ Zonal Data 1
 -2223
 -1
 -1
+0
+#OUTFIL0
+Matrix File 1
+
+0
+0
+*
+{SCENARIO_DIR}\OUTPUT\HBW_MCTRIPS.MAT
+1
+0001
+      
+999999
+2977
+-2089
+3271
+-2139
+0
+#OUTFIL1
+Matrix File 1
+
+0
+0
+*
+{SCENARIO_DIR}\OUTPUT\HBO_MCTRIPS.MAT
+1
+0301
+      
+999999
+2977
+-2145
+3271
+-2195
+0
+#OUTFIL2
+Matrix File 1
+
+0
+0
+*
+{SCENARIO_DIR}\OUTPUT\NHB_MCTRIPS.MAT
+1
+0401
+      
+999999
+2977
+-2201
+3271
+-2251
+0
+#OUTFIL3
+Matrix File 1
+
+0
+0
+*
+{SCENARIO_DIR}\OUTPUT\HBSC_MCTRIPS.MAT
+1
+0501
+      
+999999
+2977
+-2257
+3271
+-2307
 0
 #PROGRAM10
 12
