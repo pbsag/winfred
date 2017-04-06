@@ -1,6 +1,6 @@
 ;;<<Default Template>><<MATRIX>><<Default>>;;
 ; Do not change filenames or add or remove FILEI/FILEO statements using an editor. Use Cube/Application Manager.
-RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\ModeChoiceModel_HBW.PRN"
+RUN PGM=MATRIX PRNFILE="{SCENARIO_DIR}\OUTPUT\LOGS\ModeChoiceModel_HBW.PRN" MSG='HBW Mode Choice'
 FILEO MATO[1] = "{SCENARIO_DIR}\OUTPUT\HBW_MCTRIPS.MAT",
  MO = 21-25, NAME = DA, SR, WLB, PMB, NOM
 FILEI ZDATI[1] = "{SCENARIO_DIR}\Input\TrnWalkPercent.dbf"
