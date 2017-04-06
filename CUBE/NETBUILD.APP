@@ -1,7 +1,8 @@
 &PROJFIL
-EXP0 0 1Node File 2    {SCENARIO_DIR}\Input\se.dbf                                 
+EXP0 1 1Node File 2    {SCENARIO_DIR}\Input\se.dbf                                 
 EXP0 2 0Record File 1  {SCENARIO_DIR}\Output\ZONAL AT{Year}{Alternative}.DBF       
 EXP1 1 0Network File   {SCENARIO_DIR}\Output\Interim{Year}{Alternative}.NET        
+EXP2 1 0Network File   {SCENARIO_DIR}\OUTPUT\HIGHWAY_CLEAN.NET                     
 11
 0
 0
@@ -10,7 +11,7 @@ NB
 00
 Build Network from Minutp to Cube.  Add/Manipulate Link Variables.
 
-Tue Mar 21 00:19:59 2017
+Wed Apr 05 16:29:43 2017
 
 C:\Projects\winfred\CUBE\winfred.app
 C:\Projects\winfred\Cube\NETBUILD.APP
@@ -38,12 +39,30 @@ Area Type
 999999
 988
 -874
-1265
--1013
+1238
+-974
 0
 0
 0
 #INFIL0
+Link/Net. 1
+Starting Network
+0
+0
+*
+{SCENARIO_DIR}\OUTPUT\highway_clean.net
+1
+0001
+      
+999999
+676
+-868
+976
+-918
+-1
+-1
+0
+#INFIL1
 Node File 2
 Land Use Data
 0
@@ -54,10 +73,10 @@ Land Use Data
 0112
       
 999999
-577
--905
-973
--977
+676
+-924
+976
+-974
 -1
 -9
 1
@@ -72,10 +91,10 @@ Network with Area type
 0501
       
 999999
-1287
--829
-1676
--901
+1256
+-840
+1550
+-890
 0
 #OUTFIL1
 Link File
@@ -88,10 +107,10 @@ Link File
 0502
       
 999999
-1287
--906
-1676
--978
+1256
+-896
+1550
+-946
 0
 #OUTFIL2
 Record File 1
@@ -104,10 +123,10 @@ Zones with Area type
 0621
       
 999999
-1287
--983
-1676
--1055
+1256
+-952
+1550
+-1002
 1
 #PROGRAM1
 3
@@ -125,8 +144,8 @@ Attach Capacity and Free Flow Speed
 999999
 2173
 -930
-2445
--1011
+2373
+-980
 0
 0
 0
@@ -141,10 +160,10 @@ C:\Projects\winfred\Cube\FreeFlowSpeeds.s
 NET
 ISCR1 
 999999
-1762
--856
-2158
--928
+1861
+-871
+2161
+-921
 -1
 -1
 0
@@ -159,10 +178,10 @@ Link/Net. 1
 LNK
 LINKI1
 999999
-1762
--933
-2158
--1005
+1861
+-927
+2161
+-977
 0
 0
 0
@@ -699,10 +718,10 @@ Lookup File 1
 LOK
 LOOKUPI1
 999999
-1762
--1010
-2158
--1082
+1861
+-983
+2161
+-1033
 -1
 -1
 0
@@ -1239,10 +1258,10 @@ PRN
 NET
 OPRN  
 999999
-2467
--894
-2856
--966
+2391
+-899
+2685
+-949
 0
 #OUTFIL1
 Network File
@@ -1255,10 +1274,10 @@ NET
 NET
 NETO  
 999999
-2467
--971
-2856
--1043
+2391
+-955
+2685
+-1005
 1
 #OUTFIL2
 Link File
@@ -1788,8 +1807,8 @@ Remove Unused Variables
 999999
 988
 -676
-1260
--757
+1188
+-726
 0
 0
 0
@@ -1804,10 +1823,10 @@ C:\Projects\WINFRED\CUBE\NBNET00A.S
 NET
 ISCR1 
 999999
-577
--640
-973
--712
+676
+-645
+976
+-695
 -1
 -1
 0
@@ -1822,10 +1841,10 @@ Link/Net. 1
 LNK
 LINKI1
 999999
-577
--717
-973
--789
+676
+-701
+976
+-751
 -1
 -9
 0
@@ -2902,10 +2921,10 @@ PRN
 NET
 OPRN  
 999999
-1282
--640
-1671
--712
+1206
+-645
+1500
+-695
 0
 #OUTFIL1
 Network File
@@ -2918,11 +2937,11 @@ NET
 NET
 NETO  
 999999
-1282
--717
-1671
--789
-0
+1206
+-701
+1500
+-751
+1
 #OUTFIL2
 Link File
 
