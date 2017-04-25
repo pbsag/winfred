@@ -17,10 +17,10 @@ PHASE=LINKMERGE
 PCE=1.5
 
 ; Total Volume
-AM_Vol=li.1.V_2 
-MD_Vol=li.2.V_2
-PM_Vol=li.3.V_2 
-NT_Vol=li.4.V_2 
+AM_Vol=li.1.V1_2 + li.1.V2_2 + li.1.V3_2 + li.1.V4_2 + li.1.V5_2/PCE + li.1.V1_1 + li.1.V2_1 /PCE
+MD_Vol=li.2.V1_2 + li.2.V2_2 + li.2.V3_2 + li.2.V4_2 + li.2.V5_2/PCE + li.2.V1_1 + li.2.V2_1 /PCE
+PM_Vol=li.3.V1_2 + li.3.V2_2 + li.3.V3_2 + li.3.V4_2 + li.3.V5_2/PCE + li.3.V1_1 + li.3.V2_1 /PCE
+NT_Vol=li.4.V1_2 + li.4.V2_2 + li.4.V3_2 + li.4.V4_2 + li.4.V5_2/PCE + li.4.V1_1 + li.4.V2_1 /PCE
 Total_Vol = AM_Vol + MD_Vol + PM_Vol + NT_Vol
 
 ; Drive Alone
